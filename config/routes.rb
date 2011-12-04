@@ -1,4 +1,7 @@
 Fhboerse::Application.routes.draw do
+  resources :home
+  root :to => "Home#index"
+  
   get "car_sharing/index"
 
   get "car_sharing/show"
