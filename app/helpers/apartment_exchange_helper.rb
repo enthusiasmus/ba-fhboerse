@@ -1,0 +1,2 @@
+module ApartmentExchangeHelper
+end

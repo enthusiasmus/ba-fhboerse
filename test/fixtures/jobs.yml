@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  paid: false
+  salary: 9.99
+  type: 
+  company: MyString
+  begindate: 2011-12-04
+  place: MyString
+  qualification: MyText
+
+two:
+  paid: false
+  salary: 9.99
+  type: 
+  company: MyString
+  begindate: 2011-12-04
+  place: MyString
+  qualification: MyText

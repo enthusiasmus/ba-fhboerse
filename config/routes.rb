@@ -1,4 +1,54 @@
 Fhboerse::Application.routes.draw do
+  get "car_sharing/index"
+
+  get "car_sharing/show"
+
+  get "car_sharing/new"
+
+  get "car_sharing/delete"
+
+  get "market/index"
+
+  get "market/show"
+
+  get "market/new"
+
+  get "market/delete"
+
+  get "apartment_exchange/index"
+
+  get "apartment_exchange/show"
+
+  get "apartment_exchange/new"
+
+  get "apartment_exchange/delete"
+
+  get "repertory/index"
+
+  get "repertory/show"
+
+  get "repertory/new"
+
+  get "repertory/delete"
+
+  get "job_exchange/index"
+
+  get "job_exchange/show"
+
+  get "job_exchange/new"
+
+  get "job_exchange/delete"
+
+  get "home/index"
+
+  get "articles/index"
+
+  get "articles/show"
+
+  get "articles/delete"
+
+  get "articles/new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

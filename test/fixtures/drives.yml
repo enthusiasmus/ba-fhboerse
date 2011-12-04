@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  departure_street: MyString
+  departure_zipcode: MyString
+  departure_city: MyString
+  departure_country: MyString
+  departure_date: 2011-12-04 17:29:56
+  destination_street: MyString
+  destination_zipcode: MyString
+  destination_city: MyString
+  destination_country: MyString
+  destination_date: 2011-12-04 17:29:56
+
+two:
+  departure_street: MyString
+  departure_zipcode: MyString
+  departure_city: MyString
+  departure_country: MyString
+  departure_date: 2011-12-04 17:29:56
+  destination_street: MyString
+  destination_zipcode: MyString
+  destination_city: MyString
+  destination_country: MyString
+  destination_date: 2011-12-04 17:29:56
