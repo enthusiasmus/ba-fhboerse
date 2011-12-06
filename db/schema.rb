@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206161924) do
+ActiveRecord::Schema.define(:version => 20111206180819) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20111206161924) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "creator"
     t.integer  "counter"
     t.datetime "created_at"
     t.datetime "updated_at"
