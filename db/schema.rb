@@ -99,5 +99,4 @@ ActiveRecord::Schema.define(:version => 20111206180819) do
     t.string   "forename"
     t.string   "lastname"
   end
-
 end
