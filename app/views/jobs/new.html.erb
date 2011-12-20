@@ -1,0 +1,35 @@
+<h1>Job hinzufügen</h1>
+
+<%= form_for(@job) do |f| %>
+
+<p>Title: <%= f.text_field :title %></p>
+<p>Beschreibung:<br><%= f.text_area :description %></p>
+<p>Qualifikationen:<br><%= f.text_area :qualification %></p>
+<p> Angebot oder Gesuch: 
+	<%= radio_button_tag(:offer_or_quest, true) %><%= label_tag(:type_angebot, 'Angebot') %>
+	<%= radio_button_tag(:offer_or_quest, false) %><%= label_tag(:type_gesuch, 'Gesuch') %>
+</p>
+
+<p> Art der Arbeit:
+	<%= radio_button_tag(:paid, true) %><%= label_tag(:type_bezahlt, 'Bezahlt') %>
+	<%= radio_button_tag(:paid, false) %><%= label_tag(:type_freiwillig, 'Freiwillig') %>
+</p>
+
+<p>Bezahlung: <%= f.text_field :salary %></p>
+<p>
+	Art des Dienstverhältnisses: 
+	<%= select( "type", "name", { "Vollzeit" => "fulltime", "Halbzeit" => "halftime"}) %>	
+</p>
+<p>Arbeitsort: <%= f.text_field :place %></p>
+<p>Begindatum: <%= f.text_field :begindate %></p>
+<p>Firma: <%= f.text_field :company %></p>
+
+<p>Vorname: <%= f.text_field :forename %></p>
+<p>Nachname: <%= f.text_field :lastname %></p>
+<p>E-Mail: <%= f.text_field :email %></p>
+<p>Telefon: <%= f.text_field :telephone %></p>
+<p><%= f.submit 'Absenden' %></p>
+
+<% end %>
+
+<%= link_to "Alle Jobs anzeigen", jobs_path %>

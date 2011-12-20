@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206180819) do
+ActiveRecord::Schema.define(:version => 20111220110716) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -32,6 +32,30 @@ ActiveRecord::Schema.define(:version => 20111206180819) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "counter"
+    t.string   "forename"
+    t.string   "lastname"
+    t.string   "email"
+    t.integer  "telephone"
+    t.boolean  "offer_or_quest"
+    t.integer  "user_id"
+  end
+
+  create_table "articles", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "counter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "forename"
+    t.string   "lastname"
+    t.string   "email"
+    t.integer  "telephone"
+    t.boolean  "offer_or_quest"
+    t.integer  "user_id"
+    t.string   "type"
   end
 
   create_table "drives", :force => true do |t|
@@ -48,6 +72,15 @@ ActiveRecord::Schema.define(:version => 20111206180819) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "type"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "counter"
+    t.string   "forename"
+    t.string   "lastname"
+    t.string   "email"
+    t.integer  "telephone"
+    t.boolean  "offer_or_quest"
+    t.integer  "user_id"
   end
 
   create_table "items", :force => true do |t|
@@ -55,6 +88,15 @@ ActiveRecord::Schema.define(:version => 20111206180819) do
     t.string   "place"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "counter"
+    t.string   "forename"
+    t.string   "lastname"
+    t.string   "email"
+    t.integer  "telephone"
+    t.boolean  "offer_or_quest"
+    t.integer  "user_id"
   end
 
   create_table "jobs", :force => true do |t|
@@ -74,6 +116,15 @@ ActiveRecord::Schema.define(:version => 20111206180819) do
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "counter"
+    t.string   "forename"
+    t.string   "lastname"
+    t.string   "email"
+    t.integer  "telephone"
+    t.boolean  "offer_or_quest"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

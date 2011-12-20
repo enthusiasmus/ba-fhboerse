@@ -1,0 +1,10 @@
+<h1>Alle Jobs</h1>
+
+<%= link_to 'Neuen Job anlegen', new_job_path %>
+
+<ul>
+<% @jobs.each do |job| %>
+<li><%= link_to job.title, job %> am <%= job.created_at %><br />
+<%= truncate(job.description, :length => 100) %></li>
+<% end %>
+</ul>
