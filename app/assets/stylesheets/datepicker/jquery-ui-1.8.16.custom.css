@@ -355,3 +355,7 @@
     width: 200px; /*must have*/
     height: 200px; /*must have*/
 }
+
+.ui-datepicker {
+  font-size: 14px;
+}
