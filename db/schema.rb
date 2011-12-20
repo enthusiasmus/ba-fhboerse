@@ -43,21 +43,6 @@ ActiveRecord::Schema.define(:version => 20111220131452) do
     t.integer  "user_id"
   end
 
-  create_table "articles", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "counter"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "forename"
-    t.string   "lastname"
-    t.string   "email"
-    t.integer  "telephone"
-    t.boolean  "offer_or_quest"
-    t.integer  "user_id"
-    t.string   "type"
-  end
-
   create_table "drives", :force => true do |t|
     t.string   "departure_street"
     t.string   "departure_zipcode"

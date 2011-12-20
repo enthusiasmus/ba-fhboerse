@@ -1,14 +1,93 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Fhboerse</title>
-  <%= stylesheet_link_tag    "application" %>
-<%# <%= #javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+<html lang="de">
+	
+<head>    
+    <meta charset="utf-8" />
+    
+    <title>FH-Börse</title>
+    
+    <meta name="description" lang="de" content="" />
+    <meta name="keywords" lang="de" content="" />
+    <meta name="robots" content="index, follow" />
+    
+	<%= stylesheet_link_tag    "application" %>
+	<%# <%= #javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
+
 <body>
 
-<%= yield %>
+	<div id="mainWrapper">
+		<div id="logo"><a href="index.html" title="Startseite"></a></div>
+		<div class="button">Login</div>
+		<div class="button">Registrieren</div>
+		<ul id="navigation">
+			<li><a href="" title="">Startseite</a></li>
+			<li><a class="active" href="" title="">Jobbörse</a></li>
+			<li><a href="" title="">Mitfahrgemeinschaft</a></li>
+			<li><a href="" title="">Marktplatz</a></li>
+			<li><a href="" title="">Wohnungsbörse</a></li>
+			<li><a href="" title="">Fundgrube</a></li>
+		</ul>		
+		<ul id="breadcrumbs">
+		    <li><a href="index.html" title=""></a></li>
+		    <li><a href="#" title="">Marktplatz</a></li>
+		    <li><a href="#" title="">Angebot</a></li>
+		    <li><a href="#" title="">Ein etwas längerer Titel als der Rest, bis zur Unendlichkeit und noch viel weiter!</a></li>
+		</ul>
+		<div id="mainContainer">
+			<div class="container">
+				<%= yield %>
+			</div>
+			<div id="footer">
+				&copy; 2012 | <a href="" title="">AGB</a> | <a href="" title="">Kontakt</a> | <a href="" title="">Impressum</a>
+			</div>
+		</div>
+		<div id="sidebar">
+			<div class="container">
+				<div class="containerHead">Neuste Artikel</div>
+				<div class='listItem'>
+					<a href="" title="">
+						Angebot: <span class='subject'>Verschenke Laptop</span><br />
+						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
+					</a>
+				</div>
+				<div class='listItem'>
+					<a href="" title="">
+						Angebot: <span class='subject'>Verschenke Laptop</span><br />
+						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
+					</a>
+				</div>
+				<div class='listItem'>
+					<a href="" title="">
+						Angebot: <span class='subject'>Verschenke Laptop</span><br />
+						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
+					</a>
+				</div>
+			</div>
+			<div class="container">
+				<div class="containerHead">Beliebteste Artikel</div>
+				<div class='listItem'>
+					<a href="" title="">
+						Angebot: <span class='subject'>Verschenke Laptop</span><br />
+						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
+					</a>
+				</div>
+				<div class='listItem'>
+					<a href="" title="">
+						Angebot: <span class='subject'>Verschenke Laptop</span><br />
+						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
+					</a>
+				</div>
+				<div class='listItem'>
+					<a href="" title="">
+						Angebot: <span class='subject'>Verschenke Laptop</span><br />
+						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
