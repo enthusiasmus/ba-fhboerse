@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220110716) do
+ActiveRecord::Schema.define(:version => 20111220131452) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -102,13 +102,22 @@ ActiveRecord::Schema.define(:version => 20111220110716) do
   create_table "jobs", :force => true do |t|
     t.boolean  "paid"
     t.decimal  "salary"
-    t.string   "type"
+    t.string   "employment_status"
     t.string   "company"
     t.date     "begindate"
     t.string   "place"
     t.text     "qualification"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "counter"
+    t.string   "forename"
+    t.string   "lastname"
+    t.string   "email"
+    t.integer  "telephone"
+    t.boolean  "offer_or_quest"
+    t.integer  "user_id"
   end
 
   create_table "products", :force => true do |t|

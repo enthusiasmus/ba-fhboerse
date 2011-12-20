@@ -16,10 +16,7 @@
 </p>
 
 <p>Bezahlung: <%= f.text_field :salary %></p>
-<p>
-	Art des Dienstverhältnisses: 
-	<%= select( "type", "name", { "Vollzeit" => "fulltime", "Halbzeit" => "halftime"}) %>	
-</p>
+<p>Art des Dienstverhältnisses: <%= select_tag(:employment_status, options_for_select([['Vollzeit', 'fulltime'], ['Halbzeit', 'halftime'], ['Aushilfe', 'temporary'], ['Werkvertrag', 'contract_for_services']])) %></p>
 <p>Arbeitsort: <%= f.text_field :place %></p>
 <p>Begindatum: <%= f.text_field :begindate %></p>
 <p>Firma: <%= f.text_field :company %></p>

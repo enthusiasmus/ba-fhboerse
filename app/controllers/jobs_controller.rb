@@ -1,3 +1,5 @@
+require 'user.rb'
+
 class JobsController < ApplicationController
   def index
     @jobs = Job.limit(5).order('id DESC')
@@ -19,19 +21,12 @@ class JobsController < ApplicationController
     @job = Job.new(params[:job])
     @job.counter = 0;   
     @job.user_id = 1;
-
-    @job.type = params[:type]
     
-    @job.offer_or_quest = params[:type]
+    @job.employment_status = params[:employment_status]
+    @job.offer_or_quest = params[:offer_or_quest]
     @job.paid = params[:paid]
-    @job.save
-
-    # @user = User.create()
-    # @user.title = 'Frau'
-    # @user.forename = 'Muster'
-    # @user.lastname = 'Frau'
-    # @user.save
     
+    @job.save
     redirect_to jobs_path
   end
 end

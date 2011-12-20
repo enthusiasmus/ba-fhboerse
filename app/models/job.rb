@@ -1,3 +1,3 @@
 class Job < ActiveRecord::Base
-  belongs_to :jobs
+  belongs_to :user
 end
