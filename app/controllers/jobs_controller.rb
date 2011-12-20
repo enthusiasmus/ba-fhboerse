@@ -37,7 +37,8 @@ class JobsController < ApplicationController
     @job.employment_status = params[:employment_status]
     @job.offer_or_quest = params[:offer_or_quest]
     @job.paid = params[:paid]
-    
+    #############################################
+
     @job.save
     redirect_to jobs_path
   end
