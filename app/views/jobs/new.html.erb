@@ -1,3 +1,8 @@
+<%= stylesheet_link_tag "datepicker/jquery-ui-1.8.16.custom.css" %>
+<%= javascript_include_tag "datepicker/jquery-1.6.2.min.js" %>
+<%= javascript_include_tag "datepicker/jquery-ui-1.8.16.custom.min.js" %>
+<%= javascript_include_tag "datepicker/datepicker.js" %>
+
 <h1>Job hinzufügen</h1>
 
 <%= form_for(@job) do |f| %>
@@ -16,7 +21,7 @@
 </p>
 
 <p>Bezahlung: <%= f.text_field :salary %></p>
-<p>Art des Dienstverhältnisses: <%= select_tag(:employment_status, options_for_select([['Vollzeit', 'fulltime'], ['Halbzeit', 'halftime'], ['Aushilfe', 'temporary'], ['Werkvertrag', 'contract_for_services']])) %></p>
+<p>Art des Dienstverhältnisses: <%= select_tag(:employment_status, options_for_select([['Vollzeit', 'Vollzeit'], ['Halbzeit', 'Halbzeit'], ['Aushilfe', 'Aushilfe'], ['Werkvertrag', 'Werkvertrag']])) %></p>
 <p>Arbeitsort: <%= f.text_field :place %></p>
 <p>Begindatum: <%= f.text_field :begindate %></p>
 <p>Firma: <%= f.text_field :company %></p>

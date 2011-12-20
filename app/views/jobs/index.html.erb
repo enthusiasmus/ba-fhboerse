@@ -2,7 +2,7 @@
 
 <%= link_to 'Neuen Job anlegen', new_job_path %>
 
-<div class="article_list">
+<div class="articles_list">
 	<ul>
 	<% @jobs.each do |job| %>
 	<li><%= link_to job.title, job %> | <%= job.user.title %> <%= job.user.lastname %> am <%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %><br />

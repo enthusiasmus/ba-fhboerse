@@ -10,10 +10,21 @@ class JobsController < ApplicationController
     
     @job.counter += 1;
     @job.update_attributes(params[:job])
+    
+    if @job.paid == false
+      @paid = "Freiwillig"
+    else
+      @paid = "Bezahlte Arbeit"
+    end
+    
+    if @job.paid == false
+      @paid = "Freiwillig"
+    else
+      @paid = "Bezahlte Arbeit"
+    end
   end
 
   def new
-
     @job = Job.new
   end
 
@@ -22,6 +33,7 @@ class JobsController < ApplicationController
     @job.counter = 0;   
     @job.user_id = 1;
     
+    #Ask Raidel why it doesn't work automatically
     @job.employment_status = params[:employment_status]
     @job.offer_or_quest = params[:offer_or_quest]
     @job.paid = params[:paid]

@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.article_list ul li a{
+.articles_list ul li a, .article_list div div span{
   font-weight:bold;
+}
+
+.article_list > div{
+  margin: 20px;
 }

@@ -1,5 +1,24 @@
 <h1><%= @job.title %></h1>
 
-<%= @job.description %>
+<div class="article_list">
+	<div>
+		<div><span>Beschreibung:</span><br><%= @job.description %></div>
+		<div><span>Qualifikationen:</span><br><%= @job.qualification %></div>
+	</div>
+	<div>
+		<div><span>Art der Arbeit:</span> <%= @paid %></div>
+		<div><span>Bezahlung:</span> <%= @job.salary %></div>
+		<div><span>Art des Dienstverhältnisses:</span> <%= @job.employment_status %></div>
+		<div><span>Arbeitsort:</span> <%= @job.place %></div>
+		<div><span>Begindatum:</span> <%= @job.begindate %></div>
+	</div>
+	<div>
+		<div><span>Firma:</span> <%= @job.company %></div>
+		<div><span>Vorname:</span> <%= @job.forename %></div>
+		<div><span>Nachname:</span> <%= @job.lastname %></div>
+		<div><span>E-Mail:</span> <%= @job.email %></div>
+		<div><span>Telefon:</span> <%= @job.telephone %></div>
+	</div>
+</div>
 
 <p><%= link_to "Zurück", jobs_path %></p>
