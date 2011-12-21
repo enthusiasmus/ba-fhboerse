@@ -3,7 +3,6 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree . 
 */
 
 html{overflow-y:scroll;}
@@ -33,7 +32,7 @@ h1{font-size:16px;}
 #mainContainer{clear:both;float:left;width:650px;}
 #sidebar{float:right;width:300px;}
 #footer{float:right;margin-right:-30px;}
-.container{margin-bottom:15px;padding:15px;width:100%;box-shadow:0 0 10px #ccc;border:1px #d2d4d0 solid;border-radius:5px;}
+.container{margin-bottom:15px;padding:15px;width:100%;box-shadow:0 0 10px #ccc;border:1px #d2d4d0 solid;border-radius:5px;word-wrap:break-word;}
 .containerHead{margin:-15px;margin-bottom:0;height:28px;line-height:28px;background:url('/images/container_head.png') repeat-x;text-align:center;border-top-left-radius:5px;border-top-right-radius:5px;font-weight:bold;}
 .listItem{padding:15px 0;border-bottom:1px #d2d4d0 solid;text-align:center;}
 .listItem:last-child{border-bottom:none;}

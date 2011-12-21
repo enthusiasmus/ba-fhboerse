@@ -32,14 +32,11 @@ class JobsController < ApplicationController
     @job = Job.new(params[:job])
     @job.counter = 0;   
     @job.user_id = 1;
-    
-    #Ask Raidel why it doesn't work automatically
-    @job.employment_status = params[:employment_status]
-    @job.offer_or_quest = params[:offer_or_quest]
-    @job.paid = params[:paid]
-    #############################################
 
-    @job.save
-    redirect_to jobs_path
+    if @job.save
+      redirect_to @job, notice: 'Job wurde erfolgreich gespeichert!'
+    else
+      render action: "new"
+    end
   end
 end
