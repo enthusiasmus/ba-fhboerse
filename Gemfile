@@ -7,10 +7,16 @@ gem 'rails', '3.1.1'
 
 gem 'capistrano'
 
+# user authentication
+gem 'mongrel'
+gem 'omniauth-browserid'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
-# und mysql in Production
+# and mysql in production
 group :production do
   gem 'mysql2'
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220131452) do
+ActiveRecord::Schema.define(:version => 20111227134946) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -119,6 +119,14 @@ ActiveRecord::Schema.define(:version => 20111220131452) do
     t.integer  "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
