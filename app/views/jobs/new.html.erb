@@ -4,6 +4,10 @@
 <%= javascript_include_tag "datepicker/datepicker.js" %>
 
 <h1>Job hinzufügen</h1>
+
+<% if not current_user %>
+<p>Du musst angemeldet sein, um neue Jobs eintragen zu können.</p>
+<% else %>
 <%= form_for(@job) do |f| %>
 
 	<% if @job.errors.any? %>
@@ -21,13 +25,13 @@
 	<p>Beschreibung:<br><%= f.text_area :description %></p>
 	<p>Qualifikationen:<br><%= f.text_area :qualification %></p>
 	<p> Angebot oder Gesuch: 
-		<%= f.radio_button :offer_or_quest, true %><%= label_tag(:type_angebot, 'Angebot') %>
-		<%= f.radio_button :offer_or_quest, false %><%= label_tag(:type_gesuch, 'Gesuch') %>
+		<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Angebot', :value => true %>
+		<%= f.radio_button :offer_or_quest, false %><%= f.label :offer_or_quest, 'Gesuch', :value => false %>
 	</p>
 	
 	<p> Art der Arbeit:
-		<%= f.radio_button :paid, true %><%= label_tag(:type_bezahlt, 'Bezahlt') %>
-		<%= f.radio_button :paid, false %><%= label_tag(:type_freiwillig, 'Freiwillig') %>
+		<%= f.radio_button :paid, true %><%= f.label :paid, 'Bezahlt', :value => true %>
+		<%= f.radio_button :paid, false %><%= f.label :paid, 'Freiwillig', :value => false %>
 	</p>
 	
 	<p>Bezahlung: <%= f.text_field :salary %> in €</p>
@@ -41,6 +45,8 @@
 	<p>E-Mail: <%= f.text_field :email %></p>
 	<p>Telefon: <%= f.text_field :telephone %></p>
 	<p><%= f.submit 'Absenden' %></p>
+<% end %>
+
 <% end %>
 
 <%= link_to "Alle Jobs anzeigen", jobs_path %>

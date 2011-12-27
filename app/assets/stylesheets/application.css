@@ -35,7 +35,7 @@ h1{font-size:16px;}
 #mainContainer{clear:both;float:left;width:650px;}
 #sidebar{float:right;width:300px;}
 #footer{float:right;margin-right:-30px;}
-#notice{background:#83C899;background-position: center left;color:#fff;text-align:center;}
+#notice{background:#83C899;color:#fff;text-align:center;}
 .closeIcon{float:right;background:url('/images/close.png') no-repeat;cursor:pointer;width:16px;height:16px;}
 .container{margin-bottom:15px;padding:15px;width:100%;box-shadow:0 0 10px #ccc;border:1px #d2d4d0 solid;border-radius:5px;word-wrap:break-word;}
 .containerHead{margin:-15px;margin-bottom:0;height:28px;line-height:28px;background:url('/images/container_head.png') repeat-x;text-align:center;border-top-left-radius:5px;border-top-right-radius:5px;font-weight:bold;}

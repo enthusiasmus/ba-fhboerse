@@ -1,11 +1,12 @@
 <h1>Alle Jobs</h1>
 
-<%= link_to 'Neuen Job anlegen', new_job_path %>
+<% if current_user %><%= link_to 'Neuen Job anlegen', new_job_path %>
+<% else %><p>Du musst angemeldet sein, um neue Jobs eintragen zu können.</p><% end %>
 
 <div class="articles_list">
 	<ul>
 	<% @jobs.each do |job| %>
-	<li><%= link_to job.title, job %> | <%= job.user.title %> <%= job.user.lastname %> am <%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %><br />
+	<li><%= link_to job.title, job %> eingetragen am <%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %><br />
 	<%= truncate(job.description, :length => 100) %></li>
 	<% end %>
 	</ul>
