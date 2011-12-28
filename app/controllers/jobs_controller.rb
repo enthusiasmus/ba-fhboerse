@@ -16,12 +16,6 @@ class JobsController < ApplicationController
     else
       @paid = "Bezahlte Arbeit"
     end
-    
-    if @job.paid == false
-      @paid = "Freiwillig"
-    else
-      @paid = "Bezahlte Arbeit"
-    end
   end
 
   def new

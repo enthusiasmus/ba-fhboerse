@@ -57,7 +57,7 @@
 		</table>
 		<table>
 			<tr>
-				<td colspan="2" class="info_headline">Arbeitsdetails</td>
+				<td colspan="2" class="info_headline">Arbeitsdetails <%= @job.paid %></td>
 			</tr>
 			<tr>
 				<td id="arbeitsort_table">Arbeitsort:</td>
@@ -70,8 +70,13 @@
 			<tr>
 				<td>Entlohnung:</td>
 				<td>
-					<%= f.radio_button :paid, true %><%= f.label :paid, 'Bezahlt', :value => true %>
-					<%= f.radio_button :paid, false, :checked => true %><%= f.label :paid, 'Freiwillig', :value => false %></td>
+					<% if @job.paid == true %>
+						<%= f.radio_button :paid, true, :checked => true %><%= f.label :paid, 'Bezahlt', :value => true %>
+						<%= f.radio_button :paid, false %><%= f.label :paid, 'Freiwillig', :value => false %></td>
+					<% else %>
+						<%= f.radio_button :paid, true %><%= f.label :paid, 'Bezahlt', :value => true %>
+						<%= f.radio_button :paid, false, :checked => true %><%= f.label :paid, 'Freiwillig', :value => false %></td>
+					<% end %>
 			</tr>
 			<tr>
 				<td><span class="paymentoptions">Dienstverhältnis:</span></td>
