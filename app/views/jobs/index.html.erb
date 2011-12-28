@@ -13,16 +13,16 @@
 <div class="articles_list">
 	<ul>
 		<% @jobs.each do |job| %>
-		  <a href="<%= url_for(job) %>">
-		  	<li>
-			  <span>
-			    <span class="title"><%= job.title %></span> | 
-				<%= link_to job.title, job %> eingetragen am 
-				<%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %><br />
-			  </span>
-			  <%= truncate(job.description, :length => 180) %>
-		    </li>
-		  </a>
+			<a href="<%= url_for(job) %>">
+				<li>
+					<span>
+						<span class="title"><%= job.title %></span> |
+						<%= job.user.title %> <%= job.user.lastname %> am
+						<%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %><br />
+					</span>
+					<%= truncate(job.description, :length => 180) %>
+				</li>
+			</a>
 		<% end %>
 	</ul>
 </div>
