@@ -17,30 +17,95 @@
 	
     <!--<%= f.error_messages %>-->
 	
-	<p>Title: <%= f.text_field :title %></p>
-	<p>Beschreibung:<br><%= f.text_area :description %></p>
-	<p>Qualifikationen:<br><%= f.text_area :qualification %></p>
-	<p> Angebot oder Gesuch: 
-		<%= f.radio_button :offer_or_quest, true %><%= label_tag(:type_angebot, 'Angebot') %>
-		<%= f.radio_button :offer_or_quest, false %><%= label_tag(:type_gesuch, 'Gesuch') %>
-	</p>
+	<!--<table>
+		<tr>
+			<td>Typ der Annonce:<br><br><br></td>	//TODO: Angebot und Suche unterteilen
+			<td><%= f.radio_button :offer_or_quest, true %><%= label_tag(:type_angebot, 'Angebot') %>
+				<%= f.radio_button :offer_or_quest, false %><%= label_tag(:type_gesuch, 'Suche') %><br><br><br></td>
+		</tr>
+	</table>-->
 	
-	<p> Art der Arbeit:
-		<%= f.radio_button :paid, true %><%= label_tag(:type_bezahlt, 'Bezahlt') %>
-		<%= f.radio_button :paid, false %><%= label_tag(:type_freiwillig, 'Freiwillig') %>
-	</p>
-	
-	<p>Bezahlung: <%= f.text_field :salary %> in €</p>
-	<p>Art des Dienstverhältnisses: <%= select(:person, :city_id, [['Vollzeit', 'Vollzeit'], ['Halbzeit', 'Halbzeit'], ['Aushilfe', 'Aushilfe'], ['Werkvertrag', 'Werkvertrag']]) %></p>
-	<p>Arbeitsort: <%= f.text_field :place %></p>
-	<p>Begindatum: <%= f.text_field :begindate %></p>
-	<p>Firma: <%= f.text_field :company %></p>
-	
-	<p>Vorname: <%= f.text_field :forename %></p>
-	<p>Nachname: <%= f.text_field :lastname %></p>
-	<p>E-Mail: <%= f.text_field :email %></p>
-	<p>Telefon: <%= f.text_field :telephone %></p>
-	<p><%= f.submit 'Absenden' %></p>
+	<table>
+		<tr>
+			<td class="info_headline">Titel:</td>
+		</tr>
+		<tr>
+			<td><%= f.text_field :title, :size => 70 %><td>
+		</tr>
+		<tr>
+			<td colspan="2" class="info_headline">Beschreibung:</td>
+		</tr>
+		<tr>
+			<td colspan="2" ><%= f.text_area :description,
+                :rows => 10,
+                :cols => 76,
+                :class => "article_textarea" %><td>
+		</tr>
+		<tr>
+			<td colspan="2" class="info_headline">Qualifikationen:</td>
+		</tr>
+		<tr>
+			<td colspan="2" ><%= f.text_area :qualification,
+                :rows => 10,
+                :cols => 76,
+                :class => "article_textarea" %></td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Arbeitsdetails</td>
+		</tr>
+		<tr>
+			<td id="arbeitsort_table">Arbeitsort:</td>
+			<td><%= f.text_field :place %></td>
+		</tr>
+		<tr>
+			<td>Arbeitsbegin:</td>
+			<td><%= f.text_field :begindate %></td>
+		</tr>
+		<tr>
+			<td>Entlohnung:</td>
+			<td><%= f.radio_button :paid, true %><%= label_tag(:type_bezahlt, 'Bezahlt') %>
+				<%= f.radio_button :paid, false, :checked => true %><%= label_tag(:type_freiwillig, 'Freiwillig') %></td>
+		</tr>
+		<tr>
+			<td><span class="paymentoptions">Dienstverhältnisses:</span></td>
+			<td><span class="paymentoptions"><%= select(:person, :city_id, [['Vollzeit', 'Vollzeit'], ['Halbzeit', 'Halbzeit'], ['Aushilfe', 'Aushilfe'], ['Werkvertrag', 'Werkvertrag']]) %></span></td>
+		</tr>
+		<tr>
+			<td><span class="paymentoptions">Bezahlung:</span></td>
+			<td><span class="paymentoptions"><%= f.text_field :salary %> in €</span></td>
+		</tr>
+	</table>	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Ansprechparnter</td>
+		</tr>
+		<tr>
+			<td id="ansprechpartner_table">Firma:</td> 
+			<td><%= f.text_field :company %></td>
+		</tr>
+		<tr>
+			<td>Vorname:</td> 
+			<td><%= f.text_field :forename %></td>
+		</tr>
+		<tr>
+			<td>Nachname:</td> 
+			<td><%= f.text_field :lastname %></td>
+		</tr>
+		<tr>
+			<td>E-Mail:</td> 
+			<td><%= f.text_field :email %></td>
+		</tr>
+		<tr>
+			<td>Telefon:</td> 
+			<td><%= f.text_field :telephone %></td>
+		</tr>
+	</table>
+	<div id="agb_agreement">
+		Ich habe die AGB gelesen und akzeptiere sie hiermit <%= f.check_box :agb %>
+	</div>
+	<div id="submit_button"><%= f.submit 'Absenden' %></div>
 <% end %>
 
-<%= link_to "Alle Jobs anzeigen", jobs_path %>
+<div class="backToOverview"><%= link_to "Alle Jobs anzeigen", jobs_path %></div>

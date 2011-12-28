@@ -2,10 +2,113 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.articles_list ul li a, .article_list div div span{
+#agb_agreement{
+  margin: 5px 0px 0px 0px;
+  text-align:center;
+}
+
+.field_with_errors{
+  background:#FFBBBB;
+  display:inline;
+}
+
+.backToOverview{
+  float:right;
+  margin: -15px 0px 10px 0px;
+}
+
+#submit_button{
+  text-align:center;
+  margin: 20px 0px 30px 0px;
+}
+
+#arbeitsort_table{
+  width: 125px;
+}
+
+#ansprechpartner_table{
+  width: 70px;
+}
+
+.info_headline{
+  font-weight: bold;
+  font-size: 13px;
+  padding: 5px 0px 5px 0px;
+}
+
+.pagination{
+  text-align:center;
+}
+
+.pagination a, .pagination span, .pagination em{
+  margin: 0px 2px 0px 2px;
+}
+
+.subcategorie_head{
+  margin-bottom:40px;
+}
+
+.subcategorie_head div:first-child{
+  font-size:16px;
+  font-weight:bold;
+  float:left;
+}
+
+.subcategorie_head div:nth-child(2){
+  float:right;
+}
+
+.subcategorie_head div:nth-child(2) div{
+  margin: -2px 5px 0px 0px;
+  width: 24px;
+  height: 24px;
+  background: url(/images/add.png);
+}
+
+.subcategorie_head div:nth-child(2) div:hover{
+  background: url(/images/add_hover.png);
+}
+
+table{
+  margin: 10px; 
+}
+
+.articles_list ul{
+  list-style: none;
+  padding: 0px 15px 0px 15px;
+}
+
+.articles_list ul a{
+  font-weight:normal;
+  text-decoration:none;
+}
+
+.articles_list ul a li{
+  margin: 15px 0px 10px 0px;
+  padding: 6px;
+  outline: #EEE solid;
+
+  background: #FAFAFA;
+  -moz-transition-property: all;
+  -moz-transition-duration: 250ms;
+  -moz-transition-timing-function: ease-in-out;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 250ms;
+  -webkit-transition-timing-function: ease-in-out;
+  -o-transition-property: all;
+  -o-transition-duration: 250ms;
+  -o-transition-timing-function: ease-in-out;
+}
+
+.articles_list ul a li:hover{
+  background:#eee;
+}
+
+.articles_list ul a li span{
+  color:#6A6A6A;
   font-weight:bold;
 }
 
-.article_list > div{
-  margin: 20px;
+.title{
+  font-size:14px;
 }

@@ -6,6 +6,7 @@ gem 'rails', '3.1.1'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'capistrano'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'

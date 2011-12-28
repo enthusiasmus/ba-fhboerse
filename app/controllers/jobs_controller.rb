@@ -2,7 +2,7 @@ require 'user.rb'
 
 class JobsController < ApplicationController
   def index
-    @jobs = Job.limit(5).order('id DESC')
+    @jobs = Job.paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
   end
 
   def show
