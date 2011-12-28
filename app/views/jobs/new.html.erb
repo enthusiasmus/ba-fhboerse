@@ -1,9 +1,13 @@
 <%= stylesheet_link_tag "datepicker/jquery-ui-1.8.16.custom.css" %>
-<%= javascript_include_tag "datepicker/jquery-1.6.2.min.js" %>
+<%= javascript_include_tag "datepicker/jquery-1.7.1.min.js" %>
 <%= javascript_include_tag "datepicker/jquery-ui-1.8.16.custom.min.js" %>
 <%= javascript_include_tag "datepicker/datepicker.js" %>
 
 <h1>Job hinzufügen</h1>
+
+<% if not current_user %>
+<p>Du musst angemeldet sein, um neue Jobs eintragen zu können.</p>
+<% else %>
 <%= form_for(@job) do |f| %>
 
 	<% if @job.errors.any? %>
@@ -17,6 +21,7 @@
 	
     <!--<%= f.error_messages %>-->
 	
+<<<<<<< HEAD
 	<!--<table>
 		<tr>
 			<td>Typ der Annonce:<br><br><br></td>	//TODO: Angebot und Suche unterteilen

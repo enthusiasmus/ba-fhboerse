@@ -2,15 +2,17 @@
 <html lang="de">
 	
 <head>    
-    <meta charset="utf-8" />
-    
-    <title>FH-Börse</title>
-    
-    <meta name="description" lang="de" content="" />
-    <meta name="keywords" lang="de" content="" />
-    <meta name="robots" content="index, follow" />
-    <%= stylesheet_link_tag "application.css" %>
-    <%= javascript_include_tag "application" %> 
+	<meta charset="utf-8" />
+	
+	<title>FH-Börse</title>
+	
+	<meta name="description" lang="de" content="" />
+	<meta name="keywords" lang="de" content="" />
+	<meta name="robots" content="index, follow" />
+	<%= stylesheet_link_tag "application.css" %>
+	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "https://browserid.org/include.js" %>
+	<%= javascript_include_tag "browserid" %>
 	<%= csrf_meta_tags %>
 	<%= controller_stylesheet %>
 </head>
@@ -18,24 +20,35 @@
 <body>
 
 	<div id="mainWrapper">
-		<div id="logo"><a href="index.html" title="Startseite"></a></div>
-		<div class="button">Login</div>
-		<div class="button">Registrieren</div>
+		<div id="logo"><a href="/" title="Startseite"></a></div>
+		<% if current_user %>
+		<div class="button"><%= link_to "Abmelden", signout_path %></div>
+		<div id='userbar'>Willkommen, <strong><%= current_user.name %></strong>!</div>
+		<% else %>
+		<div class="button"><%= link_to "Twitter", "/auth/twitter" %></div>
+		<div class="button"><%= link_to "Facebook", "/auth/facebook" %></div>
+		<form id='browser_id' class="button" action='/auth/browser_id/callback'>
+		  <input type='hidden' name='assertion'/>
+		  <button type='submit'>BrowserID</button>
+		</form>
+		<div id='userbar'>Anmelden mit: </div>
+		<% end %>
 		<ul id="navigation">
-			<li><a href="" title="">Startseite</a></li>
-			<li><a class="active" href="" title="">Jobbörse</a></li>
-			<li><a href="" title="">Mitfahrgemeinschaft</a></li>
-			<li><a href="" title="">Marktplatz</a></li>
-			<li><a href="" title="">Wohnungsbörse</a></li>
-			<li><a href="" title="">Fundgrube</a></li>
+			<li><a href="/" title="">Startseite</a></li>
+			<li><a class="active" href="/jobs/" title="Jobbörse">Jobbörse</a></li>
+			<li><a href="/drives/" title="Mitfahrgemeinschaft">Mitfahrgemeinschaft</a></li>
+			<li><a href="/products/" title="Marktplatz">Marktplatz</a></li>
+			<li><a href="/apartments/" title="Wohnungsbörse">Wohnungsbörse</a></li>
+			<li><a href="/items/" title="Fundgrube">Fundgrube</a></li>
 		</ul>		
 		<ul id="breadcrumbs">
-		    <li><a href="index.html" title=""></a></li>
+		    <li><a href="/" title=""></a></li>
 		    <li><a href="#" title="">Marktplatz</a></li>
 		    <li><a href="#" title="">Angebot</a></li>
 		    <li><a href="#" title="">Ein etwas längerer Titel als der Rest, bis zur Unendlichkeit und noch viel weiter!</a></li>
 		</ul>
 		<div id="mainContainer">
+			<% if flash[:notice] %><div id="notice" class="container"><%= notice %></div><% end %>
 			<div class="container">
 				<%= yield %>
 			</div>

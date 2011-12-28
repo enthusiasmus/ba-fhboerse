@@ -8,8 +8,8 @@
 html{overflow-y:scroll;}
 body{background:#fff;color:#6a6a6a;font-size:12px;font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;}
 img{border:none;}
-a{-moz-transition-property:color;-moz-transition-duration:.5s;-moz-transition-timing-function:ease;-webkit-transition-property:color;-webkit-transition-duration:.5s;-o-transition-property:color;-o-transition-duration:.5s;color:#6a6a6a;}
-a:hover,a.active{color:#a10b2f;}
+a,#browser_id button{-moz-transition-property:color;-moz-transition-duration:.5s;-moz-transition-timing-function:ease;-webkit-transition-property:color;-webkit-transition-duration:.5s;-o-transition-property:color;-o-transition-duration:.5s;color:#6a6a6a;}
+a:hover,a.active,#browser_id:hover button{color:#a10b2f;}
 h1{font-size:16px;}
 #mainWrapper{margin:0 auto;width:1000px;}
 #logo{float:left;background:url('/images/logo.png') no-repeat;width:274px;height:107px;-moz-transition-property:background;-moz-transition-duration:.5s;-moz-transition-timing-function:ease;-webkit-transition-property:background;-webkit-transition-duration:.5s;-o-transition-property:background;-o-transition-duration:.5s;}
@@ -17,6 +17,9 @@ h1{font-size:16px;}
 #logo a{display:block;width:100%;height:100%;}
 .button{float:right;margin-left:5px;background:url('/images/loginbutton.png') no-repeat;margin-top:40px;padding-top:7px;width:87px;height:23px;cursor:pointer;text-align:center;text-shadow:1px 2px 1px #fff;}
 .button:hover{background-position:0 -30px;}
+.button a{display:block;width:100%;height:100%;text-decoration:none;}
+#browser_id button{background:none;border:none;cursor:pointer;font-size:12px;text-shadow:1px 2px 1px #fff;}
+#userbar{float:right;margin-top:48px;}
 #navigation{clear:both;float:right;margin:30px 0;padding:0;list-style-type:none;font-size:16px;}
 #navigation li{float:left;margin-left:15px;}
 #navigation li a{text-decoration:none;}
@@ -32,6 +35,8 @@ h1{font-size:16px;}
 #mainContainer{clear:both;float:left;width:650px;}
 #sidebar{float:right;width:300px;}
 #footer{float:right;margin-right:-30px;}
+#notice{background:#83C899;color:#fff;text-align:center;}
+.closeIcon{float:right;background:url('/images/close.png') no-repeat;cursor:pointer;width:16px;height:16px;}
 .container{margin-bottom:15px;padding:15px;width:100%;box-shadow:0 0 10px #ccc;border:1px #d2d4d0 solid;border-radius:5px;word-wrap:break-word;}
 .containerHead{margin:-15px;margin-bottom:0;height:28px;line-height:28px;background:url('/images/container_head.png') repeat-x;text-align:center;border-top-left-radius:5px;border-top-right-radius:5px;font-weight:bold;}
 .listItem{padding:15px 0;border-bottom:1px #d2d4d0 solid;text-align:center;}
