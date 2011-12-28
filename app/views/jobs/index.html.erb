@@ -17,7 +17,7 @@
 		  	<li>
 			  <span>
 			    <span class="title"><%= job.title %></span> | 
-				<%= job.user.title %> <%= job.user.lastname %> am 
+				<%= link_to job.title, job %> eingetragen am 
 				<%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %><br />
 			  </span>
 			  <%= truncate(job.description, :length => 180) %>

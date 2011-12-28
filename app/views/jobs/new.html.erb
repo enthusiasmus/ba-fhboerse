@@ -6,111 +6,111 @@
 <h1>Job hinzufügen</h1>
 
 <% if not current_user %>
-<p>Du musst angemeldet sein, um neue Jobs eintragen zu können.</p>
+	<p>Du musst angemeldet sein, um neue Jobs eintragen zu können.</p>
 <% else %>
-<%= form_for(@job) do |f| %>
-
-	<% if @job.errors.any? %>
-	<h2>Fehler:</h2>
-	<ul>
-	  <% @job.errors.full_messages.each do |message| %>
-		<li><%= message %></li>
-	  <% end %>
-	</ul>
+	<%= form_for(@job) do |f| %>
+	
+		<% if @job.errors.any? %>
+		<h2>Fehler:</h2>
+		<ul>
+		  <% @job.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		  <% end %>
+		</ul>
+		<% end %>
+		
+	    <!--<%= f.error_messages %>-->
+		
+		<!--<table>
+			<tr>
+				<td>Typ der Annonce:<br><br><br></td>	//TODO: Angebot und Suche unterteilen
+				<td><%= f.radio_button :offer_or_quest, true %><%= label_tag(:type_angebot, 'Angebot') %>
+					<%= f.radio_button :offer_or_quest, false %><%= label_tag(:type_gesuch, 'Suche') %><br><br><br></td>
+			</tr>
+		</table>-->
+		
+		<table>
+			<tr>
+				<td class="info_headline">Titel:</td>
+			</tr>
+			<tr>
+				<td><%= f.text_field :title, :size => 70 %><td>
+			</tr>
+			<tr>
+				<td colspan="2" class="info_headline">Beschreibung:</td>
+			</tr>
+			<tr>
+				<td colspan="2" ><%= f.text_area :description,
+	                :rows => 10,
+	                :cols => 76,
+	                :class => "article_textarea" %><td>
+			</tr>
+			<tr>
+				<td colspan="2" class="info_headline">Qualifikationen:</td>
+			</tr>
+			<tr>
+				<td colspan="2" ><%= f.text_area :qualification,
+	                :rows => 10,
+	                :cols => 76,
+	                :class => "article_textarea" %></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Arbeitsdetails</td>
+			</tr>
+			<tr>
+				<td id="arbeitsort_table">Arbeitsort:</td>
+				<td><%= f.text_field :place %></td>
+			</tr>
+			<tr>
+				<td>Arbeitsbegin:</td>
+				<td><%= f.text_field :begindate %></td>
+			</tr>
+			<tr>
+				<td>Entlohnung:</td>
+				<td>
+					<%= f.radio_button :paid, true %><%= f.label :paid, 'Bezahlt', :value => true %>
+					<%= f.radio_button :paid, false, :checked => true %><%= f.label :paid, 'Freiwillig', :value => false %></td>
+			</tr>
+			<tr>
+				<td><span class="paymentoptions">Dienstverhältnisses:</span></td>
+				<td><span class="paymentoptions"><%= select(:person, :city_id, [['Vollzeit', 'Vollzeit'], ['Halbzeit', 'Halbzeit'], ['Aushilfe', 'Aushilfe'], ['Werkvertrag', 'Werkvertrag']]) %></span></td>
+			</tr>
+			<tr>
+				<td><span class="paymentoptions">Bezahlung:</span></td>
+				<td><span class="paymentoptions"><%= f.text_field :salary %> in €</span></td>
+			</tr>
+		</table>	
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Ansprechparnter</td>
+			</tr>
+			<tr>
+				<td id="ansprechpartner_table">Firma:</td> 
+				<td><%= f.text_field :company %></td>
+			</tr>
+			<tr>
+				<td>Vorname:</td> 
+				<td><%= f.text_field :forename %></td>
+			</tr>
+			<tr>
+				<td>Nachname:</td> 
+				<td><%= f.text_field :lastname %></td>
+			</tr>
+			<tr>
+				<td>E-Mail:</td> 
+				<td><%= f.text_field :email %></td>
+			</tr>
+			<tr>
+				<td>Telefon:</td> 
+				<td><%= f.text_field :telephone %></td>
+			</tr>
+		</table>
+		<div id="agb_agreement">
+			Ich habe die AGB gelesen und akzeptiere sie hiermit <%= f.check_box :agb %>
+		</div>
+		<div id="submit_button"><%= f.submit 'Absenden' %></div>
 	<% end %>
-	
-    <!--<%= f.error_messages %>-->
-	
-<<<<<<< HEAD
-	<!--<table>
-		<tr>
-			<td>Typ der Annonce:<br><br><br></td>	//TODO: Angebot und Suche unterteilen
-			<td><%= f.radio_button :offer_or_quest, true %><%= label_tag(:type_angebot, 'Angebot') %>
-				<%= f.radio_button :offer_or_quest, false %><%= label_tag(:type_gesuch, 'Suche') %><br><br><br></td>
-		</tr>
-	</table>-->
-	
-	<table>
-		<tr>
-			<td class="info_headline">Titel:</td>
-		</tr>
-		<tr>
-			<td><%= f.text_field :title, :size => 70 %><td>
-		</tr>
-		<tr>
-			<td colspan="2" class="info_headline">Beschreibung:</td>
-		</tr>
-		<tr>
-			<td colspan="2" ><%= f.text_area :description,
-                :rows => 10,
-                :cols => 76,
-                :class => "article_textarea" %><td>
-		</tr>
-		<tr>
-			<td colspan="2" class="info_headline">Qualifikationen:</td>
-		</tr>
-		<tr>
-			<td colspan="2" ><%= f.text_area :qualification,
-                :rows => 10,
-                :cols => 76,
-                :class => "article_textarea" %></td>
-		</tr>
-	</table>
-	<table>
-		<tr>
-			<td colspan="2" class="info_headline">Arbeitsdetails</td>
-		</tr>
-		<tr>
-			<td id="arbeitsort_table">Arbeitsort:</td>
-			<td><%= f.text_field :place %></td>
-		</tr>
-		<tr>
-			<td>Arbeitsbegin:</td>
-			<td><%= f.text_field :begindate %></td>
-		</tr>
-		<tr>
-			<td>Entlohnung:</td>
-			<td><%= f.radio_button :paid, true %><%= label_tag(:type_bezahlt, 'Bezahlt') %>
-				<%= f.radio_button :paid, false, :checked => true %><%= label_tag(:type_freiwillig, 'Freiwillig') %></td>
-		</tr>
-		<tr>
-			<td><span class="paymentoptions">Dienstverhältnisses:</span></td>
-			<td><span class="paymentoptions"><%= select(:person, :city_id, [['Vollzeit', 'Vollzeit'], ['Halbzeit', 'Halbzeit'], ['Aushilfe', 'Aushilfe'], ['Werkvertrag', 'Werkvertrag']]) %></span></td>
-		</tr>
-		<tr>
-			<td><span class="paymentoptions">Bezahlung:</span></td>
-			<td><span class="paymentoptions"><%= f.text_field :salary %> in €</span></td>
-		</tr>
-	</table>	
-	<table>
-		<tr>
-			<td colspan="2" class="info_headline">Ansprechparnter</td>
-		</tr>
-		<tr>
-			<td id="ansprechpartner_table">Firma:</td> 
-			<td><%= f.text_field :company %></td>
-		</tr>
-		<tr>
-			<td>Vorname:</td> 
-			<td><%= f.text_field :forename %></td>
-		</tr>
-		<tr>
-			<td>Nachname:</td> 
-			<td><%= f.text_field :lastname %></td>
-		</tr>
-		<tr>
-			<td>E-Mail:</td> 
-			<td><%= f.text_field :email %></td>
-		</tr>
-		<tr>
-			<td>Telefon:</td> 
-			<td><%= f.text_field :telephone %></td>
-		</tr>
-	</table>
-	<div id="agb_agreement">
-		Ich habe die AGB gelesen und akzeptiere sie hiermit <%= f.check_box :agb %>
-	</div>
-	<div id="submit_button"><%= f.submit 'Absenden' %></div>
 <% end %>
-
 <div class="backToOverview"><%= link_to "Alle Jobs anzeigen", jobs_path %></div>
