@@ -20,7 +20,7 @@
 						<%= job.user.title %> <%= job.user.lastname %> am
 						<%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %><br />
 					</span>
-					<%= truncate(job.description, :length => 180) %>
+					<%= truncate(job.description, :length => 150) %>
 				</li>
 			</a>
 		<% end %>

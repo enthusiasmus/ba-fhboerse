@@ -15,6 +15,7 @@ $(function() {
 		return false;
 	});
 	
+	$('.closeIcon').remove();	//Bugfix! $(function(){ ... is called twice
     $('#notice').append("<div class='closeIcon' title='Dialog schließen'></div>");
     $('.closeIcon').click(function(){
 		$('#notice').fadeOut('slow');

@@ -2,17 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#notice_for_form{
+  margin:15px 0px 20px 12px;
+}
+
+.full_messages{
+  color:#550000;
+}
+
+#fail_headline{
+  font-size:15px;
+  color:#550000;
+  font-weight:bold;
+  margin-left: 10px;
+}
+
 #agb_agreement{
   margin: 5px 0px 0px 0px;
   text-align:center;
 }
 
 .field_with_errors{
-  background:#FFBBBB;
+  //background:#FFBBBB;
   display:inline;
 }
 
-.backToOverview{
+.back_to_overview{
   float:right;
   margin: -15px 0px 10px 0px;
 }
@@ -22,18 +37,18 @@
   margin: 20px 0px 30px 0px;
 }
 
-#arbeitsort_table{
-  width: 125px;
+#arbeitsdetails_td{
+  width: 115px;
 }
 
-#ansprechpartner_table{
-  width: 70px;
+#ansprechpartner_td{
+  width: 80px;
 }
 
 .info_headline{
   font-weight: bold;
   font-size: 13px;
-  padding: 5px 0px 5px 0px;
+  padding: 0px 0px 5px 0px;
 }
 
 .pagination{
@@ -56,6 +71,7 @@
 
 .subcategorie_head div:nth-child(2){
   float:right;
+  padding-right:20px;
 }
 
 .subcategorie_head div:nth-child(2) div{
@@ -71,6 +87,11 @@
 
 table{
   margin: 10px; 
+  table-layout: fixed;
+}
+
+.table_fix_width{
+  width:620px;
 }
 
 .articles_list ul{
