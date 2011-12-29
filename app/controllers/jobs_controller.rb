@@ -3,6 +3,10 @@ require 'user.rb'
 class JobsController < ApplicationController
   def index
     @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    
+    if params[:filter] == "Angebot"
+      @jobs = Job.where(:offer_or_quest => true).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    end
   end
 
   def show
@@ -19,7 +23,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(params[:job])
     @job.counter = 0
-    @job.user_id = 1;#session[:user_id]
+    @job.user_id = 1 #session[:user_id]
 
     if @job.save
       redirect_to @job, notice: 'Job wurde erfolgreich gespeichert!'

@@ -3,19 +3,21 @@
 		<% @jobs.each do |job| %>
 			<a href="<%= url_for(job) %>">
 				<li class="offer_or_quest_<%= job.offer_or_quest%>">
-					<span>
-						<span class="title">
+					<div class="title">
 							<% if job.offer_or_quest == false %>
 								Suche:
 							<% else %>
 								Angebot:
 							<% end %>
-							<%= job.title %>
-						</span> |
-						<%= job.user.title %> <%= job.user.lastname %> am
-						<%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %><br />
-					</span>
-					<%= truncate(job.description, :length => 150) %>
+							<%= truncate(job.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(job.description, :length => 160) %>
+					</div>
+					<div>
+						<%= job.user.title%> <%= truncate(job.user.lastname, :length => 60) %> am
+						<%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %>
+					</div>
 				</li>
 			</a>
 		<% end %>
