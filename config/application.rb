@@ -45,6 +45,6 @@ module Fhboerse
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
-    config.assets.precompile += ['browserid.js', 'jquery.ba-url.min.js', 'pagination.js']
+    config.assets.precompile += ['browserid.js', 'jquery.ba-url.min', 'pagination']
   end
 end
