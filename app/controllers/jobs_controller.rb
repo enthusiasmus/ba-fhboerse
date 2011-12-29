@@ -19,8 +19,8 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(params[:job])
     @job.counter = 0
-    @job.user_id = session[:user_id]
-@paid = @job.paid
+    @job.user_id = 1;#session[:user_id]
+
     if @job.save
       redirect_to @job, notice: 'Job wurde erfolgreich gespeichert!'
     else
