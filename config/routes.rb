@@ -1,4 +1,10 @@
 Fhboerse::Application.routes.draw do
+  get "pages/agb"
+
+  get "pages/about"
+
+  get "pages/contact"
+
   resources :apartments
   resources :drives
   resources :items
