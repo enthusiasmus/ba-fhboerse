@@ -31,6 +31,15 @@
 		
 		<table>
 			<tr>
+				<td>
+					<div id="offer_or_quest_option">
+						<span class="info_headline">Anzeige*</span> als
+					<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Angebot' %>
+					<%= f.radio_button :offer_or_quest, false %><%= f.label :offer_or_quest, 'Suche' %>
+					</div>
+				</td>
+			</tr>
+			<tr>
 				<td class="info_headline">Titel:*</td>
 			</tr>
 			<tr>
@@ -83,21 +92,22 @@
 					<% end %>
 			</tr>
 			<tr>
-				<td><span class="paymentoptions">Dienstverhältnis:</span></td>
+				<td><span class="paymentoptions">Dienstverhältnis:*</span></td>
 				<td><span class="paymentoptions">
 					<%= f.select(:employment_status, [
+						['beliebig', 'beliebig'],						
 						['Rechnung', 'Rechnung'],
                         ['Aushilfe', 'Aushilfe'],
 						['Werkvertrag', 'Werkvertrag'],
 						['Praktikum', 'Praktikum'],
 						['Halbzeit', 'Halbzeit'],
 						['Vollzeit', 'Vollzeit']
-                        ],{ :prompt => "-----"}
+                        ],{ :prompt => "bitte auswählen"}
                     ) %>
                 </td>	
 			</tr>
 			<tr>
-				<td><span class="paymentoptions">Bezahlung:*</span></td>
+				<td><span class="paymentoptions">Bezahlung:</span></td>
 				<td><span class="paymentoptions"><%= f.text_field :salary %> in €</span></td>
 			</tr>
 		</table>	

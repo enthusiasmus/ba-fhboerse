@@ -27,4 +27,7 @@ Fhboerse::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # For removing error at creating a controller
+  config.active_support.deprecation = :log 
 end

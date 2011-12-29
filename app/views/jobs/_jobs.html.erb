@@ -1,0 +1,25 @@
+<div id="articles_list">
+	<ul>
+		<% @jobs.each do |job| %>
+			<a href="<%= url_for(job) %>">
+				<li class="offer_or_quest_<%= job.offer_or_quest%>">
+					<span>
+						<span class="title">
+							<% if job.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Angebot:
+							<% end %>
+							<%= job.title %>
+						</span> |
+						<%= job.user.title %> <%= job.user.lastname %> am
+						<%= job.created_at.strftime("%d.%m.%Y, %H.%Mh") %><br />
+					</span>
+					<%= truncate(job.description, :length => 150) %>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+
+<%= will_paginate @jobs, :previous_label => '&laquo; Zurück', :next_label => 'Vor &raquo;' %>

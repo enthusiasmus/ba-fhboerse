@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//Coloring the quests
+.offer_or_quest_false{
+  background: #DDFADD;
+}
+
+//Coloring the offers
+.offer_or_quest_true{
+  background: #B5FAB5;
+}
+
+#offer_or_quest_option{
+
+  width:620px;
+  margin-bottom: 20px;
+}
+
 #notice_for_form{
   margin:15px 0px 20px 12px;
 }
@@ -63,6 +79,12 @@
   margin-bottom:40px;
 }
 
+.subcategorie_head input{
+  position:relative;
+  top:2px;
+  margin-left: 10px;
+}
+
 .subcategorie_head div:first-child{
   font-size:16px;
   font-weight:bold;
@@ -70,11 +92,16 @@
 }
 
 .subcategorie_head div:nth-child(2){
+  float:left;
+  margin-left:140px;
+}
+
+.subcategorie_head div:nth-child(3){
   float:right;
   padding-right:20px;
 }
 
-.subcategorie_head div:nth-child(2) div{
+.subcategorie_head div:nth-child(3) div{
   margin: -2px 5px 0px 0px;
   width: 24px;
   height: 24px;
@@ -94,22 +121,21 @@ table{
   width:620px;
 }
 
-.articles_list ul{
+#articles_list ul{
   list-style: none;
   padding: 0px 15px 0px 15px;
 }
 
-.articles_list ul a{
+#articles_list ul a{
   font-weight:normal;
   text-decoration:none;
 }
 
-.articles_list ul a li{
+#articles_list ul a li{
   margin: 15px 0px 10px 0px;
   padding: 6px;
   outline: #EEE solid;
 
-  background: #FAFAFA;
   -moz-transition-property: all;
   -moz-transition-duration: 250ms;
   -moz-transition-timing-function: ease-in-out;
@@ -121,11 +147,12 @@ table{
   -o-transition-timing-function: ease-in-out;
 }
 
-.articles_list ul a li:hover{
-  background:#eee;
+#articles_list ul a li:hover{
+  background:#F5FFF5;
+  outline: #AFA 1px solid;
 }
 
-.articles_list ul a li span{
+#articles_list ul a li span{
   color:#6A6A6A;
   font-weight:bold;
 }

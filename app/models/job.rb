@@ -8,8 +8,9 @@ class Job < ActiveRecord::Base
   validates_presence_of :place, :message => "^Bitte geben Sie den Arbeitsort an"
   validates_presence_of :begindate, :message => "^Bitte geben Sie den Arbeitsbegin an!"
   
-  validates_numericality_of :salary, :on => :create, :message => "^Bitte geben Sie das Gehalt an (Ziffern von 0-9)!", :if => :will_be_paid?
+  #validates_numericality_of :salary, :on => :create, :message => "^Bitte geben Sie das Gehalt an (Ziffern von 0-9)!", :if => :will_be_paid?
 
+  validates_length_of :employment_status, :minimum => 1, :message => "^Bitte geben Sie das Dienstverh&auml;ltnis an!"
   validates_presence_of :lastname, :message => "^Bitte geben Sie den Nachnamen an!"
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => '^Bitte geben Sie ihre korrekte E-Mail-Adresse an!'
   validates_numericality_of :telephone, :message => "^Bitte geben Sie ihr Telefonnummer an (Ziffern von 0-9)!"
