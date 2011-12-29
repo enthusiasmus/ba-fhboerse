@@ -1,6 +1,6 @@
 $(function() {
   $(".pagination a").live("click", function() {
-  	//set the url where the user want to get
+  	//get the 
     $.setFragment({ "page" : $.queryString(this.href).page })
     $(".pagination").html("Seite wird geladen...");
     return false;

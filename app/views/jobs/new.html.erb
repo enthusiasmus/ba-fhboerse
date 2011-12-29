@@ -19,15 +19,9 @@
 		</ul>
 		<% end %>
 		
-	    <!--<%= f.error_messages %>-->
+		<%= @job.paid %>
 		
-		<!--<table>
-			<tr>
-				<td>Typ der Annonce:<br><br><br></td>	//TODO: Angebot und Suche unterteilen
-				<td><%= f.radio_button :offer_or_quest, true %><%= label_tag(:type_angebot, 'Angebot') %>
-					<%= f.radio_button :offer_or_quest, false %><%= label_tag(:type_gesuch, 'Suche') %><br><br><br></td>
-			</tr>
-		</table>-->
+	    <!--<%= f.error_messages %>-->
 		
 		<table>
 			<tr>
@@ -82,14 +76,15 @@
 			</tr>
 			<tr>
 				<td>Entlohnung:*</td>
-				<td>
+				<td>					
 					<% if @job.paid == true %>
-						<%= f.radio_button :paid, true, :checked => true %><%= f.label :paid, 'Bezahlt', :value => true %>
-						<%= f.radio_button :paid, false %><%= f.label :paid, 'Freiwillig', :value => false %></td>
+						<%= f.radio_button :paid, true, :checked => true %><%= label :paid, 'Bezahlt', :value => "true" %>
+						<%= f.radio_button :paid, false %><%= label :paid, 'Freiwillig', :value => "false"%>
 					<% else %>
-						<%= f.radio_button :paid, true %><%= f.label :paid, 'Bezahlt', :value => true %>
-						<%= f.radio_button :paid, false, :checked => true %><%= f.label :paid, 'Freiwillig', :value => false %></td>
+						<%= f.radio_button :paid, true %><%= label :paid, 'Bezahlt', :value => "true" %>
+						<%= f.radio_button :paid, false, :checked => true %><%= label :paid, 'Freiwillig', :value => "false" %>
 					<% end %>
+				</td>
 			</tr>
 			<tr>
 				<td><span class="paymentoptions">Dienstverhältnis:*</span></td>

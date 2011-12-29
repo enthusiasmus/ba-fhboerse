@@ -20,7 +20,7 @@ class JobsController < ApplicationController
     @job = Job.new(params[:job])
     @job.counter = 0
     @job.user_id = session[:user_id]
-
+@paid = @job.paid
     if @job.save
       redirect_to @job, notice: 'Job wurde erfolgreich gespeichert!'
     else
