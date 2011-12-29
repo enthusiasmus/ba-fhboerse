@@ -1,4 +1,6 @@
 Fhboerse::Application.routes.draw do
+  resources :pages
+
   resources :apartments
   resources :drives
   resources :items
