@@ -13,6 +13,6 @@ Fhboerse::Application.routes.draw do
   root :to => "Jobs#index"
   
   # user authentication
-  match "/auth/:provider/callback" => "sessions#create"
-  match "/signout" => "sessions#destroy", :as => :signout
+  match "/auth/:provider/callback" => "users#create"
+  match "/signout" => "users#destroy", :as => :signout
 end

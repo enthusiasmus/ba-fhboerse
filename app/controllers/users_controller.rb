@@ -7,4 +7,16 @@ class UsersController < ApplicationController
 
   def delete
   end
+  
+  def create
+    auth = request.env["omniauth.auth"]
+    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+    session[:user_id] = user.id
+    redirect_to request.referer, :notice => "Herzlich Willkommen!"
+  end
+  
+  def destroy
+    session[:user_id] = nil
+    redirect_to request.referer, :notice => "Du wurdest erfolgreich abgemeldet!"
+  end
 end
