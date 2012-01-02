@@ -3,12 +3,14 @@ require 'user.rb'
 class JobsController < ApplicationController
   def index
     condition = ""
+    condition_composition = ""
   
-    if params[:filter] != ""
-      condition += "offer_or_quest ='" + params[:filter] + "'"
+    if params[:filter] != "" && params[:filter] != nil
+      condition += "offer_or_quest = '" + params[:filter] + "'"
+      condition_composition = " AND "
     end
-    if params[:service] != ""
-      condition += "employment_status = " + "'" + params[:service] + "'"
+    if params[:service] != "" && params[:service] != nil
+      condition += condition_composition + "employment_status = '" + params[:service] + "'"
     end
 
     if condition != ""

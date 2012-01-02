@@ -3,7 +3,7 @@
 
 <div class="subcategorie_head">
 	<div>
-		Alle Jobs - <%= @paid %>
+		Alle Jobs - <%= @a %>
 	</div>
 	<div>
 		<a href="<%= new_job_path %>">
@@ -12,7 +12,7 @@
 		</a>
 	</div>
 	<div>
-		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Angebot', 'true'], ['Suche', 'false']])) %>
+		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Angebot', 't'], ['Suche', 'f']])) %>
 		Dienstverhältnis <%= select_tag(:service, options_for_select([
 						['alle', 'alle'],						
 						['Rechnung', 'Rechnung'],

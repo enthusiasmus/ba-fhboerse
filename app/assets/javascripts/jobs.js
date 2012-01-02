@@ -16,8 +16,14 @@ $(document).ready(function(){
   		reloadWithFilter();
   	});
   	
-  	var choosenFilter = localStorage.getItem('filter');
-  	var choosenService = localStorage.getItem('service');
+  	if(location.pathname + location.search != "/jobs"){
+  		var choosenFilter = localStorage.getItem('filter');
+  		var choosenService = localStorage.getItem('service');
+  	}
+
+  	if($("#articles_list ul").text().length < 4)
+  		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");
+  	
   	$("#filter").val(choosenFilter);
 	$("#service").val(choosenService);
 });
