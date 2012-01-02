@@ -2,10 +2,19 @@ require 'user.rb'
 
 class JobsController < ApplicationController
   def index
-    @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    
-    if params[:filter] == "Angebot"
-      @jobs = Job.where(:offer_or_quest => true).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    condition = ""
+  
+    if params[:filter] != ""
+      condition += "offer_or_quest ='" + params[:filter] + "'"
+    end
+    if params[:service] != ""
+      condition += "employment_status = " + "'" + params[:service] + "'"
+    end
+
+    if condition != ""
+      @jobs = Job.where(condition).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    else
+      @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
   end
 
@@ -30,5 +39,11 @@ class JobsController < ApplicationController
     else
       render action: "new"
     end
+  end
+  
+  def filter
+  end
+  
+  def service
   end
 end

@@ -76,7 +76,7 @@
 }
 
 .subcategorie_head{
-  margin-bottom:40px;
+  margin-bottom:75px;
 }
 
 .subcategorie_head input{
@@ -92,16 +92,11 @@
 }
 
 .subcategorie_head div:nth-child(2){
-  float:left;
-  margin-left:140px;
-}
-
-.subcategorie_head div:nth-child(3){
   float:right;
   padding-right:20px;
 }
 
-.subcategorie_head div:nth-child(3) div{
+.subcategorie_head div:nth-child(2) div{
   margin: -2px 5px 0px 0px;
   width: 24px;
   height: 24px;
@@ -110,6 +105,22 @@
 
 .subcategorie_head div:nth-child(2) div:hover{
   background: url(/images/add_hover.png);
+}
+
+.subcategorie_head div:nth-child(3){
+  float:left;
+  margin-left:-50px;
+  margin-top:35px;
+}
+
+.subcategorie_head div:nth-child(3) > span{
+  font-weight: bold;
+  padding-right: 20px;
+  font-size: 13px;
+}
+
+.subcategorie_head div:nth-child(3) > select{
+  margin-right: 20px;
 }
 
 table{

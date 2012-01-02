@@ -3,16 +3,25 @@
 
 <div class="subcategorie_head">
 	<div>
-		Alle Jobs
-	</div>
-	<div>
-		Filter: Select/Option
+		Alle Jobs - <%= @paid %>
 	</div>
 	<div>
 		<a href="<%= new_job_path %>">
 			<div></div>
 			<%= link_to 'Anzeige hinzufügen', new_job_path %>
 		</a>
+	</div>
+	<div>
+		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Angebot', 'true'], ['Suche', 'false']])) %>
+		Dienstverhältnis <%= select_tag(:service, options_for_select([
+						['alle', 'alle'],						
+						['Rechnung', 'Rechnung'],
+                        ['Aushilfe', 'Aushilfe'],
+						['Werkvertrag', 'Werkvertrag'],
+						['Praktikum', 'Praktikum'],
+						['Halbzeit', 'Halbzeit'],
+						['Vollzeit', 'Vollzeit']
+                        ])) %>
 	</div>
 </div>
 

@@ -1,6 +1,6 @@
 $(function() {
   $(".pagination a").live("click", function() {
-  	//get the 
+  	//get the new site
     $.setFragment({ "page" : $.queryString(this.href).page })
     $(".pagination").html("Seite wird geladen...");
     return false;
@@ -13,7 +13,7 @@ $(function() {
     $.getScript($.queryString(document.location.href, { "page" : $.fragment().page }));
   });
   
-  //at refreshing the site the current site gets reloaded
+  //at refreshing the site the article part gets reloaded
   if($.fragment().page) {
     $(document).trigger("fragmentChange.page");
   }
