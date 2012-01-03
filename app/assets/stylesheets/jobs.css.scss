@@ -2,6 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#article_head{
+  margin-bottom:50px;
+}
+
+#article_head div:nth-child(1){
+  float:left;
+}
+#article_head div:nth-child(2){
+  float:right;
+  margin:12px 10px 0px 0px;
+}
+#article_head div:nth-child(3){
+  float:right;
+  margin:12px 10px 0px 0px;
+}
+
+.meas-btn, .btn{
+  font-weight: normal !important;
+  letter-spacing: 0px !important;
+}
+
 //Coloring the quests
 .offer_or_quest_false{
   background: #DDFADD;

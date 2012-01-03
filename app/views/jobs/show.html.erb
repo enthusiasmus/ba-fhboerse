@@ -1,4 +1,16 @@
-<h1><%= @job.title %></h1>
+<% content_for :title, "Jobbörse" %>
+<div id="article_head">
+	<div>
+		<h1><%= @job.title %></h1>
+	</div>
+	<div>
+		<div class="fb-send" data-href="http://fhboerse.mediacube.at/jobs/<%= @job.id %>" data-font="trebuchet ms"></div>
+	</div>
+	<div>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://fhboerse.mediacube.at/jobs/<%= @job.id %>" data-lang="de" data-count="none" data-hashtags="fhbörse">Twittern</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+</div>
 
 <div class="article_list">
 	<table class="table_fix_width">
