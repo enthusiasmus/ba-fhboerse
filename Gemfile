@@ -9,10 +9,12 @@ gem 'capistrano'
 gem 'will_paginate'
 
 # user authentication
-gem 'mongrel'
+#gem 'mongrel'
 gem 'omniauth-browserid'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+
+gem 'whenever'
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'

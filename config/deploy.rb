@@ -28,6 +28,13 @@ namespace :deploy do
   task :copy_config do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
+  
+  #updating the crontab commands
+  desc "Update the crontab file"
+  task :update_crontab, :roles => :db do
+    run "cd #{release_path} && whenever --update-crontab #{application}"
+  end
+  
 end
 
 require "bundler/capistrano"
@@ -36,17 +43,5 @@ load 'deploy/assets'
 
 after "deploy:update_code", "deploy:copy_config"
 
-
-# role :db,  "your slave db-server here"
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+#updating the crontab commands
+after "deploy:symlink", "deploy:update_crontab"
