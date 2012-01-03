@@ -18,23 +18,13 @@
   margin:12px 10px 0px 0px;
 }
 
+//doesn't work?!
 .meas-btn, .btn{
   font-weight: normal !important;
   letter-spacing: 0px !important;
 }
 
-//Coloring the quests
-.offer_or_quest_false{
-  background: #DDFADD;
-}
-
-//Coloring the offers
-.offer_or_quest_true{
-  background: #B5FAB5;
-}
-
 #offer_or_quest_option{
-
   width:620px;
   margin-bottom: 20px;
 }
@@ -166,7 +156,7 @@ table{
 #articles_list ul a li{
   margin: 15px 0px 10px 0px;
   padding: 6px;
-  outline: #EEE solid;
+  box-shadow: 0px 0px 3px rgb(128, 128, 128);
 
   -moz-transition-property: all;
   -moz-transition-duration: 250ms;
@@ -179,9 +169,19 @@ table{
   -o-transition-timing-function: ease-in-out;
 }
 
+//Coloring the quests
+.offer_or_quest_false{
+  border: #bdb7b8 solid 1px;
+}
+
+//Coloring the offers
+.offer_or_quest_true{
+  border: #f96789 solid 1px;
+}
+
 #articles_list ul a li:hover{
-  background:#F5FFF5;
-  outline: #AFA 1px solid;
+  background: #f5f2f3;
+  border: #A0092D 2px solid;
 }
 
 #articles_list ul a li div{
