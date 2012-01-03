@@ -13,6 +13,7 @@ gem 'mongrel'
 gem 'omniauth-browserid'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-ldap'
 
 gem 'whenever'
 
