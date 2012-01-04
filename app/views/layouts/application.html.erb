@@ -37,12 +37,12 @@
 		<div id='userbar'>Anmelden mit: </div>
 		<% end %>
 		<ul id="navigation">
-			<li><a href="/" title="">Startseite</a></li>
-			<li><a class="active" href="/jobs/" title="Jobbörse">Jobbörse</a></li>
-			<li><a href="/drives/" title="Mitfahrgemeinschaft">Mitfahrgemeinschaft</a></li>
-			<li><a href="/products/" title="Marktplatz">Marktplatz</a></li>
-			<li><a href="/apartments/" title="Wohnungsbörse">Wohnungsbörse</a></li>
-			<li><a href="/items/" title="Fundgrube">Fundgrube</a></li>
+			<li><%= link_to "Startseite", "/", :class => is_active?("home") %></li>
+			<li><%= link_to "Jobbörse", "/jobs", :class => is_active?("jobs") %></li>
+			<li><%= link_to "Mitfahrgemeinschaft", "/drives", :class => is_active?("drives") %></li>
+			<li><%= link_to "Marktplatz", "/products", :class => is_active?("products") %></li>
+			<li><%= link_to "Wohnungsbörse", "/apartments", :class => is_active?("apartments") %></li>
+			<li><%= link_to "Fundgrube", "/items", :class => is_active?("items") %></li>
 		</ul>		
 		<ul id="breadcrumbs">
 		    <li><a href="/" title=""></a></li>
