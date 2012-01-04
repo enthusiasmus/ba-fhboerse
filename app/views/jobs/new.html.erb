@@ -1,3 +1,4 @@
+<% content_for :title, "Neuen Job hinzufügen" %>
 <%= stylesheet_link_tag "datepicker.css" %>
 <%= javascript_include_tag "datepicker.js" %>
 
@@ -26,8 +27,8 @@
 				<td>
 					<div id="offer_or_quest_option">
 						<span class="info_headline">Anzeige*</span> als
-					<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Angebot' %>
-					<%= f.radio_button :offer_or_quest, false %><%= f.label :offer_or_quest, 'Suche' %>
+						<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Angebot' %>
+						<%= f.radio_button :offer_or_quest, false %><%= f.label :offer_or_quest, 'Suche' %>
 					</div>
 				</td>
 			</tr>
@@ -131,7 +132,7 @@
 		</table>
 		<div id="notice_for_form">* Pflichtfelder</div>
 		<div id="agb_agreement">
-			Ich habe die AGB gelesen und akzeptiere sie hiermit <%= f.check_box :agb %>
+			Ich habe die <%= link_to "AGB", "/pages/agb" %> gelesen und akzeptiere sie hiermit <%= f.check_box :agb %>
 		</div>
 		<div id="submit_button"><%= f.submit 'Absenden' %></div>
 	<% end %>

@@ -1,0 +1,42 @@
+<% content_for :title, "Profil bearbeiten" %>
+
+<h1>Profil bearbeiten</h1>
+
+<% if not current_user %>
+	<p>Du musst angemeldet sein, um dein Profil bearbeiten zu können.</p>
+<% else %>
+	<%= form_for(@user, :url => {:action => "update"}) do |f| %>
+		<% if @user.errors.any? %>
+		<span id="fail_headline">Fehler:</span>
+		<ul>
+		  <% @user.errors.full_messages.each do |message| %>
+			<li class="full_messages"><%= message %></li>
+		  <% end %>
+		</ul>
+		<% end %>
+	
+		<table>
+			<tr>
+				<td>Titel:*</td>
+				<td>
+					<%= f.radio_button :title, 'Frau' %><%= f.label :title, 'Frau' %>
+					<%= f.radio_button :title, 'Herr' %><%= f.label :title, 'Herr' %>
+				</td>
+			</tr>
+			<tr>
+				<td>Vorname:*</td> 
+				<td><%= f.text_field :forename %></td>
+			</tr>
+			<tr>
+				<td>Nachname:*</td> 
+				<td><%= f.text_field :lastname %></td>
+			</tr>
+			<tr>
+				<td>E-Mail-Adresse:*</td> 
+				<td><%= f.text_field :email %></td>
+			</tr>
+		</table>
+		<div id="notice_for_form">* Pflichtfelder</div>
+		<div id="submit_button"><%= f.submit 'Absenden' %></div>
+	<% end %>
+<% end %>

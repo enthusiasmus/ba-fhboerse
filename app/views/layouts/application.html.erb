@@ -23,7 +23,8 @@
 		<div id="logo"><a href="/" title="Startseite"></a></div>
 		<% if current_user %>
 		<div class="button"><%= link_to "Abmelden", signout_path %></div>
-		<div id='userbar'>Willkommen, <strong><%= current_user.uid %></strong>!</div>
+		<div class="button"><%= link_to "Profil", profile_path %></div>
+		<div id='userbar'>Willkommen <strong><%= current_user.forename %> <%= current_user.lastname %></strong></div>
 		<% else %>
 		<div class="button"><%= link_to "Google", "/auth/google" %></div>
 		<div class="button"><%= link_to "LDAP", "/auth/ldap" %></div>
