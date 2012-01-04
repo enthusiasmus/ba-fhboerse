@@ -18,14 +18,11 @@ class JobsController < ApplicationController
     else
       @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
-    
-    @filter = params[:filter]
-    @service = params[:service]
   end
 
   def show
     @job = Job.find(params[:id])
-    
+    @paid = "miau"
     @job.counter += 1;
     @job.update_attributes(params[:job])
   end

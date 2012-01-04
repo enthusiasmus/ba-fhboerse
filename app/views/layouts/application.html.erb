@@ -33,7 +33,7 @@
 		  <input type='hidden' name='assertion'/>
 		  <button type='submit'>BrowserID</button>
 		</form>
-		<div id='userbar'><% if index %> miau <% end %> Anmelden mit: </div>
+		<div id='userbar'>Anmelden mit: </div>
 		<% end %>
 		<ul id="navigation">
 			<li><a href="/" title="">Startseite</a></li>
@@ -61,45 +61,37 @@
 		<div id="sidebar">
 			<div class="container">
 				<div class="containerHead">Neuste Artikel</div>
-				<div class='listItem'>
-					<a href="" title="">
-						Angebot: <span class='subject'>Verschenke Laptop</span><br />
-						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
-					</a>
-				</div>
-				<div class='listItem'>
-					<a href="" title="">
-						Angebot: <span class='subject'>Verschenke Laptop</span><br />
-						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
-					</a>
-				</div>
-				<div class='listItem'>
-					<a href="" title="">
-						Angebot: <span class='subject'>Verschenke Laptop</span><br />
-						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
-					</a>
-				</div>
+				<% @newest_articles.each do |article| %>
+					<div class='listItem'>
+						<a href="<%= url_for(article) %>">
+							<% if article.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Angebot:
+							<% end %>
+							<span class='subject'><%= truncate(article.title, :length => 50) %></span><br/>
+							<%= article.user.title%> <%= truncate(article.user.lastname, :length => 30) %> am
+							<%= article.created_at.strftime("%d.%m.%Y, %H.%Mh") %>
+						</a>
+					</div>
+				<% end %>
 			</div>
 			<div class="container">
 				<div class="containerHead">Beliebteste Artikel</div>
-				<div class='listItem'>
-					<a href="" title="">
-						Angebot: <span class='subject'>Verschenke Laptop</span><br />
-						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
-					</a>
-				</div>
-				<div class='listItem'>
-					<a href="" title="">
-						Angebot: <span class='subject'>Verschenke Laptop</span><br />
-						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
-					</a>
-				</div>
-				<div class='listItem'>
-					<a href="" title="">
-						Angebot: <span class='subject'>Verschenke Laptop</span><br />
-						<span class='date'>Frau Mustermann am 20.12.2011, 15.37h</span>
-					</a>
-				</div>
+				<% @most_popular_articles.each do |article| %>
+					<div class='listItem'>
+						<a href="<%= url_for(article) %>">
+							<% if article.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Angebot:
+							<% end %>
+							<span class='subject'><%= truncate(article.title, :length => 50) %></span><br/>
+							<%= article.user.title%> <%= truncate(article.user.lastname, :length => 30) %> am
+							<%= article.created_at.strftime("%d.%m.%Y, %H.%Mh") %>
+						</a>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
