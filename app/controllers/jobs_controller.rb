@@ -6,7 +6,11 @@ class JobsController < ApplicationController
     condition_composition = ""
   
     if params[:filter] != "" && params[:filter] != nil
-      condition += "offer_or_quest = '" + params[:filter] + "'"
+      if params[:filter] = "t"
+        condition += "offer_or_quest = '1' OR offer_or_quest = 't'"
+      else
+        condition += "offer_or_quest = '0' OR offer_or_quest = 'f'"
+      end
       condition_composition = " AND "
     end
     if params[:service] != "" && params[:service] != nil
