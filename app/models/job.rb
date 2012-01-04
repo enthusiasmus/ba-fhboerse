@@ -2,7 +2,7 @@
 
 class Job < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :agb, :paid, :salary, :employment_status, :company, :begindate, :place, :qualification, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest
+  attr_accessible :counter, :agb, :paid, :salary, :employment_status, :company, :begindate, :place, :qualification, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest
 
   validates_length_of :title, :within => 5..50, :too_short => "^Der Titel muss mehr als 5 Zeichen besitzen!", :too_long => "Der Titel muss weniger als 100 Zeichen besitzen!"
   validates_length_of :description, :within => 30..1000, :too_short => "^Die Beschreibung muss mehr als 30 Zeichen besitzen!", :too_long => "Die Beschreibung muss weniger als 1000 Zeichen besitzen!"

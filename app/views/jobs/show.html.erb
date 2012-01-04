@@ -11,8 +11,7 @@
 	}(document, 'script', 'facebook-jssdk'));
 </script>
 
-
-<div id="article_head"><%= @job.counter %>
+<div id="article_head">
 	<div>
 		<h1><%= @job.title %></h1>
 	</div>
@@ -95,4 +94,4 @@
 	</table>
 </div>
 
-<p><%= link_to "Zurück", jobs_path %></p>
+<div class="back_to_overview"><%= link_to "Zurück", jobs_path %></div>

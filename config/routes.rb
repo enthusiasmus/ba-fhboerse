@@ -14,3 +14,4 @@ Fhboerse::Application.routes.draw do
   match "/auth/:provider/callback" => "users#create"
   match "/signout" => "users#destroy", :as => :signout
 end
+

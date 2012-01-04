@@ -24,7 +24,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @paid = "miau"
     @job.counter += 1;
-    @job.update_attributes(params[:job])
+    @job.update_attribute(:counter,@job.counter)
   end
 
   def new
