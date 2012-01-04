@@ -45,10 +45,10 @@
 			<li><%= link_to "Fundgrube", "/items", :class => is_active?("items") %></li>
 		</ul>		
 		<ul id="breadcrumbs">
-		    <li><a href="/" title=""></a></li>
-		    <li><a href="#" title="">Marktplatz</a></li>
-		    <li><a href="#" title="">Angebot</a></li>
-		    <li><a href="#" title="">Ein etwas längerer Titel als der Rest, bis zur Unendlichkeit und noch viel weiter!</a></li>
+		    <li><%= link_to "", "/" %></li>
+			<% @breadcrumbs.each do |txt, path| %>
+			<li><%= link_to(h(txt), path) %></li>
+			<% end %>
 		</ul>
 		<div id="mainContainer">
 			<% if flash[:notice] %><div id="notice" class="container"><%= notice %></div><% end %>

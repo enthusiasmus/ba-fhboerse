@@ -1,6 +1,6 @@
 # coding: UTF-8
 
-class UsersController < ApplicationController  
+class UsersController < ApplicationController 
   def create
     auth = request.env["omniauth.auth"]
     
@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    add_breadcrumb 'Profil bearbeiten', profile_path
     @user = User.find(session[:user_id])
   end
   

@@ -1,15 +1,21 @@
+# coding: UTF-8
+
 require 'user.rb'
 
 class JobsController < ApplicationController
-  def index
+  add_breadcrumb 'Jobbörse', '/jobs'
+  
+  def index    
     condition = ""
     condition_composition = ""
   
     if params[:filter] != "" && params[:filter] != nil
       if params[:filter] = "t"
         condition += "offer_or_quest = '1' OR offer_or_quest = 't'"
+        add_breadcrumb 'Angebote', jobs_path + '?filter=t'
       else
         condition += "offer_or_quest = '0' OR offer_or_quest = 'f'"
+        add_breadcrumb 'Gesuche', jobs_path + '?filter=f'
       end
       condition_composition = " AND "
     end
@@ -27,6 +33,14 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @paid = "miau"
+    
+    if @job.offer_or_quest
+      add_breadcrumb 'Angebote', jobs_path + '?filter=t'
+    else
+      add_breadcrumb 'Gesuche', jobs_path + '?filter=f'
+    end
+    add_breadcrumb @job.title, 'jobs_controller'
+    
     @job.counter += 1;
     @job.update_attribute(:counter,@job.counter)
   end
