@@ -15,18 +15,17 @@ $(document).ready(function(){
 	$('#service').change(function() {
   		reloadWithFilter();
   	});
-  	
-  	if(location.pathname + location.search != "/jobs"){
-  		var choosenFilter = localStorage.getItem('filter');
-  		var choosenService = localStorage.getItem('service');
-  	}
 
   	if($("#articles_list ul").text().length < 4)
-  		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");
-  	
-  	$("#filter").val(choosenFilter);
-	$("#service").val(choosenService);
+  		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");  	
+  		
+  	getSelectedOptions();
 });
+
+function getSelectedOptions(){
+	$("#filter").val($("#filter_value").val());
+	$("#service").val($("#service_value").val());
+}
 
 function reloadWithFilter(){
 	var path = "";
@@ -40,9 +39,6 @@ function reloadWithFilter(){
 		path += sign + "service=" + $('#service option:selected').val();
 		sign = "&";
 	}
-		
-	localStorage.setItem('filter', $('#filter option:selected').val());
-	localStorage.setItem('service', $('#service option:selected').val());
 	
 	window.location.href = window.location.pathname + path;	
 }

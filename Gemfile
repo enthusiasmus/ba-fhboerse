@@ -9,11 +9,12 @@ gem 'capistrano'
 gem 'will_paginate'
 
 # user authentication
-gem 'mongrel'
+gem 'mongrel', '1.2.0.pre2'
 gem 'omniauth-browserid'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-ldap'
+gem 'omniauth-google'
 
 gem 'whenever'
 

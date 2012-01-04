@@ -3,7 +3,7 @@
 
 <div class="subcategorie_head">
 	<div>
-		Alle Jobs - <%= @a %>
+		Alle Jobs - <%= %>
 	</div>
 	<div>
 		<a href="<%= new_job_path %>">
@@ -22,6 +22,11 @@
 						['Halbzeit', 'Halbzeit'],
 						['Vollzeit', 'Vollzeit']
                         ])) %>
+	</div>
+	<div>
+		<!-- storing the params to set select-lists via javascript -->
+		<%= hidden_field_tag :filter_value, (params[:filter] or "")  %>
+		<%= hidden_field_tag :service_value, (params[:service] or "")  %>
 	</div>
 </div>
 
