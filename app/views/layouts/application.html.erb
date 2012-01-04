@@ -46,8 +46,10 @@
 		</ul>		
 		<ul id="breadcrumbs">
 		    <li><%= link_to "", "/" %></li>
-			<% @breadcrumbs.each do |txt, path| %>
-			<li><%= link_to(h(txt), path) %></li>
+			<% if @breadcrumbs %>
+				<% @breadcrumbs.each do |txt, path| %>
+				<li><%= link_to(h(txt), path) %></li>
+				<% end %>
 			<% end %>
 		</ul>
 		<div id="mainContainer">
