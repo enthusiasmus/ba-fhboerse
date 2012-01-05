@@ -6,8 +6,6 @@ class JobsController < ApplicationController
   add_breadcrumb 'Jobbörse', '/jobs'
   
   def index    
-    @filter = params[:filter]
-    @service = params[:service]
     condition = ""
     condition_composition = ""
   
