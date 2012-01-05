@@ -12,15 +12,17 @@ class JobsController < ApplicationController
     if params[:filter] != "" && params[:filter] != nil
       if params[:filter] == "t"
         condition += "offer_or_quest = '1' OR offer_or_quest = 't'"
-        add_breadcrumb 'Angebote', jobs_path + '?filter=t'
+        add_breadcrumb 'Biete', jobs_path + '?filter=t'
       else
         condition += "offer_or_quest = '0' OR offer_or_quest = 'f'"
-        add_breadcrumb 'Gesuche', jobs_path + '?filter=f'
+        add_breadcrumb 'Suche', jobs_path + '?filter=f'
       end
       condition_composition = " AND "
     end
+    
     if params[:service] != "" && params[:service] != nil
       condition += condition_composition + "employment_status = '" + params[:service] + "'"
+      add_breadcrumb params[:service], jobs_path + '?filter=f'
     end
 
     if condition != ""
@@ -37,11 +39,11 @@ class JobsController < ApplicationController
     @paid = "miau"
     
     if @job.offer_or_quest
-      add_breadcrumb 'Angebote', jobs_path + '?filter=t'
+      add_breadcrumb 'Biete', jobs_path + '?filter=t'
     else
       add_breadcrumb 'Suche', jobs_path + '?filter=f'
     end
-    add_breadcrumb @job.title, 'jobs_controller'
+    add_breadcrumb @job.title, job_path
     
     @job.counter += 1;
     @job.update_attribute(:counter,@job.counter)
@@ -49,6 +51,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    add_breadcrumb 'Neuen Job hinzufügen', new_job_path
   end
 
   def create

@@ -13,7 +13,7 @@
 
 <div id="article_head">
 	<div>
-		<h1><%= @job.title %></h1>
+		<h1><% if @job.offer_or_quest == false %>Suche:<% else %>Biete:<% end %> <%= @job.title %></h1>
 	</div>
 	<div>
 		<div class="fb-send" data-href="http://fhboerse.mediacube.at/jobs/<%= @job.id %>" data-font="trebuchet ms"></div>

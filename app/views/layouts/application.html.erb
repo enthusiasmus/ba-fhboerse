@@ -43,15 +43,15 @@
 			<li><%= link_to "Marktplatz", "/products", :class => is_active?("products") %></li>
 			<li><%= link_to "Wohnungsbörse", "/apartments", :class => is_active?("apartments") %></li>
 			<li><%= link_to "Fundgrube", "/items", :class => is_active?("items") %></li>
-		</ul>		
-		<ul id="breadcrumbs">
-		    <li><%= link_to "", "/" %></li>
-			<% if @breadcrumbs %>
-				<% @breadcrumbs.each do |txt, path| %>
-				<li><%= link_to(h(txt), path) %></li>
-				<% end %>
-			<% end %>
 		</ul>
+		<% if @breadcrumbs %>
+			<ul id="breadcrumbs">
+				<li><%= link_to "", "/" %></li>
+				<% @breadcrumbs.each do |txt, path| %>
+					<li><%= link_to(h(txt), path) %></li>
+				<% end %>
+			</ul>
+		<% end %>
 		<div id="mainContainer">
 			<% if flash[:notice] %><div id="notice" class="container"><%= notice %></div><% end %>
 			<div class="container">
@@ -70,7 +70,7 @@
 							<% if article.offer_or_quest == false %>
 								Suche:
 							<% else %>
-								Angebot:
+								Biete:
 							<% end %>
 							<span class='subject'><%= truncate(article.title, :length => 50) %></span><br/>
 							<%= article.user.title%> <%= truncate(article.user.lastname, :length => 30) %> am
@@ -87,7 +87,7 @@
 							<% if article.offer_or_quest == false %>
 								Suche:
 							<% else %>
-								Angebot:
+								Biete:
 							<% end %>
 							<span class='subject'><%= truncate(article.title, :length => 50) %></span><br/>
 							<%= article.user.title%> <%= truncate(article.user.lastname, :length => 30) %> am
