@@ -21,7 +21,11 @@ class JobsController < ApplicationController
     end
     
     if params[:service] != "" && params[:service] != nil
-      condition += condition_composition + "employment_status = '" + params[:service] + "'"
+      if params[:service] == "Freiwillig"
+        condition += condition_composition + "paid = '0' OR paid = 'f'"
+      else
+        condition += condition_composition + "employment_status = '" + params[:service] + "'"
+      end
       add_breadcrumb params[:service], jobs_path + '?service=' + params[:service]
     end
 
