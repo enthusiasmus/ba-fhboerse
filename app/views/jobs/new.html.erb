@@ -5,7 +5,9 @@
 <h1>Job hinzufügen</h1>
 
 <% if not current_user %>
-	<p>Du musst angemeldet sein, um neue Jobs eintragen zu können.</p>
+	<p>Sie müssen angemeldet sein, um neue Jobs eintragen zu können.</p>
+<% elsif current_user and not current_user.complete %>
+	<p>Bitte füllen Sie zuerst Ihr <%= link_to "Profil", profile_path %> vollständig aus.</p>
 <% else %>
 	<%= form_for(@job) do |f| %>
 

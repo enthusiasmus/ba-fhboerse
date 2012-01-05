@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :products, :dependent => :restrict
   has_many :apartments, :dependent => :restrict
   
-  attr_accessible :title, :forename, :lastname, :email
+  attr_accessible :title, :forename, :lastname, :email, :complete
   
   validates_presence_of :title, :message => "^Bitte geben Sie einen Titel an", :on => :update
   validates_presence_of :forename, :message => "^Bitte geben Sie Ihren Vornamen an", :on => :update
@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
       elsif auth["extra"]["raw_info"]["gender"] == "female"
         user.title = "Frau"
       end
+      
+      user.complete = false;
     end
   end
 end

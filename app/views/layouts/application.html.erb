@@ -24,7 +24,11 @@
 		<% if current_user %>
 		<div class="button"><%= link_to "Abmelden", signout_path %></div>
 		<div class="button"><%= link_to "Profil", profile_path %></div>
-		<div id='userbar'>Willkommen <strong><%= current_user.forename %> <%= current_user.lastname %></strong></div>
+		<div id='userbar'>
+			<% if current_user.complete %>
+			Willkommen, <strong><%= current_user.forename %> <%= current_user.lastname %>!</strong>
+			<% end %>
+		</div>
 		<% else %>
 		<div class="button"><%= link_to "Google", "/auth/google" %></div>
 		<div class="button"><%= link_to "LDAP", "/auth/ldap" %></div>
@@ -58,7 +62,7 @@
 				<%= yield %>
 			</div>
 			<div id="footer">
-				&copy; 2012 | <a href="/pages/agb" title="">AGB</a> | <a href="/pages/contact" title="">Kontakt</a> | <a href="/pages/about" title="">Impressum</a>
+				&copy; 2012 | <%= link_to "AGB", "/pages/agb" %> | <%= link_to "Kontakt", "/pages/contact" %> | <%= link_to "Impressum", "/pages/about" %>
 			</div>
 		</div>
 		<div id="sidebar">

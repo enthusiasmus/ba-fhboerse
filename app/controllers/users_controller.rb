@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     # user already has an account
     if User.find_by_provider_and_uid(auth["provider"], auth["uid"])
       user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])
-      session[:user_id] = user.id
+      session[:user_id] = user.id if user.complete
       redirect_to request.referer, :notice => "Herzlich Willkommen!"
     # create an account
     else
@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     
     if @user.update_attributes(params[:user])
+      @user.update_attribute(:complete, true) if not @user.complete
       flash[:notice] = "Das Profil wurde erfolgreich bearbeitet!"
       redirect_to :action => "edit"
     else

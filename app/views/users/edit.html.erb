@@ -3,7 +3,7 @@
 <h1>Profil bearbeiten</h1>
 
 <% if not current_user %>
-	<p>Du musst angemeldet sein, um dein Profil bearbeiten zu können.</p>
+	<p>Sie müssen angemeldet sein, um dein Profil bearbeiten zu können.</p>
 <% else %>
 	<%= form_for(@user, :url => {:action => "update"}) do |f| %>
 		<% if @user.errors.any? %>
