@@ -27,6 +27,8 @@
 		<div id='userbar'>
 			<% if current_user.complete %>
 			Willkommen, <strong><%= current_user.forename %> <%= current_user.lastname %>!</strong>
+			<% else %>
+			Bitte vervollständigen Sie Ihr Profil!
 			<% end %>
 		</div>
 		<% else %>
