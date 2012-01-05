@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     # user already has an account
     if User.find_by_provider_and_uid(auth["provider"], auth["uid"])
       user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])
-      session[:user_id] = user.id if user.complete
+      session[:user_id] = user.id
       redirect_to request.referer, :notice => "Herzlich Willkommen!"
     # create an account
     else
