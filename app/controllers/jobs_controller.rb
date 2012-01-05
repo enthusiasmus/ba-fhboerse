@@ -22,7 +22,7 @@ class JobsController < ApplicationController
     
     if params[:service] != "" && params[:service] != nil
       condition += condition_composition + "employment_status = '" + params[:service] + "'"
-      add_breadcrumb params[:service], jobs_path + '?filter=f'
+      add_breadcrumb params[:service], jobs_path + '?service=' + params[:service]
     end
 
     if condition != ""

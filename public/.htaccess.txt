@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www.fhboerse.mediacube.at [NC]
+RewriteRule ^(.*)$ http://fhboerse.mediacube.at/$1 [L,R=301]
