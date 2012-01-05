@@ -25,6 +25,8 @@ $(document).ready(function(){
 function getSelectedOptions(){
 	$("#filter").val($("#filter_value").val());
 	$("#service").val($("#service_value").val());
+	alert("Filter: " + $("#filter").val());
+	alert("Filter_Value: " + $("#filter_value").val());
 }
 
 function reloadWithFilter(){
@@ -37,8 +39,10 @@ function reloadWithFilter(){
 	}
 	if($('#service option:selected').val() != "alle"){
 		path += sign + "service=" + $('#service option:selected').val();
-		sign = "&";
 	}
+	
+	alert("Filter: " + $("#filter").val());
+	alert("Filter_Value: " + $("#filter_value").val());
 	
 	window.location.href = window.location.pathname + path;	
 }

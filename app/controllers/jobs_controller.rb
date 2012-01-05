@@ -6,11 +6,13 @@ class JobsController < ApplicationController
   add_breadcrumb 'Jobbörse', '/jobs'
   
   def index    
+    @filter = params[:filter]
+    @service = params[:service]
     condition = ""
     condition_composition = ""
   
     if params[:filter] != "" && params[:filter] != nil
-      if params[:filter] = "t"
+      if params[:filter] == "t"
         condition += "offer_or_quest = '1' OR offer_or_quest = 't'"
         add_breadcrumb 'Angebote', jobs_path + '?filter=t'
       else
@@ -28,6 +30,8 @@ class JobsController < ApplicationController
     else
       @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
+    
+    
   end
 
   def show
@@ -37,7 +41,7 @@ class JobsController < ApplicationController
     if @job.offer_or_quest
       add_breadcrumb 'Angebote', jobs_path + '?filter=t'
     else
-      add_breadcrumb 'Gesuche', jobs_path + '?filter=f'
+      add_breadcrumb 'Suche', jobs_path + '?filter=f'
     end
     add_breadcrumb @job.title, 'jobs_controller'
     
