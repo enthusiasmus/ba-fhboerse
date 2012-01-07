@@ -20,28 +20,22 @@ $(document).ready(function(){
   		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");  	
   		
   	getSelectedOptions();
-  	
-  	// Datepicker
-	$('#job_time').datepicker({
-		inline: true,
-		dateFormat: 'dd.mm.yy',
-		//buttonImage: '/images/calendar_icon.png',
-		//showOn: 'button',
-		//buttonImageOnly: true
-	});
 	
-	/*$.timepicker.regional['de'] = {
-	  timeOnlyTitle: 'Uhrzeit auswählen',
-	  timeText: 'Zeit',
-	  hourText: 'Stunde',
-	  minuteText: 'Minute',
-	  secondText: 'Sekunde',
-	  currentText: 'Jetzt',
-	  closeText: 'Auswählen',
-	  ampm: false
-	};
-	$.timepicker.setDefaults($.timepicker.regional['de']);
-	$('#item_time').datetimepicker();*/
+	$(function(){
+		// Datetimepicker
+		$.timepicker.regional['de'] = {
+		  timeOnlyTitle: 'Uhrzeit auswählen',
+		  timeText: 'Zeit',
+		  hourText: 'Stunde',
+		  minuteText: 'Minute',
+		  secondText: 'Sekunde',
+		  currentText: 'Jetzt',
+		  closeText: 'Auswählen',
+		  ampm: false
+		};
+		$.timepicker.setDefaults($.timepicker.regional['de']);
+		$('#item_time').timepicker();
+	});
 });
 
 function getSelectedOptions(){
