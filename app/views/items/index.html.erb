@@ -12,22 +12,11 @@
 		</a>
 	</div>
 	<div>
-		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Biete', 't'], ['Suche', 'f']])) %>
-		Dienstverhältnis <%= select_tag(:service, options_for_select([
-						['alle', 'alle'],	
-						['Freiwillig', 'Freiwillig'],					
-						['Rechnung', 'Rechnung'],
-                        ['Aushilfe', 'Aushilfe'],
-						['Werkvertrag', 'Werkvertrag'],
-						['Praktikum', 'Praktikum'],
-						['Halbzeit', 'Halbzeit'],
-						['Vollzeit', 'Vollzeit']
-                        ])) %>
+		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Gefunden', 't'], ['Suche', 'f']])) %>
 	</div>
 	<div>
 		<!-- storing the params to set select-lists via javascript -->
 		<%= hidden_field_tag :filter_value, (params[:filter] or "")  %>
-		<%= hidden_field_tag :service_value, (params[:service] or "")  %>
 	</div>
 </div>
 

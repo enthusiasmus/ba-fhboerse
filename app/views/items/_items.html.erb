@@ -7,7 +7,7 @@
 							<% if item.offer_or_quest == false %>
 								Suche:
 							<% else %>
-								Biete:
+								Gefunden:
 							<% end %>
 							<%= truncate(item.title, :length => 60) %>
 					</div>
@@ -16,7 +16,7 @@
 					</div>
 					<div>
 						<%= item.user.title%> <%= truncate(item.user.lastname, :length => 60) %> am
-						<%= item.created_at.strftime("%d.%m.%Y, %H.%Mh") %>
+						<%= item.created_at.strftime("%d.%m.%Y, %H:%M") %>
 					</div>
 				</li>
 			</a>

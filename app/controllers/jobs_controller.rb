@@ -79,7 +79,7 @@ class JobsController < ApplicationController
     post_ids = Job.find(:all, :conditions => ["created_at < ?", 60.days.ago])
     puts "Aktualisiert am" + Time.now
     if post_ids.size > 0
-      Post.destroy(post_ids)
+      Item.destroy(post_ids)
     end
   end
 end
