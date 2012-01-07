@@ -1,0 +1,34 @@
+<% content_for :title, "Wohnungsbörse" %>
+<% javascript_include_tag "jquery-ba-url-min", "pagination" %>
+
+<div class="subcategorie_head">
+	<div>
+		Alle Anzeigen:
+	</div>
+	<div>
+		<a href="<%= new_apartment_path %>">
+			<div></div>
+			<%= link_to 'Anzeige hinzufügen', new_apartment_path %>
+		</a>
+	</div>
+	<div>
+		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Biete', 't'], ['Suche', 'f']])) %>
+		Zustand: <%= select_tag(:type_of_apartment, options_for_select([
+						['alle', 'alle'],
+						['Garconnieren','Garconnieren'],
+						['Wohungen', 'Wohungen'],
+						['Wohngemeinschaften', 'Wohngemeinschaften'],	
+						['Häuser', 'Häuser'],
+						['Grundstück', 'Grundstück']
+                 ]))%>
+	</div>
+	<div>
+		<!-- storing the params to set select-lists via javascript -->
+		<%= hidden_field_tag :filter_value, (params[:filter] or "")  %>
+		<%= hidden_field_tag :type_of_apartment_value, (params[:type_of_apartment] or "")  %>
+	</div>
+</div>
+
+<div id="apartments">
+	<%= render :partial => 'apartments' %>
+</div>

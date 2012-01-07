@@ -1,0 +1,137 @@
+<% content_for :title, "Wohnungsbörse" %>
+
+<!-- facebook send button -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div id="article_head">
+	<div>
+		<h1><% if @apartment.offer_or_quest == false %>Suche:<% else %>Biete:<% end %> <%= @apartment.title %></h1>
+	</div>
+	<div>
+		<div class="fb-send" data-href="http://fhboerse.mediacube.at/apartments/<%= @apartment.id %>" data-font="trebuchet ms"></div>
+	</div>
+	<div>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://fhboerse.mediacube.at/apartments/<%= @apartment.id %>" data-lang="de" data-count="none" data-hashtags="fhbörse">Twittern</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+</div>
+
+<div class="article_list">
+	<table class="table_fix_width">
+		<tr>
+			<td class="info_headline">Beschreibung:</td>
+		</tr>
+		<tr>
+			<td><%= @apartment.description %></td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Verfügbarkeit</td>
+		</tr>
+		<tr>
+			<td>Verfügbar ab:</td>
+			<td><%= @apartment.begin_availability %></td>
+		</tr>
+		<tr>
+			<td>Verfügbar bis:</td>
+			<td><%= @apartment.end_availability %></td>
+		</tr>
+	</table>	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Ausstattung</td>
+		</tr>
+		<tr>
+			<td>Küche:</td>
+			<td>
+				<%= @apartment.kitchen %>
+			</td>
+		</tr>
+		<tr>
+			<td>Möbelierung:</td>
+			<td>
+				<%= @apartment.furniture %>
+			</td>
+		</tr>
+		<tr>
+			<td>Terrasse:</td>
+			<td>
+				<%= @apartment.terrace %>
+			</td>
+		</tr>
+		<tr>
+			<td>Garage:</td>
+			<td>
+				<%= @apartment.garage %>
+			</td>
+		</tr>
+		<tr>
+			<td>Öffentliche Verkehrsanbindung:</td>
+			<td>
+				<%= @apartment.transport_connection %>
+			</td>
+		</tr>
+	</table>	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Kosten</td>
+		</tr>
+		<tr>
+			<td>Preis:</td>
+			<td><%= @apartment.price %> €</td>
+		</tr>
+	</table>	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Adresse</td>
+		</tr>
+		<tr>
+			<td>Straße und Hausnummer:</td>
+			<td><%= @apartment.street %></td>
+		</tr>
+		<tr>
+			<td>Postleitzahl:</td>
+			<td><%= @apartment.zip_code %></td>
+		</tr>
+		<tr>
+			<td>Stadt:</td>
+			<td><%= @apartment.city %></td>
+		</tr>
+		<tr>
+			<td>Land</td>
+			<td><%= @apartment.country %></td>
+		</tr>
+	</table>	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Ansprechpartner</td>
+		</tr>
+		<tr>
+			<td><% if @apartment.forename != "" %>Vorname:<% end %></td> 
+			<td><% if @apartment.forename != "" %><%= @apartment.forename %><% end %></td>
+		</tr>
+		<tr>
+			<td>Nachname:</td> 
+			<td><%= @apartment.lastname %></td>
+		</tr>
+		<tr>
+			<td>E-Mail:</td> 
+			<td><%= @apartment.email %></td>
+		</tr>
+		<tr>
+			<td>Telefon:</td> 
+			<td><%= @apartment.telephone %></td>
+		</tr>
+	</table>
+</div>
+
+<div class="back_to_overview"><%= link_to "Alle Gegenstände anzeigen", apartments_path %></div>

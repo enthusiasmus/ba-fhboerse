@@ -1,0 +1,164 @@
+<% content_for :title, "Anzeige hinzufügen" %>
+<%= stylesheet_link_tag "datepicker.css" %>
+<%= javascript_include_tag "jquery_ui.js" %>
+<%= javascript_include_tag "timepicker.js" %>
+
+<h1>Anzeige hinzufügen</h1>
+
+<% if not current_user %>
+	<p>Sie müssen angemeldet sein, um neue Gegenstände eintragen zu können.</p>
+<% elsif current_user and not current_user.complete %>
+	<p>Bitte füllen Sie zuerst Ihr <%= link_to "Profil", profile_path %> vollständig aus.</p>
+<% else %>
+	<%= form_for(@apartment) do |f| %>
+
+		<% if @apartment.errors.any? %>
+		<span id="fail_headline">Fehler:</span>
+		<ul>
+		  <% @apartment.errors.full_messages.each do |message| %>
+			<li class="full_messages"><%= message %></li>
+		  <% end %>
+		</ul>
+		<% end %>
+		
+		<%= @apartment.offer_or_quest %>
+		
+		<table>
+			<tr>
+				<td>
+					<div id="offer_or_quest_option">
+						<span class="info_headline">Anzeige*</span> als
+						<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Biete' %>
+						<%= f.radio_button :offer_or_quest, false %><%= f.label :offer_or_quest, 'Suche' %>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="info_headline">Titel:*</td>
+			</tr>
+			<tr>
+				<td><%= f.text_field :title, :size => 70 %><td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td class="info_headline">Beschreibung:*</td>
+			</tr>
+			<tr>
+				<td><%= f.text_area :description,
+	                :rows => 10,
+	                :cols => 105,
+	                :class => "article_textarea" %></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Verfügbarkeit</td>
+			</tr>
+			<tr>
+				<td>Verfügbar ab:*</td>
+				<td><%= f.text_field :begin_availability, :readonly => 'true' %></td>
+			</tr>
+			<tr>
+				<td>Verfügbar bis:</td>
+				<td><%= f.text_field :end_availability, :readonly => 'true' %></td>
+			</tr>
+		</table>	
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Ausstattung</td>
+			</tr>
+			<tr>
+				<td>Küche:*</td>
+				<td>
+					<%= f.radio_button :kitchen, true %><%= f.label :kitchen, 'Ja' %>
+					<%= f.radio_button :kitchen, false %><%= f.label :kitchen, 'Nein' %>
+				</td>
+			</tr>
+			<tr>
+				<td>Möbelierung:*</td>
+				<td>
+					<%= f.radio_button :furniture, true %><%= f.label :furniture, 'Ja' %>
+					<%= f.radio_button :furniture, false %><%= f.label :furniture, 'Nein' %>
+				</td>
+			</tr>
+			<tr>
+				<td>Terrasse:*</td>
+				<td>
+					<%= f.radio_button :terrace, true %><%= f.label :terrace, 'Ja' %>
+					<%= f.radio_button :terrace, false %><%= f.label :terrace, 'Nein' %>
+				</td>
+			</tr>
+			<tr>
+				<td>Garage:*</td>
+				<td>
+					<%= f.radio_button :garage, true %><%= f.label :garage, 'Ja' %>
+					<%= f.radio_button :garage, false %><%= f.label :garage, 'Nein' %>
+				</td>
+			</tr>
+			<tr>
+				<td>Öffentliche Verkehrsanbindung:*</td>
+				<td>
+					<%= f.text_field :transport_connection %>
+				</td>
+			</tr>
+		</table>	
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Kosten</td>
+			</tr>
+			<tr>
+				<td>Preis:*</td>
+				<td><%= f.text_field :price, :size => 15 %> in €</td>
+			</tr>
+		</table>	
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Adresse</td>
+			</tr>
+			<tr>
+				<td>Straße und Hausnummer:*</td>
+				<td><%= f.text_field :street %></td>
+			</tr>
+			<tr>
+				<td>Postleitzahl:*</td>
+				<td><%= f.text_field :zip_code %></td>
+			</tr>
+			<tr>
+				<td>Stadt:*</td>
+				<td><%= f.text_field :city %></td>
+			</tr>
+			<tr>
+				<td>Land:*</td>
+				<td><%= f.text_field :country %></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Ansprechpartner</td>
+			</tr>
+			<tr>
+				<td>Vorname:</td> 
+				<td><%= f.text_field :forename %></td>
+			</tr>
+			<tr>
+				<td>Nachname:*</td> 
+				<td><%= f.text_field :lastname %></td>
+			</tr>
+			<tr>
+				<td>E-Mail:*</td> 
+				<td><%= f.text_field :email %></td>
+			</tr>
+			<tr>
+				<td>Telefon:*</td> 
+				<td><%= f.text_field :telephone %></td>
+			</tr>
+		</table>
+		<div id="notice_for_form">* Pflichtfelder</div>
+		<div id="agb_agreement">
+			Ich habe die <%= link_to "AGB", "/pages/agb" %> gelesen und akzeptiere sie hiermit <%= f.check_box :agb %>
+		</div>
+		<div id="submit_button"><%= f.submit 'Absenden' %></div>
+	<% end %>
+<% end %>
+<div class="back_to_overview"><%= link_to "Alle Gegenstände anzeigen", apartments_path %></div>

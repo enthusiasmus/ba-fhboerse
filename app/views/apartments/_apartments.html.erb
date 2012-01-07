@@ -1,0 +1,27 @@
+<div id="articles_list">
+	<ul>
+		<% @apartments.each do |apartment| %>
+			<a href="<%= url_for(apartment) %>">
+				<li class="offer_or_quest_<%= apartment.offer_or_quest%>">
+					<div class="title">
+							<% if apartment.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Biete:
+							<% end %>
+							<%= truncate(apartment.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(apartment.description, :length => 160) %>
+					</div>
+					<div>
+						<%= apartment.user.title%> <%= truncate(apartment.user.lastname, :length => 60) %> am
+						<%= apartment.created_at.strftime("%d.%m.%Y, %H:%M") %>
+					</div>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+
+<%= will_paginate @apartments, :previous_label => '&laquo; Zurück', :next_label => 'Vor &raquo;' %>
