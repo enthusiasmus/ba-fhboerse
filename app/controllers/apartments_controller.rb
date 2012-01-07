@@ -3,7 +3,7 @@
 require 'user.rb'
 
 class ApartmentsController < ApplicationController
-  add_breadcrumb 'Marktplatz', '/apartments'
+  add_breadcrumb 'Wohnungsbörse', '/apartments'
   
   def index    
     condition = ""
