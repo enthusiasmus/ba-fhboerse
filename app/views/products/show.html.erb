@@ -1,0 +1,73 @@
+<% content_for :title, "Marktplatz" %>
+
+<!-- facebook send button -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div id="article_head">
+	<div>
+		<h1><% if @product.offer_or_quest == false %>Suche:<% else %>Biete:<% end %> <%= @product.title %></h1>
+	</div>
+	<div>
+		<div class="fb-send" data-href="http://fhboerse.mediacube.at/products/<%= @product.id %>" data-font="trebuchet ms"></div>
+	</div>
+	<div>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://fhboerse.mediacube.at/products/<%= @product.id %>" data-lang="de" data-count="none" data-hashtags="fhbörse">Twittern</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+</div>
+
+<div class="article_list">
+	<table class="table_fix_width">
+		<tr>
+			<td class="info_headline">Beschreibung:</td>
+		</tr>
+		<tr>
+			<td><%= @product.description %></td>
+		</tr>
+	</table>
+	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Details</td>
+		</tr>
+		<tr>
+			<td id="arbeitsort_table">Zustand:</td>
+			<td><%= @product.state %></td>
+		</tr>
+		<tr>
+			<td>Preis</td>
+			<td><%= @product.price %> €</td>
+		</tr>
+	</table>	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Ansprechpartner</td>
+		</tr>
+		<tr>
+			<td><% if @product.forename != "" %>Vorname:<% end %></td> 
+			<td><% if @product.forename != "" %><%= @product.forename %><% end %></td>
+		</tr>
+		<tr>
+			<td>Nachname:</td> 
+			<td><%= @product.lastname %></td>
+		</tr>
+		<tr>
+			<td>E-Mail:</td> 
+			<td><%= @product.email %></td>
+		</tr>
+		<tr>
+			<td>Telefon:</td> 
+			<td><%= @product.telephone %></td>
+		</tr>
+	</table>
+</div>
+
+<div class="back_to_overview"><%= link_to "Alle Produkte anzeigen", items_path %></div>

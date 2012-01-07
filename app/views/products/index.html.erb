@@ -1,0 +1,33 @@
+<% content_for :title, "Marktplatz" %>
+<% javascript_include_tag "jquery-ba-url-min", "pagination" %>
+
+<div class="subcategorie_head">
+	<div>
+		Alle Produkte:
+	</div>
+	<div>
+		<a href="<%= new_product_path %>">
+			<div></div>
+			<%= link_to 'Anzeige hinzufügen', new_product_path %>
+		</a>
+	</div>
+	<div>
+		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Biete', 't'], ['Suche', 'f']])) %>
+		Zustand: <%= select_tag(:state_product, options_for_select([
+						['alle', 'alle'],
+						['originalverpackt','originalverpackt'],
+						['neu', 'neu'],						
+						['gebraucht', 'gebraucht'],
+                        ['funktionsunfähig', 'funktionsunfähig']
+                 ]))%>
+	</div>
+	<div>
+		<!-- storing the params to set select-lists via javascript -->
+		<%= hidden_field_tag :filter_value, (params[:filter] or "")  %>
+		<%= hidden_field_tag :state_product_value, (params[:state_product] or "")  %>
+	</div>
+</div>
+
+<div id="products">
+	<%= render :partial => 'products' %>
+</div>

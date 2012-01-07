@@ -1,4 +1,4 @@
-<% content_for :title, "Anzeige hinzufügen" %>
+<% content_for :title, "Marktplatz - Anzeige hinzufügen" %>
 <%= stylesheet_link_tag "datepicker.css" %>
 <%= javascript_include_tag "jquery_ui.js" %>
 <%= javascript_include_tag "timepicker.js" %>
@@ -10,25 +10,25 @@
 <% elsif current_user and not current_user.complete %>
 	<p>Bitte füllen Sie zuerst Ihr <%= link_to "Profil", profile_path %> vollständig aus.</p>
 <% else %>
-	<%= form_for(@item) do |f| %>
+	<%= form_for(@product) do |f| %>
 
-		<% if @item.errors.any? %>
+		<% if @product.errors.any? %>
 		<span id="fail_headline">Fehler:</span>
 		<ul>
-		  <% @item.errors.full_messages.each do |message| %>
+		  <% @product.errors.full_messages.each do |message| %>
 			<li class="full_messages"><%= message %></li>
 		  <% end %>
 		</ul>
 		<% end %>
 		
-		<%= @item.offer_or_quest %>
+		<%= @product.offer_or_quest %>
 		
 		<table>
 			<tr>
 				<td>
 					<div id="offer_or_quest_option">
 						<span class="info_headline">Anzeige*</span> als
-						<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Gefunden' %>
+						<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Biete' %>
 						<%= f.radio_button :offer_or_quest, false %><%= f.label :offer_or_quest, 'Suche' %>
 					</div>
 				</td>
@@ -56,12 +56,19 @@
 				<td colspan="2" class="info_headline">Details</td>
 			</tr>
 			<tr>
-				<td id="arbeitsdetails_td">Ort:*</td>
-				<td><%= f.text_field :place %></td>
+				<td id="arbeitsdetails_td">Zustand:*</td>
+				<td><%= f.select(:state, [
+						['originalverpackt','originalverpackt'],
+						['neu', 'neu'],						
+						['gebraucht', 'gebraucht'],
+                        ['funktionsunfähig', 'funktionsunfähig'],
+                        ],{ :prompt => "bitte auswählen"}
+                    ) %>
+                </td>	
 			</tr>
 			<tr>
-				<td>Datum und Uhrzeit:*</td>
-				<td><%= f.text_field :time, :readonly => 'true' %></td>
+				<td>Preis:*</td>
+				<td><%= f.text_field :price, :size => 10 %> in €</td>
 			</tr>
 		</table>	
 		<table>
@@ -92,4 +99,4 @@
 		<div id="submit_button"><%= f.submit 'Absenden' %></div>
 	<% end %>
 <% end %>
-<div class="back_to_overview"><%= link_to "Alle Gegenstände anzeigen", items_path %></div>
+<div class="back_to_overview"><%= link_to "Alle Produkte anzeigen", products_path %></div>

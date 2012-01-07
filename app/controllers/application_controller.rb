@@ -28,7 +28,14 @@ class ApplicationController < ActionController::Base
   end
 
   def set_var
-    @most_popular_articles = Job.order("counter DESC").all(:limit => 4)
-    @newest_articles = Job.order("created_at DESC").all(:limit => 4)
+    @most_popular_jobs = Job.order("counter DESC").all(:limit => 4)
+    @newest_jobs = Job.order("created_at DESC").all(:limit => 4)
+    @most_popular_items = Item.order("counter DESC").all(:limit => 4)
+    @newest_items = Item.order("created_at DESC").all(:limit => 4)
+    
+    @most_popular_articles = (@most_popular_jobs + @most_popular_items).sort_by(&:counter).reverse![0..3]
+    @newest_articles = (@newest_jobs + @newest_items).sort_by(&:created_at).reverse![0..3]
+    
+    #oder Job.(:include => :items).where()
   end
 end
