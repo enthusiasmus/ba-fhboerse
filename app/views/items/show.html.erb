@@ -1,0 +1,97 @@
+<% content_for :title, "Jobbörse" %>
+
+<!-- facebook send button -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;x
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div id="article_head">
+	<div>
+		<h1><% if @item.offer_or_quest == false %>Suche:<% else %>Biete:<% end %> <%= @item.title %></h1>
+	</div>
+	<div>
+		<div class="fb-send" data-href="http://fhboerse.mediacube.at/items/<%= @item.id %>" data-font="trebuchet ms"></div>
+	</div>
+	<div>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://fhboerse.mediacube.at/items/<%= @item.id %>" data-lang="de" data-count="none" data-hashtags="fhbörse">Twittern</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+</div>
+
+<div class="article_list">
+	<table class="table_fix_width">
+		<tr>
+			<td class="info_headline">Beschreibung:</td>
+		</tr>
+		<tr>
+			<td><%= @item.description %></td>
+		</tr>
+	</table>
+	<table class="table_fix_width">
+		<tr>
+			<td class="info_headline">Qualifikationen:</td>
+		</tr>
+		<tr>
+			<td><%= @item.qualification %></td>
+		</tr>
+	</table>
+	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Arbeitsdetails</td>
+		</tr>
+		<tr>
+			<td id="arbeitsort_table">Arbeitsort:</td>
+			<td><%= @item.place %></td>
+		</tr>
+		<tr>
+			<td>Arbeitsbegin:</td>
+			<td><%= @item.begindate.strftime('%d.%m.%Y')%></td>
+		</tr>
+		<tr>
+			<td><% if @item.paid == false %>Mitarbeit:<% end %></td>
+			<td><% if @item.paid == false %>Freiwillig<% end %></td>
+		</tr>
+		<tr>
+			<td><% if @item.paid == true %>Dienstverhältnis:<% end %></td>
+			<td><% if @item.paid == true %><%= @item.employment_status %><% end %></td>
+		</tr>
+		<tr>
+			<td><% if @item.paid == true %>Bezahlung:<% end %></td>
+			<td><% if @item.paid == true %><%= @item.salary %> €<% end %></td>
+		</tr>
+	</table>	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Ansprechpartner</td>
+		</tr>
+		<tr>
+			<td id="ansprechpartner_table"><% if @item.company != "" %>Firma:<% end %></td> 
+			<td><% if @item.company != "" %><%= @item.company %><% end %></td>
+		</tr>
+		<tr>
+			<td><% if @item.forename != "" %>Vorname:<% end %></td> 
+			<td><% if @item.forename != "" %><%= @item.forename %><% end %></td>
+		</tr>
+		<tr>
+			<td>Nachname:</td> 
+			<td><%= @item.lastname %></td>
+		</tr>
+		<tr>
+			<td>E-Mail:</td> 
+			<td><%= @item.email %></td>
+		</tr>
+		<tr>
+			<td>Telefon:</td> 
+			<td><%= @item.telephone %></td>
+		</tr>
+	</table>
+</div>
+
+<div class="back_to_overview"><%= link_to "Zurück", items_path %></div>

@@ -7,8 +7,14 @@ module ApplicationHelper
     end
   end
   
+  def controller_javascript
+    controller_name = controller.controller_name
+    if File.exists?( "#{Rails.root}/app/assets/javascripts/#{controller_name}.js" )
+      javascript_include_tag( controller_name )
+    end
+  end
+  
   def is_active?(controller_name)
     "active" if params[:controller] == controller_name
   end
-  
 end

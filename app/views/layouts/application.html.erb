@@ -9,13 +9,13 @@
 	<meta name="description" lang="de" content="" />
 	<meta name="keywords" lang="de" content="" />
 	<meta name="robots" content="index, follow" />
-	<!--<%= stylesheet_link_tag "application.css" %>-->
-	<%= javascript_include_tag "application" %>
-	<%= javascript_include_tag "https://browserid.org/include.js" %>
-	<%= javascript_include_tag "browserid" %>
 	<%= csrf_meta_tags %>
-	<!--<%= controller_stylesheet %>-->
+	
+	<%= javascript_include_tag "application" %>
 	<%= stylesheet_link_tag "application" %>
+	<%= javascript_include_tag "https://browserid.org/include.js" %>
+	<%= controller_stylesheet %>
+	<%= controller_javascript %>
 </head>
 
 <body>

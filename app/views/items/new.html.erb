@@ -1,0 +1,98 @@
+<% content_for :title, "Neue Anzeige hinzufügen" %>
+<%= stylesheet_link_tag "datepicker.css" %>
+
+
+<h1>Job hinzufügen</h1>
+
+<% if not current_user %>
+	<p>Sie müssen angemeldet sein, um neue Gegenstände eintragen zu können.</p>
+<% elsif current_user and not current_user.complete %>
+	<p>Bitte füllen Sie zuerst Ihr <%= link_to "Profil", profile_path %> vollständig aus.</p>
+<% else %>
+	<%= form_for(@item) do |f| %>
+
+		<% if @item.errors.any? %>
+		<span id="fail_headline">Fehler:</span>
+		<ul>
+		  <% @item.errors.full_messages.each do |message| %>
+			<li class="full_messages"><%= message %></li>
+		  <% end %>
+		</ul>
+		<% end %>
+		
+		<%= @item.offer_or_quest %>
+		
+		<table>
+			<tr>
+				<td>
+					<div id="offer_or_quest_option">
+						<span class="info_headline">Anzeige*</span> als
+						<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Gefunden' %>
+						<%= f.radio_button :offer_or_quest, false %><%= f.label :offer_or_quest, 'Suche' %>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="info_headline">Titel:*</td>
+			</tr>
+			<tr>
+				<td><%= f.text_field :title, :size => 70 %><td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td class="info_headline">Beschreibung:*</td>
+			</tr>
+			<tr>
+				<td><%= f.text_area :description,
+	                :rows => 10,
+	                :cols => 105,
+	                :class => "article_textarea" %></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Details</td>
+			</tr>
+			<tr>
+				<td id="arbeitsdetails_td">Ort:*</td>
+				<td><%= f.text_field :place %></td>
+			</tr>
+			<tr>
+				<td>Datum:*</td>
+				<td><%= f.text_field :time, :readonly => 'true' %></td>
+			</tr>
+			<tr>
+				<td>Uhrzeit:</td>
+				<td><%= f.text_field :place %> in €</td>
+			</tr>
+		</table>	
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Ansprechpartner</td>
+			</tr>
+			<tr>
+				<td>Vorname:</td> 
+				<td><%= f.text_field :forename %></td>
+			</tr>
+			<tr>
+				<td>Nachname:*</td> 
+				<td><%= f.text_field :lastname %></td>
+			</tr>
+			<tr>
+				<td>E-Mail:*</td> 
+				<td><%= f.text_field :email %></td>
+			</tr>
+			<tr>
+				<td>Telefon:*</td> 
+				<td><%= f.text_field :telephone %></td>
+			</tr>
+		</table>
+		<div id="notice_for_form">* Pflichtfelder</div>
+		<div id="agb_agreement">
+			Ich habe die <%= link_to "AGB", "/pages/agb" %> gelesen und akzeptiere sie hiermit <%= f.check_box :agb %>
+		</div>
+		<div id="submit_button"><%= f.submit 'Absenden' %></div>
+	<% end %>
+<% end %>
+<div class="back_to_overview"><%= link_to "Alle Gegenstände anzeigen", items_path %></div>

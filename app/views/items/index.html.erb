@@ -1,0 +1,36 @@
+<% content_for :title, "Jobbörse" %>
+<% javascript_include_tag "jquery-ba-url-min", "pagination" %>
+
+<div class="subcategorie_head">
+	<div>
+		Alle Gegenstände:
+	</div>
+	<div>
+		<a href="<%= new_item_path %>">
+			<div></div>
+			<%= link_to 'Anzeige hinzufügen', new_item_path %>
+		</a>
+	</div>
+	<div>
+		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Biete', 't'], ['Suche', 'f']])) %>
+		Dienstverhältnis <%= select_tag(:service, options_for_select([
+						['alle', 'alle'],	
+						['Freiwillig', 'Freiwillig'],					
+						['Rechnung', 'Rechnung'],
+                        ['Aushilfe', 'Aushilfe'],
+						['Werkvertrag', 'Werkvertrag'],
+						['Praktikum', 'Praktikum'],
+						['Halbzeit', 'Halbzeit'],
+						['Vollzeit', 'Vollzeit']
+                        ])) %>
+	</div>
+	<div>
+		<!-- storing the params to set select-lists via javascript -->
+		<%= hidden_field_tag :filter_value, (params[:filter] or "")  %>
+		<%= hidden_field_tag :service_value, (params[:service] or "")  %>
+	</div>
+</div>
+
+<div id="items">
+	<%= render :partial => 'items' %>
+</div>

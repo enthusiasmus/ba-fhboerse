@@ -1,4 +1,10 @@
 Fhboerse::Application.routes.draw do
+  get "items/index"
+
+  get "items/show"
+
+  get "items/new"
+
   # static pages
   get "pages/agb"
   get "pages/about"

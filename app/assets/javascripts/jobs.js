@@ -20,6 +20,15 @@ $(document).ready(function(){
   		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");  	
   		
   	getSelectedOptions();
+  	
+  	// Datepicker
+	$('#job_begindate').datepicker({
+		inline: true,
+		dateFormat: 'dd.mm.yy',
+		//buttonImage: '/images/calendar_icon.png',
+		//showOn: 'button',
+		//buttonImageOnly: true
+	});
 });
 
 function getSelectedOptions(){

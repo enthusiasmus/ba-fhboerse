@@ -1,0 +1,27 @@
+<div id="articles_list">
+	<ul>
+		<% @items.each do |item| %>
+			<a href="<%= url_for(item) %>">
+				<li class="offer_or_quest_<%= item.offer_or_quest%>">
+					<div class="title">
+							<% if item.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Biete:
+							<% end %>
+							<%= truncate(item.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(item.description, :length => 160) %>
+					</div>
+					<div>
+						<%= item.user.title%> <%= truncate(item.user.lastname, :length => 60) %> am
+						<%= item.created_at.strftime("%d.%m.%Y, %H.%Mh") %>
+					</div>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+
+<%= will_paginate @items, :previous_label => '&laquo; Zurück', :next_label => 'Vor &raquo;' %>

@@ -40,7 +40,6 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @paid = "miau"
     
     if @job.offer_or_quest
       add_breadcrumb 'Biete', jobs_path + '?filter=t'
@@ -55,7 +54,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
-    add_breadcrumb 'Neuen Job hinzufügen', new_job_path
+    add_breadcrumb 'Neue Anzeige hinzufügen', new_job_path
   end
 
   def create
@@ -64,7 +63,7 @@ class JobsController < ApplicationController
     @job.user_id = session[:user_id]
 
     if @job.save
-      redirect_to @job, notice: 'Job wurde erfolgreich gespeichert!'
+      redirect_to @job, notice: 'Job wurde erfolgreich hinzugefügt'
     else
       render action: "new"
     end
