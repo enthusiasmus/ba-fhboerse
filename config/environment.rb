@@ -8,8 +8,5 @@ Fhboerse::Application.initialize!
 require 'will_paginate'
 # for custom error messages at the new view
 require 'custom_error_message'
-
-#Rails::Initializer.run do |config|
-  # for ajax reloading with the gem will_paginate
-  # config.gem "mislav-will_paginate", :lib => "will_paginate", :source => "http://gems.github.com"
-#end
+# let paperclip know where it can find imagemagick
+Paperclip.options[:command_path] = "/usr/local/bin/"

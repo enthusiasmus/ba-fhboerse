@@ -2,7 +2,8 @@
 
 class Product < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :counter, :agb, :price, :state, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest
+  has_attached_file :photo
+  attr_accessible :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :counter, :agb, :price, :state, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest
 
   validates_inclusion_of :offer_or_quest, :in => [true, false], :message => "^Bitte geben Sie den Typ der Anzeige an!"
   

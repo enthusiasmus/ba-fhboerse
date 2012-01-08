@@ -10,7 +10,7 @@
 <% elsif current_user and not current_user.complete %>
 	<p>Bitte füllen Sie zuerst Ihr <%= link_to "Profil", profile_path %> vollständig aus.</p>
 <% else %>
-	<%= form_for(@product) do |f| %>
+	<%= form_for(@product, :html => {:multipart => true}) do |f| %>
 
 		<% if @product.errors.any? %>
 		<span id="fail_headline">Fehler:</span>
@@ -49,6 +49,15 @@
 	                :rows => 10,
 	                :cols => 105,
 	                :class => "article_textarea" %></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td class="info_headline">Gallery</td>
+			</tr>
+			<tr>
+				<td id="arbeitsdetails_td">Foto:</td>
+				<td><%= f.file_field :photo %></td>
 			</tr>
 		</table>
 		<table>
