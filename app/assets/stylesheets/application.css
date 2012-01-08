@@ -121,7 +121,7 @@ h1{font-size:16px;}
 .info_headline{
   font-weight: bold;
   font-size: 13px;
-  padding: 0px 0px 5px 0px;
+  margin: 0px 0px 5px 0px;
 }
 
 .pagination{

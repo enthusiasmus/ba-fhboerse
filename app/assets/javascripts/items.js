@@ -2,6 +2,13 @@ $(document).ready(function(){
 	$('#filter').change(function() {
 		reloadWithFilter();
 	});
+	
+	$('input[name="item[offer_or_quest]"]').click(function() {
+		if($('input:radio:checked[name="item[offer_or_quest]"]').val() == "true")
+			$('#post_details').text("Details zum Finden");
+		else
+			$('#post_details').text("Details zum Verlust");
+	});
 
   	if($("#articles_list ul").text().length < 4)
   		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");  	

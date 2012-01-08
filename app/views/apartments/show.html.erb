@@ -27,6 +27,22 @@
 <div class="article_list">
 	<table class="table_fix_width">
 		<tr>
+			<td>
+				<div id="offer_or_quest_option">
+					<span class="info_headline">Immobilie</span> soll
+					<%= @apartment.leasebuyrent %> werden
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="info_headline">Titel:</td>
+		</tr>
+		<tr>
+			<td><%= @apartment.title %><td>
+		</tr>
+	</table>
+	<table>
+		<tr>
 			<td class="info_headline">Beschreibung:</td>
 		</tr>
 		<tr>
@@ -35,16 +51,28 @@
 	</table>
 	<table>
 		<tr>
+			<td colspan="2" class="info_headline">Größe:</td>
+			<td><%= @apartment.size %> m²</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="info_headline">Anzahl der Räume:</td>
+			<td><%= @apartment.amount_of_rooms %></td>
+		</tr>
+	</table>
+	<table>
+		<tr>
 			<td colspan="2" class="info_headline">Verfügbarkeit</td>
 		</tr>
 		<tr>
 			<td>Verfügbar ab:</td>
-			<td><%= @apartment.begin_availability %></td>
+			<td><%= @apartment.begin_availability.strftime('%d.%m.%Y') %></td>
 		</tr>
+		<% if @apartment.end_availability %>
 		<tr>
 			<td>Verfügbar bis:</td>
-			<td><%= @apartment.end_availability %></td>
+			<td><%= @apartment.end_availability.strftime('%d.%m.%Y') %></td>
 		</tr>
+		<% end %>
 	</table>	
 	<table>
 		<tr>
@@ -53,32 +81,77 @@
 		<tr>
 			<td>Küche:</td>
 			<td>
-				<%= @apartment.kitchen %>
+				<% if @apartment.kitchen %>
+				<%= "Ja" %>
+				<% else %>
+				<%= "Nein" %>
+				<% end %>
 			</td>
 		</tr>
 		<tr>
 			<td>Möbelierung:</td>
 			<td>
-				<%= @apartment.furniture %>
+				<% if @apartment.furniture %>
+				<%= "Ja" %>
+				<% else %>
+				<%= "Nein" %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<td>Balkon:</td>
+			<td>
+				<% if @apartment.balcony %>
+				<%= "Ja" %>
+				<% else %>
+				<%= "Nein" %>
+				<% end %>
 			</td>
 		</tr>
 		<tr>
 			<td>Terrasse:</td>
 			<td>
-				<%= @apartment.terrace %>
+				<% if @apartment.terrace %>
+				<%= "Ja" %>
+				<% else %>
+				<%= "Nein" %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<td>Garten:</td>
+			<td>
+				<% if @apartment.garden %>
+				<%= "Ja" %>
+				<% else %>
+				<%= "Nein" %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<td>Parkplatz:</td>
+			<td>
+				<% if @apartment.lot %>
+				<%= "Ja" %>
+				<% else %>
+				<%= "Nein" %>
+				<% end %>
 			</td>
 		</tr>
 		<tr>
 			<td>Garage:</td>
 			<td>
-				<%= @apartment.garage %>
+				<% if @apartment.garage %>
+				<%= "Ja" %>
+				<% else %>
+				<%= "Nein" %>
+				<% end %>
 			</td>
 		</tr>
+	<table>
 		<tr>
-			<td>Öffentliche Verkehrsanbindung:</td>
-			<td>
-				<%= @apartment.transport_connection %>
-			</td>
+			<td colspan="2" class="info_headline">Öffentliche Verkehrsanbindung:</td>
+			<td><%= @apartment.transport_connection %></td>
 		</tr>
 	</table>	
 	<table>
@@ -87,8 +160,22 @@
 		</tr>
 		<tr>
 			<td>Preis:</td>
-			<td><%= @apartment.price %> €</td>
+			<td>
+				<%= @apartment.price %> €	
+			</td>
 		</tr>
+		<% if @apartment.leasebuyrent == "vermietet"%>
+		<tr>
+			<td>Warm- oder Kaltmiete:</span></td>
+			<td>
+				<% if @apartment.priceType %>
+				<%= "Warm" %>
+				<% else %>
+				<%= "Kalt" %>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
 	</table>	
 	<table>
 		<tr>

@@ -15,19 +15,17 @@
 <div class="filters">
 	<div>
 		<span>Filter:</span>Anzeigen <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Biete', 't'], ['Suche', 'f']])) %>
-		Filter der nicht funzt <%= select_tag(:type_of_apartment, options_for_select([
+		Immobilienüberlassung <%= select_tag(:type_of_leasebuyrent, options_for_select([
 						['alle', 'alle'],
-						['Garconnieren','Garconnieren'],
-						['Wohungen', 'Wohungen'],
-						['Wohngemeinschaften', 'Wohngemeinschaften'],	
-						['Häuser', 'Häuser'],
-						['Grundstück', 'Grundstück']
+						['Miete','vermietet'],
+						['Kauf', 'verkauft'],
+						['Pacht', 'verpachtet']
                  ]))%>
 	</div>
 	<div>
 		<!-- storing the params to set select-lists via javascript -->
 		<%= hidden_field_tag :filter_value, (params[:filter] or "")  %>
-		<%= hidden_field_tag :type_of_apartment_value, (params[:type_of_apartment] or "")  %>
+		<%= hidden_field_tag :type_of_leasebuyrent_value, (params[:type_of_leasebuyrent] or "")  %>
 	</div>
 </div>
 

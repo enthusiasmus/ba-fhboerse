@@ -46,7 +46,11 @@ class DrivesController < ApplicationController
     @drive = Drive.new(params[:drive])
     @drive.counter = 0
     @drive.user_id = session[:user_id]
-
+    
+    if @drive.departure_city && @drive.destination_city
+      @drive.title = @drive.departure_city + " nach " + @drive.destination_city
+    end
+    
     if @drive.save
       redirect_to @drive, notice: 'Anzeige wurde erfolgreich hinzugefügt!'
     else

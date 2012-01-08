@@ -2,14 +2,19 @@ $(document).ready(function(){
 	$('#filter').change(function() {
 		reloadWithFilter();
 	});
-	$('#type_of_apartment').change(function() {
+	$('#type_of_leasebuyrent').change(function() {
   		reloadWithFilter();
   	});
+  	
+	$('input[name="apartment[leasebuyrent]"]').change(function() {
+		checkLeaseBuyRentStatus();
+	});
 
   	if($("#articles_list ul").text().length < 4)
   		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");  	
   		
   	getSelectedOptions();
+  	checkLeaseBuyRentStatus();
 	
 	$(function(){
 		// Datepicker
@@ -24,9 +29,16 @@ $(document).ready(function(){
 	});
 });
 
+function checkLeaseBuyRentStatus(){
+	if($('input:radio:checked[name="apartment[leasebuyrent]"]').val() == "vermietet")
+		$('.immobilie_lease').show();
+	else
+		$('.immobilie_lease').hide();
+}
+
 function getSelectedOptions(){
 	$("#filter").val($("#filter_value").val());
-	$("#type_of_apartment").val($("#type_of_apartment_value").val());
+	$("#type_of_leasebuyrent").val($("#type_of_leasebuyrent_value").val());
 }
 
 function reloadWithFilter(){
@@ -37,8 +49,8 @@ function reloadWithFilter(){
 		path += sign + "filter=" + $('#filter option:selected').val();
 		sign = "&";
 	}
-	if($('#type_of_apartment option:selected').val() != "alle"){
-		path += sign + "type_of_apartment=" + $('#type_of_apartment option:selected').val();
+	if($('#type_of_leasebuyrent option:selected').val() != "alle"){
+		path += sign + "type_of_leasebuyrent=" + $('#type_of_leasebuyrent option:selected').val();
 	}
 
 	window.location.href = window.location.pathname + path;	

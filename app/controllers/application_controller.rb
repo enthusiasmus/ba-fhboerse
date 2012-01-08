@@ -30,12 +30,16 @@ class ApplicationController < ActionController::Base
   def set_var
     @most_popular_jobs = Job.order("counter DESC").all(:limit => 4)
     @newest_jobs = Job.order("created_at DESC").all(:limit => 4)
+    
     @most_popular_drives = Drive.order("counter DESC").all(:limit => 4)
     @newest_drives = Drive.order("created_at DESC").all(:limit => 4)
+    
     @most_popular_products = Product.order("counter DESC").all(:limit => 4)
     @newest_products = Product.order("created_at DESC").all(:limit => 4)
+    
     @most_popular_apartments = Apartment.order("counter DESC").all(:limit => 4)
     @newest_apartments = Apartment.order("created_at DESC").all(:limit => 4)
+    
     @most_popular_items = Item.order("counter DESC").all(:limit => 4)
     @newest_items = Item.order("created_at DESC").all(:limit => 4)
     

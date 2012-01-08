@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag "datepicker.css" %>
 <%= javascript_include_tag "jquery_ui.js" %>
 
-<h1>Job hinzufügen</h1>
+<h1>Anzeige hinzufügen</h1>
 
 <% if not current_user %>
 	<p>Sie müssen angemeldet sein, um neue Jobs eintragen zu können.</p>
@@ -137,4 +137,4 @@
 		<div id="submit_button"><%= f.submit 'Absenden' %></div>
 	<% end %>
 <% end %>
-<div class="back_to_overview"><%= link_to "Alle Jobs anzeigen", jobs_path %></div>
+<div class="back_to_overview"><%= link_to "Alle Anzeigen", jobs_path %></div>

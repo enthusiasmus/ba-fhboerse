@@ -3,7 +3,7 @@
 <%= javascript_include_tag "jquery_ui.js" %>
 <%= javascript_include_tag "timepicker.js" %>
 
-<h1>Mitfahrgemeinschaft hinzufügen</h1>
+<h1>Anzeige hinzufügen</h1>
 
 <% if not current_user %>
 	<p>Sie müssen angemeldet sein, um neue Gegenstände eintragen zu können.</p>
@@ -34,19 +34,11 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="info_headline">Titel:*</td>
+				<td class="info_headline">Kommentar:</td>
 			</tr>
 			<tr>
-				<td><%= f.text_field :title, :size => 70 %><td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<td class="info_headline">Beschreibung:*</td>
-			</tr>
-			<tr>
-				<td><%= f.text_area :description,
-	                :rows => 10,
+				<td><% f.text_area :description,
+	                :rows => 4,
 	                :cols => 105,
 	                :class => "article_textarea" %></td>
 			</tr>
@@ -56,7 +48,7 @@
 				<td colspan="2" class="info_headline">Details</td>
 			</tr>
 			<tr>
-				<td>Art der Fahrt*</td>
+				<td>Art der Fahrt:*</td>
 				<td>					
 					<% if @drive.type == true %>
 						<%= f.radio_button :type, true %><%= label :type, 'Einfache Fahrt', :value => "true" %>
@@ -145,4 +137,4 @@
 		<div id="submit_button"><%= f.submit 'Absenden' %></div>
 	<% end %>
 <% end %>
-<div class="back_to_overview"><%= link_to "Alle Mitfahrgemeinschaften anzeigen", drives_path %></div>
+<div class="back_to_overview"><%= link_to "Alle Anzeigen", drives_path %></div>

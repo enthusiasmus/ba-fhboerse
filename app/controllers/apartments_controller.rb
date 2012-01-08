@@ -20,9 +20,15 @@ class ApartmentsController < ApplicationController
       condition_composition = " AND "
     end
     
-    if params[:type_of_apartment] != "" && params[:type_of_apartment] != nil
-      condition += condition_composition + "state = '" + params[:type_of_apartment] + "'"
-      add_breadcrumb params[:type_of_apartment], jobs_path + '?service=' + params[:type_of_apartment]
+    if params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
+      condition += condition_composition + "leasebuyrent = '" + params[:type_of_leasebuyrent] + "'" 
+      if params[:type_of_leasebuyrent] == "vermietet"
+        add_breadcrumb "Miete", jobs_path + '?service=' + params[:type_of_leasebuyrent]
+      elsif params[:type_of_leasebuyrent] == "verkauft"
+        add_breadcrumb "Kauf", jobs_path + '?service=' + params[:type_of_leasebuyrent]
+      else params[:type_of_leasebuyrent] == "verpachtet"
+        add_breadcrumb "Pacht", jobs_path + '?service=' + params[:type_of_leasebuyrent]
+      end
     end
   
     if condition != ""

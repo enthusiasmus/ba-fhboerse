@@ -15,7 +15,7 @@
 <div class="filters">
 	<div>
 		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Biete', 't'], ['Suche', 'f']])) %>
-		Zustand: <%= select_tag(:state_product, options_for_select([
+		Zustand <%= select_tag(:state_product, options_for_select([
 						['alle', 'alle'],
 						['originalverpackt','originalverpackt'],
 						['neu', 'neu'],						

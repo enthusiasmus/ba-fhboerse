@@ -34,6 +34,16 @@
 				</td>
 			</tr>
 			<tr>
+				<td>
+					<div id="offer_or_quest_option">
+						<span class="info_headline">Immobilie*</span> soll
+						<%= f.radio_button :leasebuyrent, "vermietet" %><%= f.label :offer_or_quest, 'vermietet' %>
+						<%= f.radio_button :leasebuyrent, "verkauft" %><%= f.label :offer_or_quest, 'verkauft' %>
+						<%= f.radio_button :leasebuyrent, "verpachtet" %><%= f.label :offer_or_quest, 'verpachtet' %> werden
+					</div>
+				</td>
+			</tr>
+			<tr>
 				<td class="info_headline">Titel:*</td>
 			</tr>
 			<tr>
@@ -49,6 +59,28 @@
 	                :rows => 10,
 	                :cols => 105,
 	                :class => "article_textarea" %></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td colspan="2" class="info_headline">Größe:*</td>
+				<td><%= f.text_field :size, :size => 10 %> in m²</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="info_headline">Anzahl der Räume:*</td>
+				<td><%= f.select(:amount_of_rooms, [
+						['1', '1'],						
+						['2', '2'],
+                        ['3', '3'],
+						['4', '4'],
+						['5', '5'],
+						['6', '6'],
+						['7', '7'],
+						['8', '8'],
+						['9', '9'],
+						['10', '10']
+                        ],{ :prompt => "---"}
+                    ) %></td>
 			</tr>
 		</table>
 		<table>
@@ -83,10 +115,31 @@
 				</td>
 			</tr>
 			<tr>
+				<td>Balkon:*</td>
+				<td>
+					<%= f.radio_button :balcony, true %><%= f.label :balcony, 'Ja' %>
+					<%= f.radio_button :balcony, false %><%= f.label :balcony, 'Nein' %>
+				</td>
+			</tr>
+			<tr>
 				<td>Terrasse:*</td>
 				<td>
 					<%= f.radio_button :terrace, true %><%= f.label :terrace, 'Ja' %>
 					<%= f.radio_button :terrace, false %><%= f.label :terrace, 'Nein' %>
+				</td>
+			</tr>
+			<tr>
+				<td>Garten:*</td>
+				<td>
+					<%= f.radio_button :garden, true %><%= f.label :garden, 'Ja' %>
+					<%= f.radio_button :garden, false %><%= f.label :garden, 'Nein' %>
+				</td>
+			</tr>
+			<tr>
+				<td>Parkplatz:*</td>
+				<td>
+					<%= f.radio_button :lot, true %><%= f.label :lot, 'Ja' %>
+					<%= f.radio_button :lot, false %><%= f.label :lot, 'Nein' %>
 				</td>
 			</tr>
 			<tr>
@@ -96,11 +149,16 @@
 					<%= f.radio_button :garage, false %><%= f.label :garage, 'Nein' %>
 				</td>
 			</tr>
+		<table>
 			<tr>
-				<td>Öffentliche Verkehrsanbindung:*</td>
-				<td>
-					<%= f.text_field :transport_connection %>
-				</td>
+				<td colspan="2" class="info_headline">Öffentliche Verkehrsanbindung:*</td>
+			</tr>
+			</tr>
+				<td><%= f.text_area :transport_connection,
+	                :rows => 3,
+	                :cols => 105,
+	                :class => "article_textarea" %>
+	            </td>
 			</tr>
 		</table>	
 		<table>
@@ -109,7 +167,18 @@
 			</tr>
 			<tr>
 				<td>Preis:*</td>
-				<td><%= f.text_field :price, :size => 15 %> in €</td>
+				<td>
+					<%= f.text_field :price, :size => 15 %> in €	
+				</td>
+			</tr>
+			<tr>
+				<td><span class="immobilie_lease">Warm- oder Kaltmiete:*</span></td>
+				<td>
+					<span class="immobilie_lease">
+						<%= f.radio_button :priceType, true %><%= f.label :priceType, 'Warm' %>
+						<%= f.radio_button :priceType, false %><%= f.label :priceType, 'Kalt' %>
+					</span>
+				</td>
 			</tr>
 		</table>	
 		<table>
@@ -161,4 +230,4 @@
 		<div id="submit_button"><%= f.submit 'Absenden' %></div>
 	<% end %>
 <% end %>
-<div class="back_to_overview"><%= link_to "Alle Gegenstände anzeigen", apartments_path %></div>
+<div class="back_to_overview"><%= link_to "Alle Anzeigen", apartments_path %></div>

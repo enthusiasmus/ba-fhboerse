@@ -3,7 +3,7 @@
 <%= javascript_include_tag "jquery_ui.js" %>
 <%= javascript_include_tag "timepicker.js" %>
 
-<h1>Gegenstand hinzufügen</h1>
+<h1>Anzeige hinzufügen</h1>
 
 <% if not current_user %>
 	<p>Sie müssen angemeldet sein, um neue Gegenstände eintragen zu können.</p>
@@ -53,7 +53,7 @@
 		</table>
 		<table>
 			<tr>
-				<td colspan="2" class="info_headline">Details</td>
+				<td colspan="2" class="info_headline" id="post_details">Details</td>
 			</tr>
 			<tr>
 				<td id="arbeitsdetails_td">Ort:*</td>
@@ -92,4 +92,4 @@
 		<div id="submit_button"><%= f.submit 'Absenden' %></div>
 	<% end %>
 <% end %>
-<div class="back_to_overview"><%= link_to "Alle Gegenstände anzeigen", items_path %></div>
+<div class="back_to_overview"><%= link_to "Alle Anzeigen", items_path %></div>

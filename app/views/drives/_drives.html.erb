@@ -5,9 +5,9 @@
 				<li class="offer_or_quest_<%= drive.offer_or_quest%>">
 					<div class="title">
 							<% if drive.offer_or_quest == false %>
-								Fahre:
+								Suche:
 							<% else %>
-								Gefunden:
+								Fahre:
 							<% end %>
 							<%= truncate(drive.title, :length => 60) %>
 					</div>
