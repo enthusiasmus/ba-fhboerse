@@ -1,0 +1,175 @@
+<% title "Startseite" %>
+
+<% if @my_articles.count > 0 %>
+<div class="articles_list">
+	<h2>Von mir inserierte Anzeigen</h2>
+	<ul>
+		<% @my_articles.each do |article| %>
+			<a href="<%= url_for(article) %>">
+				<li class="offer_or_quest_<%= article.offer_or_quest%>">
+					<div class="title">
+						<% if article.offer_or_quest == false %>
+							Suche:
+						<% else %>
+							Fahre:
+						<% end %>
+						<%= truncate(article.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(article.description, :length => 160) %>
+					</div>
+					<div>
+						<%= article.user.title%> <%= truncate(article.user.lastname, :length => 60) %> am
+						<%= article.created_at.strftime("%d.%m.%Y, %H:%M") %>
+					</div>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<% if @most_popular_jobs.count > 0 %>
+<div class="articles_list">
+	<h2>Jobs</h2>
+	<ul>
+		<% @most_popular_jobs.each do |job| %>
+			<a href="<%= url_for(job) %>">
+				<li class="offer_or_quest_<%= job.offer_or_quest%>">
+					<div class="title">
+						<% if job.offer_or_quest == false %>
+							Suche:
+						<% else %>
+							Fahre:
+						<% end %>
+						<%= truncate(job.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(job.description, :length => 160) %>
+					</div>
+					<div>
+						<%= job.user.title%> <%= truncate(job.user.lastname, :length => 60) %> am
+						<%= job.created_at.strftime("%d.%m.%Y, %H:%M") %>
+					</div>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<% if @most_popular_drives.count > 0 %>
+<div class="articles_list">
+	<h2>Mitfahrgemeinschaften</h2>
+	<ul>
+		<% @most_popular_drives.each do |drive| %>
+			<a href="<%= url_for(drive) %>">
+				<li class="offer_or_quest_<%= drive.offer_or_quest%>">
+					<div class="title">
+						<% if drive.offer_or_quest == false %>
+							Suche:
+						<% else %>
+							Fahre:
+						<% end %>
+						<%= truncate(drive.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(drive.description, :length => 160) %>
+					</div>
+					<div>
+						<%= drive.user.title%> <%= truncate(drive.user.lastname, :length => 60) %> am
+						<%= drive.created_at.strftime("%d.%m.%Y, %H:%M") %>
+					</div>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<% if @most_popular_products.count > 0 %>
+<div class="articles_list">
+	<h2>Marktplatz</h2>
+	<ul>
+		<% @most_popular_products.each do |product| %>
+			<a href="<%= url_for(product) %>">
+				<li class="offer_or_quest_<%= product.offer_or_quest%>">
+					<div class="title">
+						<% if product.offer_or_quest == false %>
+							Suche:
+						<% else %>
+							Fahre:
+						<% end %>
+						<%= truncate(product.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(product.description, :length => 160) %>
+					</div>
+					<div>
+						<%= product.user.title%> <%= truncate(product.user.lastname, :length => 60) %> am
+						<%= product.created_at.strftime("%d.%m.%Y, %H:%M") %>
+					</div>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<% if @most_popular_apartments.count > 0 %>
+<div class="articles_list">
+	<h2>Marktplatz</h2>
+	<ul>
+		<% @most_popular_apartments.each do |apartment| %>
+			<a href="<%= url_for(apartment) %>">
+				<li class="offer_or_quest_<%= apartment.offer_or_quest%>">
+					<div class="title">
+						<% if apartment.offer_or_quest == false %>
+							Suche:
+						<% else %>
+							Fahre:
+						<% end %>
+						<%= truncate(apartment.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(apartment.description, :length => 160) %>
+					</div>
+					<div>
+						<%= apartment.user.title%> <%= truncate(apartment.user.lastname, :length => 60) %> am
+						<%= apartment.created_at.strftime("%d.%m.%Y, %H:%M") %>
+					</div>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<% if @most_popular_items.count > 0 %>
+<div class="articles_list">
+	<h2>Marktplatz</h2>
+	<ul>
+		<% @most_popular_items.each do |item| %>
+			<a href="<%= url_for(item) %>">
+				<li class="offer_or_quest_<%= item.offer_or_quest%>">
+					<div class="title">
+						<% if item.offer_or_quest == false %>
+							Suche:
+						<% else %>
+							Fahre:
+						<% end %>
+						<%= truncate(item.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(item.description, :length => 160) %>
+					</div>
+					<div>
+						<%= item.user.title%> <%= truncate(item.user.lastname, :length => 60) %> am
+						<%= item.created_at.strftime("%d.%m.%Y, %H:%M") %>
+					</div>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+<% end %>

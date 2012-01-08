@@ -33,8 +33,7 @@ class UsersController < ApplicationController
     
     if @user.update_attributes(params[:user])
       @user.update_attribute(:complete, true) if not @user.complete
-      flash[:notice] = "Das Profil wurde erfolgreich bearbeitet!"
-      redirect_to :action => "edit"
+      redirect_to root_url, :notice => "Das Profil wurde erfolgreich bearbeitet!"
     else
       render action: "edit"
     end
