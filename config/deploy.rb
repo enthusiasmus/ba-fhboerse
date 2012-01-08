@@ -44,4 +44,4 @@ load 'deploy/assets'
 after "deploy:update_code", "deploy:copy_config"
 
 #updating the crontab commands
-#after "deploy:symlink", "deploy:update_crontab"
+after "deploy:copy_config", "deploy:update_crontab"
