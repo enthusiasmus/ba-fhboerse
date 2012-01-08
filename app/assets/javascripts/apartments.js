@@ -9,6 +9,13 @@ $(document).ready(function(){
   	if($("#articles_list ul").text().length < 4)
   		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");  	
   		
+	$('#apartment_photo').change(function() {
+  		$('.photo_two').show();
+  	});
+	$('#apartment_photo_two').change(function() {
+  		$('.photo_three').show();
+  	});
+  		
   	getSelectedOptions();
 	
 	$(function(){
@@ -22,6 +29,9 @@ $(document).ready(function(){
 			dateFormat: 'dd.mm.yy'
 		});
 	});
+	
+	$('.photo_two').hide();
+	$('.photo_three').hide();
 });
 
 function getSelectedOptions(){

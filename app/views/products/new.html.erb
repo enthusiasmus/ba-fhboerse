@@ -56,8 +56,16 @@
 				<td class="info_headline">Gallery</td>
 			</tr>
 			<tr>
-				<td id="arbeitsdetails_td">Foto:</td>
+				<td id="arbeitsdetails_td">Foto hinzufügen:</td>
 				<td><%= f.file_field :photo %></td>
+			</tr>
+			<tr>
+				<td id="arbeitsdetails_td"><span class="photo_two">Foto hinzufügen:</span></td>
+				<td><span class="photo_two"><%= f.file_field :photo_two %></span></td>
+			</tr>
+			<tr>
+				<td id="arbeitsdetails_td"><span class="photo_three">Foto hinzufügen:</span></td>
+				<td><span class="photo_three"><%= f.file_field :photo_three %></span></td>
 			</tr>
 		</table>
 		<table>

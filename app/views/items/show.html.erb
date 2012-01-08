@@ -46,7 +46,29 @@
 			<td>Datum und Uhrzeit:</td>
 			<td><%= @item.time.strftime('%d.%m.%Y um %H:%M')%></td>
 		</tr>
+	</table>
+	<% if @item.photo.file? %>
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Gallery</td>
+		</tr>
+		<tr>
+			<td>
+				<%= link_to image_tag(@item.photo.url(:small)), @item.photo.url(:original) %>
+			</td>
+			<% if @item.photo_two.file? %>
+				<td>
+					<%= link_to image_tag(@item.photo_two.url(:small)), @item.photo_two.url(:original) %>
+				</td>
+			<% end %>
+			<% if @item.photo_three.file? %>
+				<td>
+					<%= link_to image_tag(@item.photo_three.url(:small)), @item.photo_three.url(:original) %>
+				</td>
+			<% end %>
+		</tr>
 	</table>	
+	<% end %>
 	<table>
 		<tr>
 			<td colspan="2" class="info_headline">Ansprechpartner</td>

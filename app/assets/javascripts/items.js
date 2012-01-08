@@ -6,6 +6,13 @@ $(document).ready(function(){
   	if($("#articles_list ul").text().length < 4)
   		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");  	
   		
+	$('#item_photo').change(function() {
+  		$('.photo_two').show();
+  	});
+	$('#item_photo_two').change(function() {
+  		$('.photo_three').show();
+  	});
+  		
   	getSelectedOptions();
 	
 	$(function(){
@@ -24,6 +31,9 @@ $(document).ready(function(){
 		$.timepicker.setDefaults($.timepicker.regional['de']);
 		$('#item_time').timepicker();
 	});
+	
+	$('.photo_two').hide();
+	$('.photo_three').hide();
 });
 
 function getSelectedOptions(){

@@ -1,11 +1,26 @@
 # coding: UTF-8
+require 'paperclip'
 
 class Product < ActiveRecord::Base
   belongs_to :user
-  has_attached_file :photo, :styles => { :small => "150x150>" },
+  
+  has_attached_file :photo, :styles => { :small => "100x100>", :original => "400x400>" },
                     :url  => "/assets/products/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"  
-  attr_accessible :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :counter, :agb, :price, :state, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest
+  has_attached_file :photo_two, :styles => { :small => "100x100>", :original => "400x400>" },
+                    :url  => "/assets/products/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"  
+  has_attached_file :photo_three, :styles => { :small => "100x100>", :original => "400x400>" },
+                    :url  => "/assets/products/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"  
+                    
+  attr_accessible :photo, :photo_two, :photo_three, :counter, :agb, :price, :state, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest
+
+  validates_attachment_size :photo_two, :less_than => 5.megabytes, :message => "^Bitte uploaden Sie nur Fotos < 5MB!", :if => :photo_added?
+  validates_attachment_content_type :photo_two, :content_type => ['image/jpeg', 'image/png'], :message => "^Bitte uploaden Sie nur JPGs und PNGs!", :if => :photo_added?
+
+  validates_attachment_size :photo_one, :less_than => 5.megabytes, :message => "^Bitte uploaden Sie nur Fotos < 5MB!", :if => :photo_added?
+  validates_attachment_content_type :photo_one, :content_type => ['image/jpeg', 'image/png'], :message => "^Bitte uploaden Sie nur JPGs und PNGs!", :if => :photo_added?
 
   validates_attachment_size :photo, :less_than => 5.megabytes, :message => "^Bitte uploaden Sie nur Fotos < 5MB!", :if => :photo_added?
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png'], :message => "^Bitte uploaden Sie nur JPGs und PNGs!", :if => :photo_added?
@@ -22,7 +37,14 @@ class Product < ActiveRecord::Base
   validates_numericality_of :telephone, :message => "^Bitte geben Sie Ihre Telefonnummer an (Ziffern von 0-9)!"
 
   validates_acceptance_of :agb, :accept => "1", :allow_nil => false, :message => "^Bitte akzeptieren Sie die AGB!"
+  
   def photo_added?
     photo == true
+  end
+  def photo_two_added?
+    photo_two == true
+  end
+  def photo_three_added?
+    photo_three == true
   end
 end

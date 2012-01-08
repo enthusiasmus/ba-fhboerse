@@ -5,6 +5,13 @@ $(document).ready(function(){
 	$('#state_product').change(function() {
   		reloadWithFilter();
   	});
+  	
+	$('#product_photo').change(function() {
+  		$('.photo_two').show();
+  	});
+	$('#product_photo_two').change(function() {
+  		$('.photo_three').show();
+  	});
 
   	if($("#articles_list ul").text().length < 4)
   		$("#articles_list ul").html("<li>Keine gesuchten Anzeigen vorhanden.</li>");  	
@@ -27,6 +34,9 @@ $(document).ready(function(){
 		$.timepicker.setDefaults($.timepicker.regional['de']);
 		$('#item_time').timepicker();
 	});
+	
+	$('.photo_two').hide();
+	$('.photo_three').hide();
 });
 
 function getSelectedOptions(){
