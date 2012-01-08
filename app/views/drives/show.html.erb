@@ -33,7 +33,68 @@
 			<td><%= @drive.description %></td>
 		</tr>
 	</table>
-	
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Art der Fahrt</td>
+		</tr>
+		<tr>
+			<td>Art der Fahrt:</td> 
+			<td><% if @drive.type == true %>Ich fahre<% else %> Ich suche<% end %></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="info_headline">Abfahrt</td>
+		</tr>
+		<% if @drive.departure_street %>
+		<tr>
+			<td>Straße:</td> 
+			<td><%= @drive.departure_street %></td>
+		</tr>
+		<% end %>
+		<% if @drive.departure_zipcode %>
+		<tr>
+			<td>PLZ:</td> 
+			<td><%= @drive.departure_zipcode %></td>
+		</tr>
+		<% end %>
+		<tr>
+			<td>Ort:</td> 
+			<td><%= @drive.departure_city %></td>
+		</tr>
+		<tr>
+			<td>Land:</td> 
+			<td><%= @drive.departure_country %></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="info_headline">Ankunft</td>
+		</tr>
+		<% if @drive.destination_street %>
+		<tr>
+			<td>Straße:</td> 
+			<td><%= @drive.destination_street %></td>
+		</tr>
+		<% end %>
+		<% if @drive.destination_zipcode %>
+		<tr>
+			<td>PLZ:</td> 
+			<td><%= @drive.destination_zipcode %></td>
+		</tr>
+		<% end %>
+		<tr>
+			<td>Ort:</td> 
+			<td><%= @drive.destination_city %></td>
+		</tr>
+		<tr>
+			<td>Land:</td> 
+			<td><%= @drive.destination_country %></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="info_headline">Zeitpunkt der Rückfahrt</td>
+		</tr>
+		<tr>
+			<td>Zeitpunkt:</td> 
+			<td><%= @drive.departure_date.strftime('%d.%m.%Y um %H:%M') %></td>
+		</tr>
+	</table>
 	<table>
 		<tr>
 			<td colspan="2" class="info_headline">Ansprechpartner</td>

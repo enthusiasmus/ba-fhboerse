@@ -1,4 +1,14 @@
-$(document).ready(function(){	
+$(document).ready(function(){
+	if($("input:radio:checked[name='drive[type]']").val() == "true")
+		$(".return").hide();
+	
+    $("#drive_type_true").click(function() {
+		$(".return").hide(350);
+	});
+    $("#drive_type_false").click(function() {
+		$(".return").show(350);
+	});
+	
 	$('#filter').change(function() {
 		reloadWithFilter();
 	});
@@ -22,7 +32,8 @@ $(document).ready(function(){
 		  ampm: false
 		};
 		$.timepicker.setDefaults($.timepicker.regional['de']);
-		$('#drive_time').timepicker();
+		$('#drive_departure_date').timepicker();
+		$('#drive_destination_date').timepicker();
 	});
 });
 

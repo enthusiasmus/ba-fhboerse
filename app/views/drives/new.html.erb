@@ -53,6 +53,72 @@
 		</table>
 		<table>
 			<tr>
+				<td colspan="2" class="info_headline">Details</td>
+			</tr>
+			<tr>
+				<td>Art der Fahrt*</td>
+				<td>					
+					<% if @drive.type == true %>
+						<%= f.radio_button :type, true %><%= label :type, 'Einfache Fahrt', :value => "true" %>
+						<%= f.radio_button :type, false, :checked => true %><%= label :type, 'Hin- & Rückfahrt', :value => "false" %>
+					<% else %>
+						<%= f.radio_button :type, true, :checked => true %><%= label :type, 'Einfache Fahrt', :value => "true" %>
+						<%= f.radio_button :type, false %><%= label :type, 'Hin- & Rückfahrt', :value => "false"%>
+					<% end %>
+				</td>
+			</tr>
+			<tr>
+				<td><h4>Abfahrt</h4></td>
+			</tr>
+			<tr>
+				<td>Straße:</td> 
+				<td><%= f.text_field :departure_street %></td>
+			</tr>
+			<tr>
+				<td>PLZ:</td> 
+				<td><%= f.text_field :departure_zipcode %></td>
+			</tr>
+			<tr>
+				<td>Ort:*</td> 
+				<td><%= f.text_field :departure_city %></td>
+			</tr>
+			<tr>
+				<td>Land:*</td> 
+				<td><%= f.text_field :departure_country %></td>
+			</tr>
+			<tr>
+				<td>Zeitpunkt:*</td>
+				<td><%= f.text_field :departure_date, :readonly => 'true' %></td>
+			</tr>
+			<tr>
+				<td><h4>Ankunft</h4></td>
+			</tr>
+			<tr>
+				<td>Straße:</td> 
+				<td><%= f.text_field :destination_street %></td>
+			</tr>
+			<tr>
+				<td>PLZ:</td> 
+				<td><%= f.text_field :destination_zipcode %></td>
+			</tr>
+			<tr>
+				<td>Ort:*</td> 
+				<td><%= f.text_field :destination_city %></td>
+			</tr>
+			<tr>
+				<td>Land:*</td> 
+				<td><%= f.text_field :destination_country %></td>
+			</tr>
+			<tr class="return">
+				<td><h4>Rückreise</h4></td>
+			</tr>
+			<tr class="return">
+				<td>Rückreisedatum:</td>
+				<td><%= f.text_field :destination_date, :readonly => 'true' %></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
 				<td colspan="2" class="info_headline">Ansprechpartner</td>
 			</tr>
 			<tr>
