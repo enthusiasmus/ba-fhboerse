@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    add_breadcrumb 'Neue Anzeige hinzufügen', new_item_path
+    add_breadcrumb 'Anzeige hinzufügen', new_item_path
   end
 
   def create
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
     @item.user_id = session[:user_id]
 
     if @item.save
-      redirect_to @item, notice: 'Gegenstand wurde erfolgreich hinzugefügt!'
+      redirect_to @item, notice: 'Anzeige wurde erfolgreich hinzugefügt!'
     else
       render action: "new"
     end

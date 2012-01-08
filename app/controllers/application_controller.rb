@@ -45,7 +45,5 @@ class ApplicationController < ActionController::Base
     @newest_articles = (
       @newest_jobs + @newest_drives + @newest_products + @newest_apartments + @newest_items
     ).sort_by(&:created_at).reverse![0..3]
-    
-    #oder Job.(:include => :items).where()
   end
 end

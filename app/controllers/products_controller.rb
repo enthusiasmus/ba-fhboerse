@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
     @product.user_id = session[:user_id]
 
     if @product.save
-      redirect_to @product, notice: 'Produkt wurde erfolgreich hinzugefügt!'
+      redirect_to @product, notice: 'Anzeige wurde erfolgreich hinzugefügt!'
     else
       render action: "new"
     end

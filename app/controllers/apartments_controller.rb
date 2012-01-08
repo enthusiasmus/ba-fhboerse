@@ -57,7 +57,7 @@ class ApartmentsController < ApplicationController
     @apartment.user_id = session[:user_id]
 
     if @apartment.save
-      redirect_to @apartment, notice: 'Produkt wurde erfolgreich hinzugefügt!'
+      redirect_to @apartment, notice: 'Anzeige wurde erfolgreich hinzugefügt!'
     else
       render action: "new"
     end

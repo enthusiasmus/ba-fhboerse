@@ -39,7 +39,7 @@ class DrivesController < ApplicationController
 
   def new
     @drive = Drive.new
-    add_breadcrumb 'Neue Anzeige hinzufügen', new_drife_path
+    add_breadcrumb 'Anzeige hinzufügen', new_drife_path
   end
 
   def create
@@ -48,7 +48,7 @@ class DrivesController < ApplicationController
     @drive.user_id = session[:user_id]
 
     if @drive.save
-      redirect_to @drive, notice: 'Mitfahrgemeinschaft wurde erfolgreich hinzugefügt'
+      redirect_to @drive, notice: 'Anzeige wurde erfolgreich hinzugefügt!'
     else
       render action: "new"
     end

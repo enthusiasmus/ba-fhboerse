@@ -52,7 +52,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
-    add_breadcrumb 'Neue Anzeige hinzufügen', new_job_path
+    add_breadcrumb 'Anzeige hinzufügen', new_job_path
   end
 
   def create
@@ -61,7 +61,7 @@ class JobsController < ApplicationController
     @job.user_id = session[:user_id]
 
     if @job.save
-      redirect_to @job, notice: 'Job wurde erfolgreich hinzugefügt'
+      redirect_to @job, notice: 'Anzeige wurde erfolgreich hinzugefügt!'
     else
       render action: "new"
     end

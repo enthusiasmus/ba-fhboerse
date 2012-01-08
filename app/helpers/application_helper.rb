@@ -17,4 +17,8 @@ module ApplicationHelper
   def is_active?(controller_name)
     "active" if params[:controller] == controller_name
   end
+  
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
 end
