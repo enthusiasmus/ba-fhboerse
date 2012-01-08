@@ -1,9 +1,9 @@
 <% title "Fundgrube" %>
 <% javascript_include_tag "jquery-ba-url-min", "pagination" %>
 
-<div class="subcategorie_head">
+<div class="maincategorie_head">
 	<div>
-		Alle Gegenstände:
+		Alle Anzeigen:
 	</div>
 	<div>
 		<a href="<%= new_item_path %>">
@@ -11,6 +11,8 @@
 			<%= link_to 'Anzeige hinzufügen', new_item_path %>
 		</a>
 	</div>
+</div>
+<div class="filters">
 	<div>
 		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Gefunden', 't'], ['Suche', 'f']])) %>
 	</div>

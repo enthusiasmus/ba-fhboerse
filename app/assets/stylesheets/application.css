@@ -12,9 +12,8 @@ img{border:none;}
 a,#browser_id button{-moz-transition-property:color;-moz-transition-duration:.5s;-moz-transition-timing-function:ease;-webkit-transition-property:color;-webkit-transition-duration:.5s;-o-transition-property:color;-o-transition-duration:.5s;color:#6a6a6a;}
 a:hover,a.active,#browser_id:hover button{color:#a10b2f;}
 h1{font-size:16px;}
-#mainWrapper{margin:0 auto;width:1000px;}
+#mainWrapper{margin:0 auto;width:950px;}
 #logo{float:left;background:url('/images/logo.png') no-repeat;width:274px;height:107px;-moz-transition-property:background;-moz-transition-duration:.5s;-moz-transition-timing-function:ease;-webkit-transition-property:background;-webkit-transition-duration:.5s;-o-transition-property:background;-o-transition-duration:.5s;}
-#logo:hover{background-position:0 -107px;}
 #logo a{display:block;width:100%;height:100%;}
 .button{float:right;margin-left:5px;background:url('/images/loginbutton.png') no-repeat;margin-top:40px;padding-top:7px;width:87px;height:23px;cursor:pointer;text-align:center;text-shadow:1px 2px 1px #fff;}
 .button:hover{background-position:0 -30px;}
@@ -34,7 +33,7 @@ h1{font-size:16px;}
 #breadcrumbs li a{height:50px;display:block;background:url('/images/breadcrumbs_arrow.png');background-repeat:no-repeat;background-position:right;padding:0 30px 0 10px;text-decoration: none;color:#aeaeae;}
 #breadcrumbs li a:hover{color:#a10b2f;}
 #mainContainer{clear:both;float:left;width:650px;}
-#sidebar{float:right;width:300px;}
+#sidebar{float:right;width:250px;}
 #footer{float:right;margin-right:-30px;margin-bottom:10px;}
 #notice{background:#83C899;color:#fff;text-align:center;}
 .closeIcon{float:right;background:url('/images/close.png') no-repeat;cursor:pointer;width:16px;height:16px;}
@@ -46,3 +45,199 @@ h1{font-size:16px;}
 .listItem a:hover .subject{color:#a10b2f;}
 .listItem .subject{font-weight:bold;color:#000;}
 .listItem .date{font-size:10px;}
+
+/* Place all the styles related to the Items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+############################################################################# 
+#  Here starts the css code for the index/new/show views of all controllers #
+#############################################################################  
+*/
+
+#article_head{
+  margin-bottom:50px;
+}
+
+#article_head div:nth-child(1){
+  float:left;
+}
+#article_head div:nth-child(2){
+  float:right;
+  margin:12px 10px 0px 0px;
+}
+#article_head div:nth-child(3){
+  float:right;
+  margin:12px 10px 0px 0px;
+}
+
+#offer_or_quest_option{
+  width:620px;
+  margin-bottom: 20px;
+}
+
+#notice_for_form{
+  margin:15px 0px 20px 12px;
+}
+
+.full_messages{
+  color:#550000;
+}
+
+#fail_headline{
+  font-size:15px;
+  color:#550000;
+  font-weight:bold;
+  margin-left: 10px;
+}
+
+#agb_agreement{
+  margin: 5px 0px 0px 0px;
+  text-align:center;
+}
+
+.field_with_errors{
+  //background:#FFBBBB;
+  display:inline;
+}
+
+.back_to_overview{
+  float:right;
+  margin: -15px 0px 10px 0px;
+}
+
+#submit_button{
+  text-align:center;
+  margin: 20px 0px 30px 0px;
+}
+
+#arbeitsdetails_td{
+  width: 115px;
+}
+
+#ansprechpartner_td{
+  width: 80px;
+}
+
+.info_headline{
+  font-weight: bold;
+  font-size: 13px;
+  padding: 0px 0px 5px 0px;
+}
+
+.pagination{
+  text-align:center;
+}
+
+.pagination a, .pagination span, .pagination em{
+  margin: 0px 2px 0px 2px;
+}
+
+.maincategorie_head{
+  margin-bottom:15px;
+}
+
+.maincategorie_head div:first-child{
+  font-size:16px;
+  font-weight:bold;
+  float:left;
+}
+
+.maincategorie_head div:nth-child(2){
+  float:right;
+  padding-right:20px;
+}
+
+.maincategorie_head div:nth-child(2) div{
+  margin: -2px 5px 0px 0px;
+  width: 24px;
+  height: 24px;
+  background: url(/images/add.png);
+}
+
+.maincategorie_head div:nth-child(2) div:hover{
+  background: url(/images/add_hover.png);
+}
+
+.filters{
+  margin: 40px 0px 80px 15px;
+}
+
+.filters div{
+  float:left;
+}
+
+.filters div > span{
+  font-weight: bold;
+  padding-right: 10px;
+  font-size: 13px;
+}
+
+.filters div > select{
+  margin-right: 20px;
+}
+
+table{
+  margin: 10px; 
+  table-layout: fixed;
+}
+
+.table_fix_width{
+  width:620px;
+}
+
+#articles_list ul{
+  list-style: none;
+  padding: 0px 15px 0px 15px;
+}
+
+#articles_list ul a{
+  font-weight:normal;
+  text-decoration:none;
+}
+
+#articles_list ul a li{
+  margin: 15px 0px 10px 0px;
+  padding: 6px;
+  box-shadow: 0px 0px 3px rgb(128, 128, 128);
+  border: #fff 2px solid;
+  -moz-transition-property: all;
+  -moz-transition-duration: 250ms;
+  -moz-transition-timing-function: ease-in-out;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 250ms;
+  -webkit-transition-timing-function: ease-in-out;
+  -o-transition-property: all;
+  -o-transition-duration: 250ms;
+  -o-transition-timing-function: ease-in-out;
+}
+
+/*Coloring the quests*/
+.offer_or_quest_false{
+  border: #bdb7b8 solid 1px;
+}
+
+/*Coloring the offers*/
+.offer_or_quest_true{
+  border: #f96789 solid 1px;
+}
+
+#articles_list ul a li:hover{
+  background: #f5f2f3;
+  border: #A0092D 2px solid;
+}
+
+#articles_list ul a li div{
+  color:#6A6A6A;
+  font-weight:bold;
+}
+
+.title{
+  font-size:14px;
+}
+
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }

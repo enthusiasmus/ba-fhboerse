@@ -1,7 +1,7 @@
 <% title "Wohnungsbörse" %>
 <% javascript_include_tag "jquery-ba-url-min", "pagination" %>
 
-<div class="subcategorie_head">
+<div class="maincategorie_head">
 	<div>
 		Alle Anzeigen:
 	</div>
@@ -11,8 +11,10 @@
 			<%= link_to 'Anzeige hinzufügen', new_apartment_path %>
 		</a>
 	</div>
+</div>
+<div class="filters">
 	<div>
-		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Biete', 't'], ['Suche', 'f']])) %>
+		<span>Filter:</span>Anzeigen <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Biete', 't'], ['Suche', 'f']])) %>
 		Filter der nicht funzt <%= select_tag(:type_of_apartment, options_for_select([
 						['alle', 'alle'],
 						['Garconnieren','Garconnieren'],

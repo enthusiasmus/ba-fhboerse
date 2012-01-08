@@ -1,9 +1,9 @@
 <% content_for :title, "Jobbörse" %>
 <% javascript_include_tag "jquery-ba-url-min", "pagination" %>
 
-<div class="subcategorie_head">
+<div class="maincategorie_head">
 	<div>
-		Alle Jobs:
+		Alle Anzeigen:
 	</div>
 	<div>
 		<a href="<%= new_job_path %>">
@@ -11,6 +11,8 @@
 			<%= link_to 'Anzeige hinzufügen', new_job_path %>
 		</a>
 	</div>
+</div>
+<div class="filters">
 	<div>
 		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Biete', 't'], ['Suche', 'f']])) %>
 		Dienstverhältnis <%= select_tag(:service, options_for_select([
