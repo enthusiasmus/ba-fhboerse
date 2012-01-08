@@ -33,9 +33,7 @@ class JobsController < ApplicationController
       @jobs = Job.where(condition).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    end
-    
-    
+    end 
   end
 
   def show
@@ -49,7 +47,7 @@ class JobsController < ApplicationController
     add_breadcrumb @job.title, job_path
     
     @job.counter += 1;
-    @job.update_attribute(:counter,@job.counter)
+    @job.update_attribute(:counter, @job.counter)
   end
 
   def new

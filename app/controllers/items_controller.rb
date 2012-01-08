@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
     add_breadcrumb @item.title, item_path
     
     @item.counter += 1;
-    @item.update_attribute(:counter,@item.counter)
+    @item.update_attribute(:counter, @item.counter)
   end
 
   def new

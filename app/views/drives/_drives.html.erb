@@ -1,0 +1,27 @@
+<div id="articles_list">
+	<ul>
+		<% @drives.each do |drive| %>
+			<a href="<%= url_for(drive) %>">
+				<li class="offer_or_quest_<%= drive.offer_or_quest%>">
+					<div class="title">
+							<% if drive.offer_or_quest == false %>
+								Fahre:
+							<% else %>
+								Gefunden:
+							<% end %>
+							<%= truncate(drive.title, :length => 60) %>
+					</div>
+					<div>
+						<%= truncate(drive.description, :length => 160) %>
+					</div>
+					<div>
+						<%= drive.user.title%> <%= truncate(drive.user.lastname, :length => 60) %> am
+						<%= drive.created_at.strftime("%d.%m.%Y, %H:%M") %>
+					</div>
+				</li>
+			</a>
+		<% end %>
+	</ul>
+</div>
+
+<%= will_paginate @drives, :previous_label => '&laquo; Zurück', :next_label => 'Vor &raquo;' %>

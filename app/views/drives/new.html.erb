@@ -3,32 +3,32 @@
 <%= javascript_include_tag "jquery_ui.js" %>
 <%= javascript_include_tag "timepicker.js" %>
 
-<h1>Gegenstand hinzufügen</h1>
+<h1>Mitfahrgemeinschaft hinzufügen</h1>
 
 <% if not current_user %>
 	<p>Sie müssen angemeldet sein, um neue Gegenstände eintragen zu können.</p>
 <% elsif current_user and not current_user.complete %>
 	<p>Bitte füllen Sie zuerst Ihr <%= link_to "Profil", profile_path %> vollständig aus.</p>
 <% else %>
-	<%= form_for(@item) do |f| %>
+	<%= form_for(@drive) do |f| %>
 
-		<% if @item.errors.any? %>
+		<% if @drive.errors.any? %>
 		<span id="fail_headline">Fehler:</span>
 		<ul>
-		  <% @item.errors.full_messages.each do |message| %>
+		  <% @drive.errors.full_messages.each do |message| %>
 			<li class="full_messages"><%= message %></li>
 		  <% end %>
 		</ul>
 		<% end %>
 		
-		<%= @item.offer_or_quest %>
+		<%= @drive.offer_or_quest %>
 		
 		<table>
 			<tr>
 				<td>
 					<div id="offer_or_quest_option">
 						<span class="info_headline">Anzeige*</span> als
-						<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Gefunden' %>
+						<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Fahre' %>
 						<%= f.radio_button :offer_or_quest, false %><%= f.label :offer_or_quest, 'Suche' %>
 					</div>
 				</td>
@@ -51,19 +51,6 @@
 	                :class => "article_textarea" %></td>
 			</tr>
 		</table>
-		<table>
-			<tr>
-				<td colspan="2" class="info_headline">Details</td>
-			</tr>
-			<tr>
-				<td id="arbeitsdetails_td">Ort:*</td>
-				<td><%= f.text_field :place %></td>
-			</tr>
-			<tr>
-				<td>Datum und Uhrzeit:*</td>
-				<td><%= f.text_field :time, :readonly => 'true' %></td>
-			</tr>
-		</table>	
 		<table>
 			<tr>
 				<td colspan="2" class="info_headline">Ansprechpartner</td>
@@ -92,4 +79,4 @@
 		<div id="submit_button"><%= f.submit 'Absenden' %></div>
 	<% end %>
 <% end %>
-<div class="back_to_overview"><%= link_to "Alle Gegenstände anzeigen", items_path %></div>
+<div class="back_to_overview"><%= link_to "Alle Mitfahrgemeinschaften anzeigen", drives_path %></div>

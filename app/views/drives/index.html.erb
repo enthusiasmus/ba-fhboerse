@@ -1,0 +1,25 @@
+<% content_for :title, "Mitfahrgemeinschaften" %>
+<% javascript_include_tag "jquery-ba-url-min", "pagination" %>
+
+<div class="subcategorie_head">
+	<div>
+		Alle Mitfahrgemeinschaften:
+	</div>
+	<div>
+		<a href="<%= new_drife_path %>">
+			<div></div>
+			<%= link_to 'Anzeige hinzufügen', new_drife_path %>
+		</a>
+	</div>
+	<div>
+		<span>Filter:</span>Anzeige <%= select_tag(:filter, options_for_select([['alle', 'alle'], ['Fahre', 't'], ['Suche', 'f']])) %>
+	</div>
+	<div>
+		<!-- storing the params to set select-lists via javascript -->
+		<%= hidden_field_tag :filter_value, (params[:filter] or "")  %>
+	</div>
+</div>
+
+<div id="drives">
+	<%= render :partial => 'drives' %>
+</div>

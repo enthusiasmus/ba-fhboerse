@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
     add_breadcrumb @product.title, product_path
     
     @product.counter += 1;
-    @product.update_attribute(:counter,@product.counter)
+    @product.update_attribute(:counter, @product.counter)
   end
 
   def new
