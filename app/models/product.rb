@@ -2,8 +2,13 @@
 
 class Product < ActiveRecord::Base
   belongs_to :user
-  has_attached_file :photo
+  has_attached_file :photo, :styles => { :small => "150x150>" },
+                    :url  => "/assets/products/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"  
   attr_accessible :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :counter, :agb, :price, :state, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest
+
+  validates_attachment_size :photo, :less_than => 5.megabytes, :message => "^Bitte uploaden Sie nur Fotos < 5MB!", :if => :photo_added?
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png'], :message => "^Bitte uploaden Sie nur JPGs und PNGs!", :if => :photo_added?
 
   validates_inclusion_of :offer_or_quest, :in => [true, false], :message => "^Bitte geben Sie den Typ der Anzeige an!"
   
@@ -17,4 +22,7 @@ class Product < ActiveRecord::Base
   validates_numericality_of :telephone, :message => "^Bitte geben Sie Ihre Telefonnummer an (Ziffern von 0-9)!"
 
   validates_acceptance_of :agb, :accept => "1", :allow_nil => false, :message => "^Bitte akzeptieren Sie die AGB!"
+  def photo_added?
+    photo == true
+  end
 end
