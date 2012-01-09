@@ -39,9 +39,6 @@ end
 
 require "bundler/capistrano"
 
-require "whenever/capistrano"
-set :whenever_command, "bundle exec whenever"
-
 load 'deploy/assets'
 
 after "deploy:update_code", "deploy:copy_config"
