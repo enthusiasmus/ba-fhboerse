@@ -2,7 +2,6 @@ Fhboerse::Application.routes.draw do
   # static pages
   get "pages/agb"
   get "pages/about"
-  get "pages/contact"
   get "contact_us/new"
 
   # modules

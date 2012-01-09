@@ -1,5 +1,9 @@
 # coding: UTF-8
 
+#Fachhochschule Salzburg, MultiMediaTechnology, 2012
+#Fachspezifisches Qualifikationsprojekt 2a
+#Entwickler: Lukas Wanko, Sören Hentzschel 
+
 class Job < ActiveRecord::Base
   belongs_to :user
   attr_accessible :counter, :agb, :paid, :salary, :employment_status, :company, :begindate, :place, :qualification, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest

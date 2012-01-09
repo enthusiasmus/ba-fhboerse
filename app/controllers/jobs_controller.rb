@@ -1,5 +1,9 @@
 # coding: UTF-8
 
+#Fachhochschule Salzburg, MultiMediaTechnology, 2012
+#Fachspezifisches Qualifikationsprojekt 2a
+#Entwickler: Lukas Wanko, Sören Hentzschel
+
 require 'user.rb'
 
 class JobsController < ApplicationController

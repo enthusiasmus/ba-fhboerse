@@ -92,7 +92,7 @@
 			<td><%= @job.telephone %></td>
 		</tr>
 	</table>
-	<% if current_user.id == @job.user_id %>
+	<% if current_user and current_user.id == @job.user_id %>
 	<table>
 		<tr>
 			<td colspan="2" class="info_headline">Anzeige löschen</td>

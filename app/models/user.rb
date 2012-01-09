@@ -1,3 +1,7 @@
+#Fachhochschule Salzburg, MultiMediaTechnology, 2012
+#Fachspezifisches Qualifikationsprojekt 2a
+#Entwickler: Lukas Wanko, Sören Hentzschel 
+
 class User < ActiveRecord::Base
   has_many :jobs, :dependent => :restrict
   has_many :drives, :dependent => :restrict

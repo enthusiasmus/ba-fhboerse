@@ -13,7 +13,7 @@
 						<% else %>
 							<% if article.module == "apartment" %>Biete:<% end %>
 							<% if article.module == "drive" %>Fahre:<% end %>
-							<% if article.module == "item" %>Gefunden<% end %>
+							<% if article.module == "item" %>Gefunden:<% end %>
 							<% if article.module == "job" %>Biete:<% end %>
 							<% if article.module == "product" %>Biete:<% end %>
 						<% end %>
@@ -122,7 +122,7 @@
 
 <% if @most_popular_apartments.count > 0 %>
 <div class="articles_list">
-	<h2>Marktplatz</h2>
+	<h2>Wohnungsbörse</h2>
 	<ul>
 		<% @most_popular_apartments.each do |apartment| %>
 			<a href="<%= url_for(apartment) %>">
@@ -151,7 +151,7 @@
 
 <% if @most_popular_items.count > 0 %>
 <div class="articles_list">
-	<h2>Marktplatz</h2>
+	<h2>Fundgrube</h2>
 	<ul>
 		<% @most_popular_items.each do |item| %>
 			<a href="<%= url_for(item) %>">

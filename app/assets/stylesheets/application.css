@@ -45,6 +45,7 @@ h1{font-size:16px;}
 .listItem a:hover .subject{color:#a10b2f;}
 .listItem .subject{font-weight:bold;color:#000;}
 .listItem .date{font-size:10px;}
+textarea{width:450px;}
 
 /* Place all the styles related to the controllers here.
 // They will automatically be included in application.css.
