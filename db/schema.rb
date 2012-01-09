@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109003626) do
+ActiveRecord::Schema.define(:version => 20120109020720) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -56,13 +56,7 @@ ActiveRecord::Schema.define(:version => 20120109003626) do
     t.string   "photo_three_content_type"
     t.integer  "photo_three_file_size"
     t.datetime "photo_three_updated_at"
-  end
-
-  create_table "contacts", :force => true do |t|
-    t.string   "email"
-    t.text     "message"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "module"
   end
 
   create_table "drives", :force => true do |t|
@@ -78,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20120109003626) do
     t.datetime "destination_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "type"
+    t.boolean  "drivetype"
     t.string   "title"
     t.text     "description"
     t.integer  "counter"
@@ -88,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20120109003626) do
     t.integer  "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
+    t.string   "module"
   end
 
   create_table "items", :force => true do |t|
@@ -116,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20120109003626) do
     t.string   "photo_three_content_type"
     t.integer  "photo_three_file_size"
     t.datetime "photo_three_updated_at"
+    t.string   "module"
   end
 
   create_table "jobs", :force => true do |t|
@@ -137,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20120109003626) do
     t.string   "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
+    t.string   "module"
   end
 
   create_table "products", :force => true do |t|
@@ -165,6 +162,7 @@ ActiveRecord::Schema.define(:version => 20120109003626) do
     t.string   "photo_three_content_type"
     t.integer  "photo_three_file_size"
     t.datetime "photo_three_updated_at"
+    t.string   "module"
   end
 
   create_table "users", :force => true do |t|
@@ -180,3 +178,4 @@ ActiveRecord::Schema.define(:version => 20120109003626) do
   end
 
 end
+>>>>>>> c1aebd48c169c3971ae0afcc9499df68dfbb2cb0

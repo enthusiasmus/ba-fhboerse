@@ -46,6 +46,7 @@ class DrivesController < ApplicationController
     @drive = Drive.new(params[:drive])
     @drive.counter = 0
     @drive.user_id = session[:user_id]
+    @drive.module = "drive"
     
     if @drive.departure_city && @drive.destination_city
       @drive.title = @drive.departure_city + " nach " + @drive.destination_city

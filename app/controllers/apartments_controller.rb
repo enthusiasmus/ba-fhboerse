@@ -61,6 +61,7 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.new(params[:apartment])
     @apartment.counter = 0
     @apartment.user_id = session[:user_id]
+    @apartment.module = "apartment"
 
     if @apartment.save
       redirect_to @apartment, notice: 'Anzeige wurde erfolgreich hinzugefügt!'

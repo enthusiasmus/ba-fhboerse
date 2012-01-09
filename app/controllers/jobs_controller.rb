@@ -59,6 +59,7 @@ class JobsController < ApplicationController
     @job = Job.new(params[:job])
     @job.counter = 0
     @job.user_id = session[:user_id]
+    @job.module = "job"
 
     if @job.save
       redirect_to @job, notice: 'Anzeige wurde erfolgreich hinzugefügt!'

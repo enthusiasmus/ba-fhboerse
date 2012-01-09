@@ -31,17 +31,20 @@ namespace :deploy do
   
   #updating the crontab commands
   #desc "Update the crontab file"
-  task :update_crontab, :roles => :db do
-    run "cd #{release_path} && whenever --update-crontab #{application}"
-  end
+  #task :update_crontab, :roles => :db do
+  #  run "cd #{release_path} && whenever --update-crontab #{application}"
+  #end
   
 end
 
 require "bundler/capistrano"
+
+require "whenever/capistrano"
+set :whenever_command, "bundle exec whenever"
 
 load 'deploy/assets'
 
 after "deploy:update_code", "deploy:copy_config"
 
 #updating the crontab commands
-after "deploy:copy_config", "deploy:update_crontab"
+#after "deploy:copy_config", "deploy:update_crontab"
