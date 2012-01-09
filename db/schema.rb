@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108164644) do
+ActiveRecord::Schema.define(:version => 20120108232702) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(:version => 20120108164644) do
     t.string   "leasebuyrent"
     t.boolean  "balcony"
     t.boolean  "lot"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "photo_two_file_name"
+    t.string   "photo_two_content_type"
+    t.integer  "photo_two_file_size"
+    t.datetime "photo_two_updated_at"
+    t.string   "photo_three_file_name"
+    t.string   "photo_three_content_type"
+    t.integer  "photo_three_file_size"
+    t.datetime "photo_three_updated_at"
   end
 
   create_table "drives", :force => true do |t|
@@ -85,6 +97,18 @@ ActiveRecord::Schema.define(:version => 20120108164644) do
     t.integer  "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "photo_two_file_name"
+    t.string   "photo_two_content_type"
+    t.integer  "photo_two_file_size"
+    t.datetime "photo_two_updated_at"
+    t.string   "photo_three_file_name"
+    t.string   "photo_three_content_type"
+    t.integer  "photo_three_file_size"
+    t.datetime "photo_three_updated_at"
   end
 
   create_table "jobs", :force => true do |t|
@@ -126,6 +150,14 @@ ActiveRecord::Schema.define(:version => 20120108164644) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "photo_two_file_name"
+    t.string   "photo_two_content_type"
+    t.integer  "photo_two_file_size"
+    t.datetime "photo_two_updated_at"
+    t.string   "photo_three_file_name"
+    t.string   "photo_three_content_type"
+    t.integer  "photo_three_file_size"
+    t.datetime "photo_three_updated_at"
   end
 
   create_table "users", :force => true do |t|

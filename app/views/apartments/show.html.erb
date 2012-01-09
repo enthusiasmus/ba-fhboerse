@@ -197,7 +197,29 @@
 			<td>Land</td>
 			<td><%= @apartment.country %></td>
 		</tr>
+	</table>
+	<% if @apartment.photo.file? %>
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Gallery</td>
+		</tr>
+		<tr>
+			<td>
+				<%= link_to image_tag(@apartment.photo.url(:small)), @apartment.photo.url(:original) %>
+			</td>
+			<% if @apartment.photo_two.file? %>
+				<td>
+					<%= link_to image_tag(@apartment.photo_two.url(:small)), @apartment.photo_two.url(:original) %>
+				</td>
+			<% end %>
+			<% if @apartment.photo_three.file? %>
+				<td>
+					<%= link_to image_tag(@apartment.photo_three.url(:small)), @apartment.photo_three.url(:original) %>
+				</td>
+			<% end %>
+		</tr>
 	</table>	
+	<% end %>
 	<table>
 		<tr>
 			<td colspan="2" class="info_headline">Ansprechpartner</td>

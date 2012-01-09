@@ -30,4 +30,7 @@ Fhboerse::Application.configure do
 
   # For removing error at creating a controller
   config.active_support.deprecation = :log 
+  
+  # let paperclip know where it can find imagemagick
+  Paperclip.options[:command_path] = "C:\ImageMagick"
 end

@@ -81,6 +81,21 @@
 						['10', '10']
                         ],{ :prompt => "---"}
                     ) %></td>
+		</table>
+		<table>
+			<td class="info_headline">Gallery</td>
+			</tr>
+			<tr>
+				<td>Foto hinzufügen:</td>
+				<td><%= f.file_field :photo %></td>
+			</tr>
+			<tr>
+				<td><span class="photo_two">Foto hinzufügen:</span></td>
+				<td><span class="photo_two"><%= f.file_field :photo_two %></span></td>
+			</tr>
+			<tr>
+				<td><span class="photo_three">Foto hinzufügen:</span></td>
+				<td><span class="photo_three"><%= f.file_field :photo_three %></span></td>
 			</tr>
 		</table>
 		<table>

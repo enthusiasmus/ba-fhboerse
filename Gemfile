@@ -17,6 +17,7 @@ gem 'omniauth-ldap'
 gem 'omniauth-google'
 
 gem 'whenever'
+gem 'paperclip', :path => 'vendor/gems/paperclip'
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'

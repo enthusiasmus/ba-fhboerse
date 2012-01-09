@@ -1,3 +1,12 @@
+PATH
+  remote: vendor/gems/paperclip
+  specs:
+    paperclip (2.4.5)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -40,6 +49,7 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     chronic (0.6.6)
+    cocaine (0.2.1)
     daemons (1.0.10)
     erubis (2.7.0)
     execjs (1.2.13)
@@ -183,6 +193,7 @@ DEPENDENCIES
   omniauth-google
   omniauth-ldap
   omniauth-twitter
+  paperclip!
   rails (= 3.1.1)
   sass-rails (~> 3.1.4)
   sqlite3-ruby
