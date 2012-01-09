@@ -54,7 +54,6 @@ class Product < ActiveRecord::Base
   end
   def self.remove_old
     post_ids = find(:all, :conditions => ["created_at < ?", 60.days.ago])
-    puts "Aktualisiert am" + Time.now
     if post_ids.size > 0
       destroy(post_ids)
     end
