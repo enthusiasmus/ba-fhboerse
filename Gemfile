@@ -18,6 +18,8 @@ gem 'omniauth-google'
 
 gem 'whenever'
 gem 'paperclip', :path => 'vendor/gems/paperclip'
+gem 'contact_us', '~> 0.1.5'
+gem 'formtastic' #contact_us need formtastic
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'

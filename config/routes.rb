@@ -3,6 +3,7 @@ Fhboerse::Application.routes.draw do
   get "pages/agb"
   get "pages/about"
   get "pages/contact"
+  get "contact_us/new"
 
   # modules
   resources :apartments
