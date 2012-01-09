@@ -58,6 +58,12 @@ class DrivesController < ApplicationController
     end
   end
   
+  def destroy
+    @drive = Drive.find(params[:id])
+    @drive.destroy
+    redirect_to drives_path, :notice => 'Anzeige wurde erfolgreich gelöscht!'
+  end
+  
   def filter
   end
   

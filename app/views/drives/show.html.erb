@@ -113,6 +113,16 @@
 			<td><%= @drive.telephone %></td>
 		</tr>
 	</table>
+	<% if current_user.id == @drive.user_id %>
+	<table>
+		<tr>
+			<td colspan="2" class="info_headline">Anzeige löschen</td>
+		</tr>
+		<tr>
+			<td><%= button_to "Anzeige löschen", {:action => "destroy"}, :confirm => "Sind Sie sicher?", :method => :delete %></td> 
+		</tr>
+	</table>
+	<% end %>
 </div>
 
 <div class="back_to_overview"><%= link_to "Alle Anzeigen", drives_path %></div>

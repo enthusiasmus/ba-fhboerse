@@ -46,7 +46,7 @@ h1{font-size:16px;}
 .listItem .subject{font-weight:bold;color:#000;}
 .listItem .date{font-size:10px;}
 
-/* Place all the styles related to the Items controller here.
+/* Place all the styles related to the controllers here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 ############################################################################# 
@@ -185,17 +185,17 @@ table{
   width:620px;
 }
 
-#articles_list ul{
+.articles_list ul{
   list-style: none;
   padding: 0px 15px 0px 15px;
 }
 
-#articles_list ul a{
+.articles_list ul a{
   font-weight:normal;
   text-decoration:none;
 }
 
-#articles_list ul a li{
+.articles_list ul a li{
   margin: 15px 0px 10px 0px;
   padding: 6px;
   box-shadow: 0px 0px 3px rgb(128, 128, 128);
@@ -221,12 +221,12 @@ table{
   border: #f96789 solid 1px;
 }
 
-#articles_list ul a li:hover{
+.articles_list ul a li:hover{
   background: #f5f2f3;
   border: #A0092D 2px solid;
 }
 
-#articles_list ul a li div{
+.articles_list ul a li div{
   color:#6A6A6A;
   font-weight:bold;
 }

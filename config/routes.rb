@@ -1,22 +1,4 @@
 Fhboerse::Application.routes.draw do
-  get "apartments/index"
-
-  get "apartments/show"
-
-  get "apartments/new"
-
-  get "products/index"
-
-  get "products/show"
-
-  get "products/new"
-
-  get "items/index"
-
-  get "items/show"
-
-  get "items/new"
-
   # static pages
   get "pages/agb"
   get "pages/about"
@@ -30,7 +12,8 @@ Fhboerse::Application.routes.draw do
   resources :products
   
   # root route
-  root :to => "Jobs#index"
+  get "home/index"
+  root :to => "Home#index"
   
   # user authentication
   match "/auth/:provider/callback" => "users#create"
