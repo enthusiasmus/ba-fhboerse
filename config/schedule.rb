@@ -6,11 +6,11 @@
 set :output, "whenever.log"
 
 #every 1.day, :at => '3:00 am' do
-every 15.minute do
-  runner "Jobs.remove_old_articles"
-  runner "Items.remove_old_articles"
-  runner "Apartments.remove_old_articles"
-  runner "Drives.remove_old_articles"
-  runner "Products.remove_old_articles"
+every 2.minute do
+  runner "Job.remove_old"
+  runner "Item.remove_old"
+  runner "Apartment.remove_old"
+  runner "Drive.remove_old"
+  runner "Product.remove_old"
 end
 

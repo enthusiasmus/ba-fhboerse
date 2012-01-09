@@ -23,11 +23,11 @@ class ApartmentsController < ApplicationController
     if params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
       condition += condition_composition + "leasebuyrent = '" + params[:type_of_leasebuyrent] + "'" 
       if params[:type_of_leasebuyrent] == "vermietet"
-        add_breadcrumb "Miete", jobs_path + '?service=' + params[:type_of_leasebuyrent]
+        add_breadcrumb "Miete", jobs_path + '?leasebuyrent=' + params[:type_of_leasebuyrent]
       elsif params[:type_of_leasebuyrent] == "verkauft"
-        add_breadcrumb "Kauf", jobs_path + '?service=' + params[:type_of_leasebuyrent]
+        add_breadcrumb "Kauf", jobs_path + '?leasebuyrent=' + params[:type_of_leasebuyrent]
       else params[:type_of_leasebuyrent] == "verpachtet"
-        add_breadcrumb "Pacht", jobs_path + '?service=' + params[:type_of_leasebuyrent]
+        add_breadcrumb "Pacht", jobs_path + '?leasebuyrent=' + params[:type_of_leasebuyrent]
       end
     end
   
@@ -80,14 +80,6 @@ class ApartmentsController < ApplicationController
   end
   
   def type_of_apartment
-  end
-  
-  def remove_old_articles
-    post_ids = Apartment.find(:all, :conditions => ["created_at < ?", 60.days.ago])
-    puts "Aktualisiert am" + Time.now
-    if post_ids.size > 0
-      Apartment.destroy(post_ids)
-    end
   end
 end
 

@@ -17,4 +17,12 @@ class Drive < ActiveRecord::Base
   validates_numericality_of :telephone, :message => "^Bitte geben Sie Ihre Telefonnummer an (Ziffern von 0-9)!"
 
   validates_acceptance_of :agb, :accept => "1", :allow_nil => false, :message => "^Bitte akzeptieren Sie die AGB!"
+  
+  def self.remove_old
+    post_ids = find(:all, :conditions => ["created_at < ?", 60.days.ago])
+    puts "Aktualisiert am" + Time.now
+    if post_ids.size > 0
+      destroy(post_ids)
+    end
+  end
 end
