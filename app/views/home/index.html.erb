@@ -11,7 +11,11 @@
 						<% if article.offer_or_quest == false %>
 							Suche:
 						<% else %>
-							Fahre:
+							<% if article.module == "apartment" %>Biete:<% end %>
+							<% if article.module == "drive" %>Fahre:<% end %>
+							<% if article.module == "item" %>Gefunden<% end %>
+							<% if article.module == "job" %>Biete:<% end %>
+							<% if article.module == "product" %>Biete:<% end %>
 						<% end %>
 						<%= truncate(article.title, :length => 60) %>
 					</div>
@@ -40,7 +44,7 @@
 						<% if job.offer_or_quest == false %>
 							Suche:
 						<% else %>
-							Fahre:
+							Biete:
 						<% end %>
 						<%= truncate(job.title, :length => 60) %>
 					</div>
@@ -98,7 +102,7 @@
 						<% if product.offer_or_quest == false %>
 							Suche:
 						<% else %>
-							Fahre:
+							Biete:
 						<% end %>
 						<%= truncate(product.title, :length => 60) %>
 					</div>
@@ -127,7 +131,7 @@
 						<% if apartment.offer_or_quest == false %>
 							Suche:
 						<% else %>
-							Fahre:
+							Biete:
 						<% end %>
 						<%= truncate(apartment.title, :length => 60) %>
 					</div>
@@ -156,7 +160,7 @@
 						<% if item.offer_or_quest == false %>
 							Suche:
 						<% else %>
-							Fahre:
+							Gefunden:
 						<% end %>
 						<%= truncate(item.title, :length => 60) %>
 					</div>
