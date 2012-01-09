@@ -50,12 +50,12 @@
 			<tr>
 				<td>Art der Fahrt:*</td>
 				<td>					
-					<% if @drive.type == true %>
-						<%= f.radio_button :type, true %><%= label :type, 'Einfache Fahrt', :value => "true" %>
-						<%= f.radio_button :type, false, :checked => true %><%= label :type, 'Hin- & Rückfahrt', :value => "false" %>
+					<% if @drive.drivetype == true %>
+						<%= f.radio_button :drivetype, true %><%= label :drivetype, 'Einfache Fahrt', :value => "true" %>
+						<%= f.radio_button :drivetype, false, :checked => true %><%= label :drivetype, 'Hin- & Rückfahrt', :value => "false" %>
 					<% else %>
-						<%= f.radio_button :type, true, :checked => true %><%= label :type, 'Einfache Fahrt', :value => "true" %>
-						<%= f.radio_button :type, false %><%= label :type, 'Hin- & Rückfahrt', :value => "false"%>
+						<%= f.radio_button :drivetype, true, :checked => true %><%= label :drivetype, 'Einfache Fahrt', :value => "true" %>
+						<%= f.radio_button :drivetype, false %><%= label :drivetype, 'Hin- & Rückfahrt', :value => "false"%>
 					<% end %>
 				</td>
 			</tr>
