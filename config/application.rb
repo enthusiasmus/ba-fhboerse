@@ -45,7 +45,7 @@ module Fhboerse
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
-    config.assets.precompile += ['browserid.js', 'jquery-ba-url-min.js', 'pagination.js', 'datepicker.js', 'jquery-1-7-1-min.js', 'jquery_ui.js', 'timepicker.js', 'pages.js', 'home.js', 'jobs.js', 'drives.js', 'products.js', 'apartments.js', 'items.js', 'users.js', 'datepicker.css', 'pages.css', 'home.css', 'jobs.css', 'drives.css', 'products.css', 'apartments.css', 'items.css', 'users.css']
+    config.assets.precompile += ['browserid.js', 'jquery-ba-url-min.js', 'pagination.js', 'datepicker.js', 'jquery-1-7-1-min.js', 'jquery_ui.js', 'timepicker.js', 'pages.js', 'home.js', 'jobs.js', 'drives.js', 'products.js', 'apartments.js', 'items.js', 'users.js', 'datepicker.css', 'pages.css', 'home.css', 'jobs.css', 'drives.css', 'products.css', 'apartments.css', 'items.css', 'users.css', 'contact_us.css']
 
   end
 end

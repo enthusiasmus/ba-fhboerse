@@ -59,6 +59,13 @@ ActiveRecord::Schema.define(:version => 20120109020720) do
     t.string   "module"
   end
 
+  create_table "contacts", :force => true do |t|
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "drives", :force => true do |t|
     t.string   "departure_street"
     t.string   "departure_zipcode"
@@ -178,4 +185,3 @@ ActiveRecord::Schema.define(:version => 20120109020720) do
   end
 
 end
->>>>>>> c1aebd48c169c3971ae0afcc9499df68dfbb2cb0
