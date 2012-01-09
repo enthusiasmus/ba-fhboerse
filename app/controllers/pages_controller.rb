@@ -1,3 +1,7 @@
+#Fachhochschule Salzburg, MultiMediaTechnology, 2012
+#Fachspezifisches Qualifikationsprojekt 2a
+#Entwickler: Lukas Wanko, Sören Hentzschel
+
 class PagesController < ApplicationController
   def agb
     add_breadcrumb 'AGB', '/pages/agb'

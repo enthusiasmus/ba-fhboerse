@@ -1,3 +1,7 @@
+#Fachhochschule Salzburg, MultiMediaTechnology, 2012
+#Fachspezifisches Qualifikationsprojekt 2a
+#Entwickler: Lukas Wanko, Sören Hentzschel 
+
 require 'job.rb'
 require 'user.rb'
 
