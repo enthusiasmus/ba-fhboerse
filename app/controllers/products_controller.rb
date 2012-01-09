@@ -55,6 +55,7 @@ class ProductsController < ApplicationController
     @product = Product.new(params[:product])
     @product.counter = 0
     @product.user_id = session[:user_id]
+    @product.module = "product"
 
     if @product.save
       redirect_to @product, notice: 'Anzeige wurde erfolgreich hinzugefügt!'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109010737) do
+ActiveRecord::Schema.define(:version => 20120109020720) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20120109010737) do
     t.string   "photo_three_content_type"
     t.integer  "photo_three_file_size"
     t.datetime "photo_three_updated_at"
-    t.string   "type"
+    t.string   "module"
   end
 
   create_table "drives", :force => true do |t|
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20120109010737) do
     t.integer  "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
-    t.string   "type"
+    t.string   "module"
   end
 
   create_table "items", :force => true do |t|
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(:version => 20120109010737) do
     t.string   "photo_three_content_type"
     t.integer  "photo_three_file_size"
     t.datetime "photo_three_updated_at"
-    t.string   "type"
+    t.string   "module"
   end
 
   create_table "jobs", :force => true do |t|
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(:version => 20120109010737) do
     t.string   "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
-    t.string   "type"
+    t.string   "module"
   end
 
   create_table "products", :force => true do |t|
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(:version => 20120109010737) do
     t.string   "photo_three_content_type"
     t.integer  "photo_three_file_size"
     t.datetime "photo_three_updated_at"
-    t.string   "type"
+    t.string   "module"
   end
 
   create_table "users", :force => true do |t|

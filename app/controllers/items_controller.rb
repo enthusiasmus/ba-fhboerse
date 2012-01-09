@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
     @item = Item.new(params[:item])
     @item.counter = 0
     @item.user_id = session[:user_id]
+    @item.module = "item"
 
     if @item.save
       redirect_to @item, notice: 'Anzeige wurde erfolgreich hinzugefügt!'
