@@ -58,7 +58,7 @@ class Apartment < ActiveRecord::Base
   validates_presence_of :zip_code, :message => "^Bitte geben Sie die Postleitzahl an!"
   validates_presence_of :city, :message => "^Bitte geben Sie die Stadt an!"
   validates_presence_of :country, :message => "^Bitte geben sie das Land an!"
-  
+
   validates_numericality_of :price, :message => "^Bitte geben Sie den Preis an an (Ziffern von 0-9 und '.')!"
   validates_inclusion_of :priceType, :in => [true, false], :message => "^Bitte geben Sie an ob es eine Warm- oder Kaltmiete ist!", :if => :vermietet_true?
 

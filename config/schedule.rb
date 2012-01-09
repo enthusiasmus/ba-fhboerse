@@ -5,8 +5,7 @@
 
 set :output, "whenever.log"
 
-#every 1.day, :at => '3:00 am' do
-every 2.minute do
+every 1.day, :at => '3:00 am' do
   runner "Job.remove_old"
   runner "Item.remove_old"
   runner "Apartment.remove_old"
