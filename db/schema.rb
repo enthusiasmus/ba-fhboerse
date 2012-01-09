@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109020720) do
+ActiveRecord::Schema.define(:version => 20120109034252) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20120109020720) do
     t.string   "forename"
     t.string   "lastname"
     t.string   "email"
-    t.integer  "telephone"
+    t.string   "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
     t.string   "leasebuyrent"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(:version => 20120109020720) do
     t.string   "forename"
     t.string   "lastname"
     t.string   "email"
-    t.integer  "telephone"
+    t.string   "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
     t.string   "module"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(:version => 20120109020720) do
     t.string   "forename"
     t.string   "lastname"
     t.string   "email"
-    t.integer  "telephone"
+    t.string   "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
     t.string   "photo_file_name"
@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(:version => 20120109020720) do
     t.string   "forename"
     t.string   "lastname"
     t.string   "email"
-    t.integer  "telephone"
+    t.string   "telephone"
     t.boolean  "offer_or_quest"
     t.integer  "user_id"
     t.string   "photo_file_name"
