@@ -15,10 +15,10 @@ class ApartmentsController < ApplicationController
     
     if params[:filter] != "" && params[:filter] != nil
       if params[:filter] == "t"
-        condition = "offer_or_quest = '1' OR offer_or_quest = 't'"
+        condition = "offer_or_quest = " + true
         add_breadcrumb 'Biete', apartments_path + '?filter=t'
       else
-        condition = "offer_or_quest = '0' OR offer_or_quest = 'f'"
+        condition = "offer_or_quest = " + false
         add_breadcrumb 'Suche', apartments_path + '?filter=f'
       end
       condition_composition = " AND "
