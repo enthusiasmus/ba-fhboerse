@@ -12,16 +12,16 @@ class DrivesController < ApplicationController
   def index
     if params[:filter] != "" && params[:filter] != nil
       if params[:filter] == "t"
-        condition = "offer_or_quest = '1' OR offer_or_quest = 't'"
+        @filter = true
         add_breadcrumb 'Fahre', drives_path + '?filter=t'
       else
-        condition = "offer_or_quest = '0' OR offer_or_quest = 'f'"
+        @filter = false
         add_breadcrumb 'Suche', drives_path + '?filter=f'
       end
     end
-
-    if condition != ""
-      @drives = Drive.where(condition).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+  
+    if params[:filter] != "" && params[:filter] != nil
+      @drives = Drive.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @drives = Drive.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end

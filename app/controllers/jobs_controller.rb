@@ -10,34 +10,33 @@ class JobsController < ApplicationController
   add_breadcrumb 'Jobbörse', '/jobs'
   
   def index    
-    condition = ""
-    condition_composition = ""
-  
     if params[:filter] != "" && params[:filter] != nil
       if params[:filter] == "t"
-        condition += "offer_or_quest = '1' OR offer_or_quest = 't'"
+        @filter = true
         add_breadcrumb 'Biete', jobs_path + '?filter=t'
       else
-        condition += "offer_or_quest = '0' OR offer_or_quest = 'f'"
+        @filter = false
         add_breadcrumb 'Suche', jobs_path + '?filter=f'
       end
-      condition_composition = " AND "
     end
     
     if params[:service] != "" && params[:service] != nil
-      if params[:service] == "Freiwillig"
-        condition += condition_composition + "paid = '0' OR paid = 'f'"
-      else
-        condition += condition_composition + "employment_status = '" + params[:service] + "'"
-      end
       add_breadcrumb params[:service], jobs_path + '?service=' + params[:service]
     end
-
-    if condition != ""
-      @jobs = Job.where(condition).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+  
+    if params[:filter] != "" && params[:filter] != nil && params[:service] != "" && params[:service] != nil && params[:service] == "Freiwillig"
+      @jobs = Job.where(:offer_or_quest => @filter, :paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:filter] != "" && params[:filter] != nil && params[:service] != "" && params[:service] != nil
+      @jobs = Job.where(:offer_or_quest => @filter, :employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')     
+    elsif params[:service] != "" && params[:service] != nil && params[:service] == "Freiwillig"
+      @jobs = Job.where(:paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:service] != "" && params[:service] != nil
+      @jobs = Job.where(:employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:filter] != "" && params[:filter] != nil
+      @jobs = Job.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    end 
+    end
   end
 
   def show

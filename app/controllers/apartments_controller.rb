@@ -9,23 +9,18 @@ require 'user.rb'
 class ApartmentsController < ApplicationController
   add_breadcrumb 'Wohnungsbörse', '/apartments'
   
-  def index    
-    condition = ""
-    condition_composition = ""
-    
+  def index        
     if params[:filter] != "" && params[:filter] != nil
       if params[:filter] == "t"
-        condition = "offer_or_quest = " + true
+        @filter = true
         add_breadcrumb 'Biete', apartments_path + '?filter=t'
       else
-        condition = "offer_or_quest = " + false
+        @filter = false
         add_breadcrumb 'Suche', apartments_path + '?filter=f'
       end
-      condition_composition = " AND "
     end
     
     if params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
-      condition += condition_composition + "leasebuyrent = '" + params[:type_of_leasebuyrent] + "'" 
       if params[:type_of_leasebuyrent] == "vermietet"
         add_breadcrumb "Miete", jobs_path + '?leasebuyrent=' + params[:type_of_leasebuyrent]
       elsif params[:type_of_leasebuyrent] == "verkauft"
@@ -35,8 +30,12 @@ class ApartmentsController < ApplicationController
       end
     end
   
-    if condition != ""
-      @apartments = Apartment.where(condition).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    if params[:filter] != "" && params[:filter] != nil && params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
+      @apartments = Apartment.where(:offer_or_quest => @filter, :leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
+      @apartments = Apartment.where(:leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:filter] != "" && params[:filter] != nil
+      @apartments = Apartment.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @apartments = Apartment.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -78,12 +77,6 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.find(params[:id])
     @apartment.destroy
     redirect_to apartments_path, :notice => 'Anzeige wurde erfolgreich gelöscht!'
-  end
-  
-  def filter
-  end
-  
-  def type_of_apartment
   end
 end
 

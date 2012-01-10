@@ -10,27 +10,26 @@ class ProductsController < ApplicationController
   add_breadcrumb 'Marktplatz', '/products'
   
   def index    
-    condition = ""
-    condition_composition = ""
-    
     if params[:filter] != "" && params[:filter] != nil
       if params[:filter] == "t"
-        condition = "offer_or_quest = '1' OR offer_or_quest = 't'"
+        @filter = true
         add_breadcrumb 'Biete', products_path + '?filter=t'
       else
-        condition = "offer_or_quest = '0' OR offer_or_quest = 'f'"
+        @filter = false
         add_breadcrumb 'Suche', products_path + '?filter=f'
       end
-      condition_composition = " AND "
     end
-    
+
     if params[:state_product] != "" && params[:state_product] != nil
-      condition += condition_composition + "state = '" + params[:state_product] + "'"
-      add_breadcrumb params[:state_product], jobs_path + '?service=' + params[:state_product]
+      add_breadcrumb params[:state_product], products_path + '?service=' + params[:state_product]
     end
   
-    if condition != ""
-      @products = Product.where(condition).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    if params[:filter] != "" && params[:filter] != nil && params[:state_product] != "" && params[:state_product] != nil
+      @products = Product.where(:offer_or_quest => @filter, :state => params[:state_product]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:type_of_leasebuyrent] != "" && params[:state_product] != nil
+      @products = Product.where(:state => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:filter] != "" && params[:filter] != nil
+      @products = Product.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @products = Product.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
