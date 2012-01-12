@@ -4,12 +4,14 @@
 			<a href="<%= url_for(product) %>">
 				<li class="offer_or_quest_<%= product.offer_or_quest%>">
 					<div class="title">
+						<span>
 							<% if product.offer_or_quest == false %>
 								Suche:
 							<% else %>
 								Biete:
 							<% end %>
-							<%= truncate(product.title, :length => 60) %>
+						</span>
+						<%= truncate(product.title, :length => 60) %>
 					</div>
 					<div>
 						<%= truncate(product.description, :length => 160) %>

@@ -8,15 +8,17 @@
 			<a href="<%= url_for(article) %>">
 				<li class="offer_or_quest_<%= article.offer_or_quest%>">
 					<div class="title">
-						<% if article.offer_or_quest == false %>
-							Suche:
-						<% else %>
-							<% if article.module == "apartment" %>Biete:<% end %>
-							<% if article.module == "drive" %>Fahre:<% end %>
-							<% if article.module == "item" %>Gefunden:<% end %>
-							<% if article.module == "job" %>Biete:<% end %>
-							<% if article.module == "product" %>Biete:<% end %>
-						<% end %>
+						<span>
+							<% if article.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								<% if article.module == "apartment" %>Biete:<% end %>
+								<% if article.module == "drive" %>Fahre:<% end %>
+								<% if article.module == "item" %>Gefunden:<% end %>
+								<% if article.module == "job" %>Biete:<% end %>
+								<% if article.module == "product" %>Biete:<% end %>
+							<% end %>
+						</span>
 						<%= truncate(article.title, :length => 60) %>
 					</div>
 					<div>
@@ -41,11 +43,13 @@
 			<a href="<%= url_for(job) %>">
 				<li class="offer_or_quest_<%= job.offer_or_quest%>">
 					<div class="title">
-						<% if job.offer_or_quest == false %>
-							Suche:
-						<% else %>
-							Biete:
-						<% end %>
+						<span>
+							<% if job.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Biete:
+							<% end %>
+						</span>
 						<%= truncate(job.title, :length => 60) %>
 					</div>
 					<div>
@@ -70,11 +74,13 @@
 			<a href="<%= url_for(drive) %>">
 				<li class="offer_or_quest_<%= drive.offer_or_quest%>">
 					<div class="title">
-						<% if drive.offer_or_quest == false %>
-							Suche:
-						<% else %>
-							Fahre:
-						<% end %>
+						<span>
+							<% if drive.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Fahre:
+							<% end %>
+						</span>
 						<%= truncate(drive.title, :length => 60) %>
 					</div>
 					<div>
@@ -99,11 +105,13 @@
 			<a href="<%= url_for(product) %>">
 				<li class="offer_or_quest_<%= product.offer_or_quest%>">
 					<div class="title">
-						<% if product.offer_or_quest == false %>
-							Suche:
-						<% else %>
-							Biete:
-						<% end %>
+						<span>
+							<% if product.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Biete:
+							<% end %>
+						</span>
 						<%= truncate(product.title, :length => 60) %>
 					</div>
 					<div>
@@ -128,11 +136,13 @@
 			<a href="<%= url_for(apartment) %>">
 				<li class="offer_or_quest_<%= apartment.offer_or_quest%>">
 					<div class="title">
-						<% if apartment.offer_or_quest == false %>
-							Suche:
-						<% else %>
-							Biete:
-						<% end %>
+						<span>
+							<% if apartment.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Biete:
+							<% end %>
+						</span>
 						<%= truncate(apartment.title, :length => 60) %>
 					</div>
 					<div>
@@ -157,11 +167,13 @@
 			<a href="<%= url_for(item) %>">
 				<li class="offer_or_quest_<%= item.offer_or_quest%>">
 					<div class="title">
-						<% if item.offer_or_quest == false %>
-							Suche:
-						<% else %>
-							Gefunden:
-						<% end %>
+						<span>
+							<% if item.offer_or_quest == false %>
+								Suche:
+							<% else %>
+								Gefunden:
+							<% end %>
+						</span>
 						<%= truncate(item.title, :length => 60) %>
 					</div>
 					<div>

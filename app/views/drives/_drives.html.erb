@@ -4,12 +4,14 @@
 			<a href="<%= url_for(drive) %>">
 				<li class="offer_or_quest_<%= drive.offer_or_quest%>">
 					<div class="title">
+						<span>
 							<% if drive.offer_or_quest == false %>
 								Suche:
 							<% else %>
 								Fahre:
 							<% end %>
-							<%= truncate(drive.title, :length => 60) %>
+						</span>
+						<%= truncate(drive.title, :length => 60) %>
 					</div>
 					<div>
 						<%= truncate(drive.description, :length => 160) %>

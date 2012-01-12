@@ -4,12 +4,14 @@
 			<a href="<%= url_for(apartment) %>">
 				<li class="offer_or_quest_<%= apartment.offer_or_quest%>">
 					<div class="title">
+						<span>
 							<% if apartment.offer_or_quest == false %>
 								Suche:
 							<% else %>
 								Biete:
 							<% end %>
-							<%= truncate(apartment.title, :length => 60) %>
+						</span>
+						<%= truncate(apartment.title, :length => 60) %>
 					</div>
 					<div>
 						<%= truncate(apartment.description, :length => 160) %>
