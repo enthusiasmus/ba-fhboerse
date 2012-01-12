@@ -2,7 +2,7 @@
 	<ul>
 		<% @products.each do |product| %>
 			<a href="<%= url_for(product) %>">
-				<li class="offer_or_quest_<%= product.offer_or_quest%>">
+				<li class="offer_or_quest_<%= product.offer_or_quest%> product">
 					<div class="title">
 						<span>
 							<% if product.offer_or_quest == false %>

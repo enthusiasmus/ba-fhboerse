@@ -97,7 +97,6 @@ textarea{width:450px;}
 }
 
 .field_with_errors{
-  //background:#FFBBBB;
   display:inline;
 }
 
@@ -152,11 +151,11 @@ textarea{width:450px;}
   margin: -2px 5px 0 0;
   width: 24px;
   height: 24px;
-  background: url(/images/add.png);
+  background: url('/images/add.png');
 }
 
 .maincategorie_head div:nth-child(2) div:hover{
-  background: url(/images/add_hover.png);
+  background: url('/images/add_hover.png');
 }
 
 .filters{
@@ -186,6 +185,8 @@ table{
   width:620px;
 }
 
+.articles_list h2{margin:30px 0;text-align:center;}
+
 .articles_list ul{
   list-style: none;
   padding: 0;
@@ -213,6 +214,12 @@ table{
   -o-transition-timing-function: ease-in-out;
 }
 
+.articles_list ul a li.job{background:url('/images/modules/job.png') no-repeat center right;}
+.articles_list ul a li.drive{background:url('/images/modules/drive.png') no-repeat center right;}
+.articles_list ul a li.product{background:url('/images/modules/product.png') no-repeat center right;}
+.articles_list ul a li.apartment{background:url('/images/modules/apartment.png') no-repeat center right;}
+.articles_list ul a li.item{background:url('/images/modules/item.png') no-repeat center right;}
+
 /*Coloring the quests*/
 .offer_or_quest_false{
   border-bottom:5px #A10B2F solid !important;
@@ -224,7 +231,7 @@ table{
 }
 
 .articles_list ul a li:hover{
-  background: #f8f8f8;
+  background-color: #f8f8f8;
   box-shadow: none;
 }
 
@@ -244,7 +251,6 @@ table{
 
 .offer_or_quest_true .title span{color:#83C899;}
 .offer_or_quest_false .title span{color:#A10B2F;}
-
 
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: left; }

@@ -6,7 +6,7 @@
 	<ul>
 		<% @my_articles.each do |article| %>
 			<a href="<%= url_for(article) %>">
-				<li class="offer_or_quest_<%= article.offer_or_quest%>">
+				<li class="offer_or_quest_<%= article.offer_or_quest%> <%=article.module%>">
 					<div class="title">
 						<span>
 							<% if article.offer_or_quest == false %>
@@ -41,7 +41,7 @@
 	<ul>
 		<% @most_popular_jobs.each do |job| %>
 			<a href="<%= url_for(job) %>">
-				<li class="offer_or_quest_<%= job.offer_or_quest%>">
+				<li class="offer_or_quest_<%= job.offer_or_quest%> <%=job.module%>">
 					<div class="title">
 						<span>
 							<% if job.offer_or_quest == false %>
@@ -72,7 +72,7 @@
 	<ul>
 		<% @most_popular_drives.each do |drive| %>
 			<a href="<%= url_for(drive) %>">
-				<li class="offer_or_quest_<%= drive.offer_or_quest%>">
+				<li class="offer_or_quest_<%= drive.offer_or_quest%> <%=drive.module%>">
 					<div class="title">
 						<span>
 							<% if drive.offer_or_quest == false %>
@@ -103,7 +103,7 @@
 	<ul>
 		<% @most_popular_products.each do |product| %>
 			<a href="<%= url_for(product) %>">
-				<li class="offer_or_quest_<%= product.offer_or_quest%>">
+				<li class="offer_or_quest_<%= product.offer_or_quest%> <%=product.module%>">
 					<div class="title">
 						<span>
 							<% if product.offer_or_quest == false %>
@@ -134,7 +134,7 @@
 	<ul>
 		<% @most_popular_apartments.each do |apartment| %>
 			<a href="<%= url_for(apartment) %>">
-				<li class="offer_or_quest_<%= apartment.offer_or_quest%>">
+				<li class="offer_or_quest_<%= apartment.offer_or_quest%> <%=apartment.module%>">
 					<div class="title">
 						<span>
 							<% if apartment.offer_or_quest == false %>
@@ -165,7 +165,7 @@
 	<ul>
 		<% @most_popular_items.each do |item| %>
 			<a href="<%= url_for(item) %>">
-				<li class="offer_or_quest_<%= item.offer_or_quest%>">
+				<li class="offer_or_quest_<%= item.offer_or_quest%> <%=item.module%>">
 					<div class="title">
 						<span>
 							<% if item.offer_or_quest == false %>

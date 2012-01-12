@@ -2,7 +2,7 @@
 	<ul>
 		<% @drives.each do |drive| %>
 			<a href="<%= url_for(drive) %>">
-				<li class="offer_or_quest_<%= drive.offer_or_quest%>">
+				<li class="offer_or_quest_<%= drive.offer_or_quest%> drive">
 					<div class="title">
 						<span>
 							<% if drive.offer_or_quest == false %>

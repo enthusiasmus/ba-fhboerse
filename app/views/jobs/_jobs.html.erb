@@ -2,7 +2,7 @@
 	<ul>
 		<% @jobs.each do |job| %>
 			<a href="<%= url_for(job) %>">
-				<li class="offer_or_quest_<%= job.offer_or_quest%>">
+				<li class="offer_or_quest_<%= job.offer_or_quest%> job">
 					<div class="title">
 						<span>
 							<% if job.offer_or_quest == false %>
