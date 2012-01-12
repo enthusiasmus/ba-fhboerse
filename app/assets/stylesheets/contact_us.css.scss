@@ -118,23 +118,11 @@ form.formtastic {
   color: #880000;
   padding: 4px 4px 4px 30px;
   margin: 0px 0px 10px 0px;
-  -moz-border-radius: 5px;
+  -moz-border-radius: 5px;  
   -webkit-border-radius: 5px;
-  border-radius: 5px; }
+  border-radius: 5px; 
+}
 
-.content {
-  width: 960px;
-  margin: 0px auto; }
-    
-#new_contact_us_contact{
-  margin-top: 20px;
-}
-    
-.button{
-  background: url();
-  float:left;
-  margin-top: -50px;
-}
-.container{
-  height: 400px;
+abbr{
+  border-bottom: none;
 }

@@ -50,7 +50,9 @@
 								<% if article.module == "drive" %>Fahre:<% end %>
 								<% if article.module == "item" %>Gefunden:<% end %>
 								<% if article.module == "job" %>Biete:<% end %>
-								<% if article.module == "product" %>Biete:<% end %>
+								<% if article.module == "product" %>Biete:
+								<% else %>Biete:
+								<% end %>
 							<% end %>
 						</span>
 						<%= truncate(article.title, :length => 60) %>

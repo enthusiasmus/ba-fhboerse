@@ -15,9 +15,9 @@ h1{font-size:16px;}
 #mainWrapper{margin:0 auto;width:950px;}
 #logo{float:left;background:url('/images/logo.png') no-repeat;width:274px;height:107px;-moz-transition-property:background;-moz-transition-duration:.5s;-moz-transition-timing-function:ease;-webkit-transition-property:background;-webkit-transition-duration:.5s;-o-transition-property:background;-o-transition-duration:.5s;}
 #logo a{display:block;width:100%;height:100%;}
-.button{float:right;margin-left:5px;background:url('/images/loginbutton.png') no-repeat;margin-top:40px;padding-top:7px;width:87px;height:23px;cursor:pointer;text-align:center;text-shadow:1px 2px 1px #fff;}
-.button:hover{background-position:0 -30px;}
-.button a{display:block;width:100%;height:100%;text-decoration:none;}
+.login_button{float:right;margin-left:5px;background:url('/images/loginbutton.png') no-repeat;margin-top:40px;padding-top:7px;width:87px;height:23px;cursor:pointer;text-align:center;text-shadow:1px 2px 1px #fff;}
+.login_button:hover{background-position:0 -30px;}
+.login_button a{display:block;width:100%;height:100%;text-decoration:none;}
 #browser_id button{background:none;border:none;cursor:pointer;font-size:12px;text-shadow:1px 2px 1px #fff;}
 #userbar{float:right;margin-top:48px;}
 #navigation{clear:both;float:right;margin:30px 0;padding:0;list-style-type:none;font-size:16px;}

@@ -7,5 +7,5 @@ Dann nutzen Sie bitte das Kontaktformular! Wir versuchen Ihr Anliegen schnellst 
 <%= semantic_form_for @contact, :url => contacts_path do |f| %>
   <%= f.input :email, :label => t('.email') %>
   <%= f.input :message, :as => :text, :label => t('nachricht') %>
-  <%= f.commit_button t('.submit'), :button_html => { :alt => t('.submit'), :id => 'contact_us_contact_submit', :title => t('.submit') } %>
+  <%= f.commit_button t('.submit'), :button_html => { :alt => t('.submit'), :class => 'contact_button', :id => 'contact_us_contact_submit', :title => t('.submit') } %>
 <% end %>
