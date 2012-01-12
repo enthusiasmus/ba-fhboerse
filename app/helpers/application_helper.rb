@@ -21,4 +21,15 @@ module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
+  
+  def provider
+    case current_user.provider
+      when "browser_id"
+        "BrowserID"
+      when "facebook"
+        "Facebook"
+      when "twitter"
+        "Twitter"
+    end
+  end
 end

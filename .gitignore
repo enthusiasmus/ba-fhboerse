@@ -5,3 +5,4 @@ tmp/
 .sass-cache/
 .project
 .DS_STORE
+public/assets/*
