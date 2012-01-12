@@ -224,16 +224,22 @@ table{
 }
 
 .articles_list ul a li:hover{
-  background: #efefef;
+  background: #f8f8f8;
+  box-shadow: none;
 }
 
 .articles_list ul a li div{
   color:#6A6A6A;
-  font-weight:bold;
+}
+
+.articles_list ul a li div:last-child{
+  margin-top: 10px;
+  color: #999;
 }
 
 .title{
-  font-size:14px;
+  font-weight:bold;
+  font-size:15px;
 }
 
 .offer_or_quest_true .title span{color:#83C899;}
