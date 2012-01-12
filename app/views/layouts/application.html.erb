@@ -41,7 +41,11 @@
 			<div id='userbar'>Anmelden mit: </div>
 		<% end %>
 		<ul id="navigation">
-			<li><%= link_to "Startseite", "/", :class => is_active?("home") %></li>
+			<% if current_page?('/') %>
+			<li><%= link_to "Startseite", "/", :class => "active" %></li>
+			<% else %>
+			<li><%= link_to "Startseite", "/" %></li>
+			<% end %>
 			<li><%= link_to "Jobbörse", "/jobs", :class => is_active?("jobs") %></li>
 			<li><%= link_to "Mitfahrgemeinschaften", "/drives", :class => is_active?("drives") %></li>
 			<li><%= link_to "Marktplatz", "/products", :class => is_active?("products") %></li>

@@ -8,6 +8,8 @@ require 'user.rb'
 
 class HomeController < ApplicationController
   def index
+    add_breadcrumb 'Startseite', root_url
+    
     @my_jobs = Job.order("created_at DESC").where("user_id = '#{session[:user_id]}'")
     @my_drives = Drive.order("created_at DESC").where("user_id = '#{session[:user_id]}'")
     @my_products = Product.order("created_at DESC").where("user_id = '#{session[:user_id]}'")
