@@ -46,7 +46,11 @@
 							<% if article.offer_or_quest == false %>
 								Suche:
 							<% else %>
-								Biete:
+								<% if article.module == "apartment" %>Biete:<% end %>
+								<% if article.module == "drive" %>Fahre:<% end %>
+								<% if article.module == "item" %>Gefunden:<% end %>
+								<% if article.module == "job" %>Biete:<% end %>
+								<% if article.module == "product" %>Biete:<% end %>
 							<% end %>
 						</span>
 						<%= truncate(article.title, :length => 60) %>
