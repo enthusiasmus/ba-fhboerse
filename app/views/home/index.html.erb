@@ -12,11 +12,13 @@
 							<% if article.offer_or_quest == false %>
 								Suche:
 							<% else %>
-								<% if article.module == "apartment" %>Biete:<% end %>
-								<% if article.module == "drive" %>Fahre:<% end %>
-								<% if article.module == "item" %>Gefunden:<% end %>
-								<% if article.module == "job" %>Biete:<% end %>
-								<% if article.module == "product" %>Biete:<% end %>
+								<% if article.module == "apartment" %>Biete:
+								<% elsif article.module == "drive" %>Fahre:
+								<% elsif article.module == "item" %>Gefunden:
+								<% elsif article.module == "job" %>Biete:
+								<% elsif article.module == "product" %>Biete:
+								<% else %>Biete:
+								<% end %>
 							<% end %>
 						</span>
 						<%= truncate(article.title, :length => 60) %>
@@ -46,11 +48,11 @@
 							<% if article.offer_or_quest == false %>
 								Suche:
 							<% else %>
-								<% if article.module == "apartment" %>Biete:<% end %>
-								<% if article.module == "drive" %>Fahre:<% end %>
-								<% if article.module == "item" %>Gefunden:<% end %>
-								<% if article.module == "job" %>Biete:<% end %>
-								<% if article.module == "product" %>Biete:
+								<% if article.module == "apartment" %>Biete:
+								<% elsif article.module == "drive" %>Fahre:
+								<% elsif article.module == "item" %>Gefunden:
+								<% elsif article.module == "job" %>Biete:
+								<% elsif article.module == "product" %>Biete:
 								<% else %>Biete:
 								<% end %>
 							<% end %>
