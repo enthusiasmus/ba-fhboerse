@@ -20,8 +20,8 @@
 	<div id="mainWrapper">
 		<div id="logo"><a href="/" title="FHS-Börse"></a></div>
 		<% if current_user %>
-			<div class="button"><%= link_to "Abmelden", signout_path %></div>
-			<div class="button"><%= link_to "Profil", profile_path %></div>
+			<div class="login_button"><%= link_to "Abmelden", signout_path %></div>
+			<div class="login_button"><%= link_to "Profil", profile_path %></div>
 			<div id='userbar'>
 				<% if current_user.complete %>
 				Willkommen, <strong><%= current_user.forename %> <%= current_user.lastname %>!</strong> (angemeldet mit <%=provider%>)
