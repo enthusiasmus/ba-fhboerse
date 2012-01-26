@@ -25,15 +25,15 @@ class JobsController < ApplicationController
     end
   
     if params[:filter] != "" && params[:filter] != nil && params[:service] != "" && params[:service] != nil && params[:service] == "Freiwillig"
-      @jobs = Job.where(:offer_or_quest => @filter, :paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @jobs = Job.where(:isOffer => @filter, :paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:filter] != "" && params[:filter] != nil && params[:service] != "" && params[:service] != nil
-      @jobs = Job.where(:offer_or_quest => @filter, :employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')     
+      @jobs = Job.where(:isOffer => @filter, :employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')     
     elsif params[:service] != "" && params[:service] != nil && params[:service] == "Freiwillig"
       @jobs = Job.where(:paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:service] != "" && params[:service] != nil
       @jobs = Job.where(:employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:filter] != "" && params[:filter] != nil
-      @jobs = Job.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @jobs = Job.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -42,7 +42,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     
-    if @job.offer_or_quest
+    if @job.isOffer
       add_breadcrumb 'Biete', jobs_path + '?filter=t'
     else
       add_breadcrumb 'Suche', jobs_path + '?filter=f'

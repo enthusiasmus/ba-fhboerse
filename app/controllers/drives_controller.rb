@@ -21,7 +21,7 @@ class DrivesController < ApplicationController
     end
   
     if params[:filter] != "" && params[:filter] != nil
-      @drives = Drive.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @drives = Drive.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @drives = Drive.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -30,7 +30,7 @@ class DrivesController < ApplicationController
   def show
     @drive = Drive.find(params[:id])
     
-    if @drive.offer_or_quest
+    if @drive.isOffer
       add_breadcrumb 'Fahre', drives_path + '?filter=t'
     else
       add_breadcrumb 'Suche', drives_path + '?filter=f'

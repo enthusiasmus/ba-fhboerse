@@ -31,11 +31,11 @@ class ApartmentsController < ApplicationController
     end
   
     if params[:filter] != "" && params[:filter] != nil && params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
-      @apartments = Apartment.where(:offer_or_quest => @filter, :leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @apartments = Apartment.where(:isOffer => @filter, :leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
       @apartments = Apartment.where(:leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:filter] != "" && params[:filter] != nil
-      @apartments = Apartment.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @apartments = Apartment.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @apartments = Apartment.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -44,7 +44,7 @@ class ApartmentsController < ApplicationController
   def show
     @apartment = Apartment.find(params[:id])
     
-    if @apartment.offer_or_quest
+    if @apartment.isOffer
       add_breadcrumb 'Biete', apartments_path + '?filter=t'
     else
       add_breadcrumb 'Suche', apartments_path + '?filter=f'

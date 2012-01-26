@@ -21,15 +21,15 @@
 		</ul>
 		<% end %>
 		
-		<%= @product.offer_or_quest %>
+		<%= @product.isOffer %>
 		
 		<table>
 			<tr>
 				<td>
-					<div id="offer_or_quest_option">
+					<div id="isOffer_option">
 						<span class="info_headline">Anzeige*</span> als
-						<%= f.radio_button :offer_or_quest, true %><%= f.label :offer_or_quest, 'Biete' %>
-						<%= f.radio_button :offer_or_quest, false %><%= f.label :offer_or_quest, 'Suche' %>
+						<%= f.radio_button :isOffer, true %><%= f.label :isOffer, 'Biete' %>
+						<%= f.radio_button :isOffer, false %><%= f.label :isOffer, 'Suche' %>
 					</div>
 				</td>
 			</tr>

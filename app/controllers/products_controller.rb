@@ -25,11 +25,11 @@ class ProductsController < ApplicationController
     end
   
     if params[:filter] != "" && params[:filter] != nil && params[:state_product] != "" && params[:state_product] != nil
-      @products = Product.where(:offer_or_quest => @filter, :state => params[:state_product]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @products = Product.where(:isOffer => @filter, :state => params[:state_product]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:type_of_leasebuyrent] != "" && params[:state_product] != nil
       @products = Product.where(:state => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:filter] != "" && params[:filter] != nil
-      @products = Product.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @products = Product.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @products = Product.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     
-    if @product.offer_or_quest
+    if @product.isOffer
       add_breadcrumb 'Biete', products_path + '?filter=t'
     else
       add_breadcrumb 'Suche', products_path + '?filter=f'
