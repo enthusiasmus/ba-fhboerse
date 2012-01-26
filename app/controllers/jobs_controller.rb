@@ -49,8 +49,7 @@ class JobsController < ApplicationController
     end
     add_breadcrumb @job.title, job_path
     
-    @job.counter += 1;
-    @job.update_attribute(:counter, @job.counter)
+    @job.update_attribute(:counter, @job.counter + 1)
   end
 
   def new

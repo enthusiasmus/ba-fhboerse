@@ -37,8 +37,7 @@ class DrivesController < ApplicationController
     end
     add_breadcrumb @drive.title, drife_path
     
-    @drive.counter += 1;
-    @drive.update_attribute(:counter, @drive.counter)
+    @drive.update_attribute(:counter, @drive.counter + 1)
   end
 
   def new

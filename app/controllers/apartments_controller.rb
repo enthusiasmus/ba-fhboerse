@@ -51,8 +51,7 @@ class ApartmentsController < ApplicationController
     end
     add_breadcrumb @apartment.title, apartment_path
     
-    @apartment.counter += 1;
-    @apartment.update_attribute(:counter, @apartment.counter)
+    @apartment.update_attribute(:counter, @apartment.counter + 1)
   end
 
   def new
