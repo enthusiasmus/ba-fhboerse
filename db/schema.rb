@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109034252) do
+ActiveRecord::Schema.define(:version => 20120126221517) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.string   "title"
     t.text     "description"
     t.integer  "counter"
-    t.string   "forename"
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.string   "title"
     t.text     "description"
     t.integer  "counter"
-    t.string   "forename"
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.string   "title"
     t.text     "description"
     t.integer  "counter"
-    t.string   "forename"
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.string   "title"
     t.text     "description"
     t.integer  "counter"
-    t.string   "forename"
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.string   "title"
     t.text     "description"
     t.integer  "counter"
-    t.string   "forename"
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.string   "forename"
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "provider"
     t.string   "uid"

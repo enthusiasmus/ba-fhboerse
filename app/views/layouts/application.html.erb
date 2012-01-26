@@ -24,7 +24,7 @@
 			<div class="login_button"><%= link_to "Profil", profile_path %></div>
 			<div id='userbar'>
 				<% if current_user.complete %>
-				Willkommen, <strong><%= current_user.forename %> <%= current_user.lastname %>!</strong> (angemeldet mit <%=provider%>)
+				Willkommen, <strong><%= current_user.firstname %> <%= current_user.lastname %>!</strong> (angemeldet mit <%=provider%>)
 				<% else %>
 				Bitte vervollständigen Sie Ihr Profil!
 				<% end %>

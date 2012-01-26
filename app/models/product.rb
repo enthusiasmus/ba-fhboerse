@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
                     :url  => "/assets/products/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"  
                     
-  attr_accessible :photo, :photo_two, :photo_three, :counter, :agb, :price, :state, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest
+  attr_accessible :photo, :photo_two, :photo_three, :counter, :agb, :price, :state, :title, :description, :firstname, :lastname, :email, :telephone, :offer_or_quest
 
   validates_attachment_size :photo_two, :less_than => 5.megabytes, :message => "^Bitte uploaden Sie nur Fotos < 5MB!", :if => :photo_added?
   validates_attachment_content_type :photo_two, :content_type => ['image/jpeg', 'image/png'], :message => "^Bitte uploaden Sie nur JPGs und PNGs!", :if => :photo_added?

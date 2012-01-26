@@ -6,7 +6,7 @@
 
 class Job < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :counter, :agb, :paid, :salary, :employment_status, :company, :begindate, :place, :qualification, :title, :description, :forename, :lastname, :email, :telephone, :offer_or_quest
+  attr_accessible :counter, :agb, :paid, :salary, :employment_status, :company, :begindate, :place, :qualification, :title, :description, :firstname, :lastname, :email, :telephone, :offer_or_quest
 
   validates_inclusion_of :offer_or_quest, :in => [true, false], :message => "^Bitte geben Sie den Typ der Anzeige an!"
   

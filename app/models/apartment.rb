@@ -21,7 +21,7 @@ class Apartment < ActiveRecord::Base
   
   attr_accessible :photo, :photo_two, :photo_three, :counter, :agb, :price, :priceType, :begin_availability, 
   :end_availability, :amount_of_rooms, :kitchen, :furniture, :garage, :terrace, :garden, :transport_connection, 
-  :street, :zip_code, :city, :country, :title, :description, :forename, :lastname, :email, :telephone, 
+  :street, :zip_code, :city, :country, :title, :description, :firstname, :lastname, :email, :telephone, 
   :offer_or_quest, :leasebuyrent, :size, :balcony, :lot
 
   validates_attachment_size :photo_two, :less_than => 5.megabytes, :message => "^Bitte uploaden Sie nur Fotos < 5MB!", :if => :photo_added?
