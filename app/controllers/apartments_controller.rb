@@ -62,7 +62,6 @@ class ApartmentsController < ApplicationController
 
   def create
     @apartment = Apartment.new(params[:apartment])
-    @apartment.counter = 0
     @apartment.user_id = session[:user_id]
     @apartment.module = "apartment"
 

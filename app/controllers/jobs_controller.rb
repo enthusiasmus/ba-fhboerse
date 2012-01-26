@@ -60,7 +60,6 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(params[:job])
-    @job.counter = 0
     @job.user_id = session[:user_id]
     @job.module = "job"
 

@@ -48,7 +48,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
-    @item.counter = 0
     @item.user_id = session[:user_id]
     @item.module = "item"
 

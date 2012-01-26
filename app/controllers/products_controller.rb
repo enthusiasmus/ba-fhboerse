@@ -56,7 +56,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(params[:product])
-    @product.counter = 0
     @product.user_id = session[:user_id]
     @product.module = "product"
 

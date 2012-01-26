@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126221517) do
+ActiveRecord::Schema.define(:version => 20120126223445) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20120126221517) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
+    t.integer  "counter",                  :default => 0
     t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20120126221517) do
     t.boolean  "drivetype"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
+    t.integer  "counter",             :default => 0
     t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20120126221517) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
+    t.integer  "counter",                  :default => 0
     t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(:version => 20120126221517) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
+    t.integer  "counter",           :default => 0
     t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(:version => 20120126221517) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
+    t.integer  "counter",                  :default => 0
     t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
