@@ -9,7 +9,7 @@ html{overflow-y:scroll;}
 body{background:#fff;color:#6a6a6a;}
 body,input,textarea{font-size:12px;font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;}
 img{border:none;}
-a,#browser_id button{-moz-transition-property:color;-moz-transition-duration:.5s;-moz-transition-timing-function:ease;-webkit-transition-property:color;-webkit-transition-duration:.5s;-o-transition-property:color;-o-transition-duration:.5s;color:#6a6a6a;}
+a,#browser_id button, a.subject{-moz-transition-property:color;-moz-transition-duration:.5s;-moz-transition-timing-function:ease;-webkit-transition-property:color;-webkit-transition-duration:.5s;-o-transition-property:color;-o-transition-duration:.5s;color:#6a6a6a;}
 a:hover,a.active,#browser_id:hover button{color:#a10b2f;}
 h1{font-size:16px;}
 #mainWrapper{margin:0 auto;width:950px;}
