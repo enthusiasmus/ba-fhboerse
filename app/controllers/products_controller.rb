@@ -45,8 +45,15 @@ class ProductsController < ApplicationController
     end
     add_breadcrumb @product.title, product_path
     
-    @product.counter += 1;
-    @product.update_attribute(:counter, @product.counter)
+    if cookies[:counter] != "disable"
+      cookies[:counter] = "disable"
+      @product.counter += 1;
+    end
+	
+    if cookies["product" + @product.id.to_s] != "disabled"
+      cookies["product" + @product.id.to_s] = { :value => "disabled", :expires => 2.hour.from_now }
+      @product.update_attribute(:counter, @product.counter + 1)
+    end
   end
 
   def new

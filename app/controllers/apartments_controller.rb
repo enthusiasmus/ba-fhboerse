@@ -3,8 +3,8 @@
 #Fachhochschule Salzburg, MultiMediaTechnology, 2012
 #Fachspezifisches Qualifikationsprojekt 2a
 #Entwickler: Lukas Wanko, Sören Hentzschel 
-
-require 'user.rb'
+    
+require 'user'
 
 class ApartmentsController < ApplicationController
   add_breadcrumb 'Wohnungsbörse', '/apartments'
@@ -50,9 +50,11 @@ class ApartmentsController < ApplicationController
       add_breadcrumb 'Suche', apartments_path + '?filter=f'
     end
     add_breadcrumb @apartment.title, apartment_path
-    
-    @apartment.counter += 1;
-    @apartment.update_attribute(:counter, @apartment.counter)
+
+    if cookies["apartment" + @apartment.id.to_s] != "disabled"
+      cookies["apartment" + @apartment.id.to_s] = { :value => "disabled", :expires => 2.hour.from_now }
+      @apartment.update_attribute(:counter, @apartment.counter + 1)
+    end
   end
 
   def new

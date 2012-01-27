@@ -7,7 +7,7 @@
 						<span>
 							<% if apartment.offer_or_quest == false %>
 								Suche:
-							<% else %>
+							<% else %
 								Biete:
 							<% end %>
 						</span>
@@ -17,7 +17,7 @@
 						<%= truncate(apartment.description, :length => 160) %>
 					</div>
 					<div>
-						<%= apartment.user.title%> <%= truncate(apartment.user.lastname, :length => 60) %> am
+						<%= apartment.user_title%> <%= truncate(apartment.user_lastname, :length => 60) %> am
 						<%= apartment.created_at.strftime("%d.%m.%Y, %H:%M") %>
 					</div>
 				</li>

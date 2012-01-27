@@ -17,7 +17,7 @@
 						<%= truncate(product.description, :length => 160) %>
 					</div>
 					<div>
-						<%= product.user.title%> <%= truncate(product.user.lastname, :length => 60) %> am
+						<%= product.user_title%> <%= truncate(product.user_lastname, :length => 60) %> am
 						<%= product.created_at.strftime("%d.%m.%Y, %H:%M") %>
 					</div>
 				</li>

@@ -27,7 +27,7 @@
 						<%= truncate(article.description, :length => 160) %>
 					</div>
 					<div>
-						<%= article.user.title%> <%= truncate(article.user.lastname, :length => 60) %> am
+						<%= article.user_title%> <%= truncate(article.user_lastname, :length => 60) %> am
 						<%= article.created_at.strftime("%d.%m.%Y, %H:%M") %>
 					</div>
 				</li>
@@ -63,7 +63,7 @@
 						<%= truncate(article.description, :length => 160) %>
 					</div>
 					<div>
-						<%= article.user.title%> <%= truncate(article.user.lastname, :length => 60) %> am
+						<%= article.user_title%> <%= truncate(article.user_lastname, :length => 60) %> am
 						<%= article.created_at.strftime("%d.%m.%Y, %H:%M") %>
 					</div>
 				</li>

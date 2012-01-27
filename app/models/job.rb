@@ -26,6 +26,12 @@ class Job < ActiveRecord::Base
   def will_be_paid?
     paid == true
   end
+  def user_title
+    self.user.title
+  end
+  def user_lastname
+    user.lastname
+  end
   def self.remove_old
     post_ids = find(:all, :conditions => ["created_at < ?", 60.days.ago])
     if post_ids.size > 0

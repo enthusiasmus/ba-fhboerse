@@ -17,7 +17,7 @@
 						<%= truncate(drive.description, :length => 160) %>
 					</div>
 					<div>
-						<%= drive.user.title%> <%= truncate(drive.user.lastname, :length => 60) %> am
+						<%= drive.user_title%> <%= truncate(drive.user_lastname, :length => 60) %> am
 						<%= drive.created_at.strftime("%d.%m.%Y, %H:%M") %>
 					</div>
 				</li>

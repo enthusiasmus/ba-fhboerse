@@ -49,8 +49,10 @@ class JobsController < ApplicationController
     end
     add_breadcrumb @job.title, job_path
     
-    @job.counter += 1;
-    @job.update_attribute(:counter, @job.counter)
+    if cookies["job" + @job.id.to_s] != "disabled"
+      cookies["job" + @job.id.to_s] = { :value => "disabled", :expires => 2.hour.from_now }
+      @job.update_attribute(:counter, @job.counter + 1)
+    end
   end
 
   def new

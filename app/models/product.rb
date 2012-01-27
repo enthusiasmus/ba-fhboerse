@@ -52,6 +52,12 @@ class Product < ActiveRecord::Base
   def photo_three_added?
     photo_three == true
   end
+  def user_title
+    user.title
+  end
+  def user_lastname
+    user.lastname
+  end
   def self.remove_old
     post_ids = find(:all, :conditions => ["created_at < ?", 60.days.ago])
     if post_ids.size > 0

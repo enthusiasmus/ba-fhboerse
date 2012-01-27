@@ -17,7 +17,7 @@
 						<%= truncate(job.description, :length => 160) %>
 					</div>
 					<div>
-						<%= job.user.title%> <%= truncate(job.user.lastname, :length => 60) %> am
+						<%= job.user_title%> <%= truncate(job.user_lastname, :length => 60) %> am
 						<%= job.created_at.strftime("%d.%m.%Y, %H:%M") %>
 					</div>
 				</li>

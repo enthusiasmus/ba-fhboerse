@@ -37,8 +37,10 @@ class ItemsController < ApplicationController
     end
     add_breadcrumb @item.title, item_path
     
-    @item.counter += 1;
-    @item.update_attribute(:counter, @item.counter)
+    if cookies["item" + @item.id.to_s] != "disabled"
+      cookies["item" + @item.id.to_s] = { :value => "disabled", :expires => 2.hour.from_now }
+      @item.update_attribute(:counter, @item.counter + 1)
+    end
   end
 
   def new

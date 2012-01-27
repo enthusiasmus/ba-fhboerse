@@ -37,8 +37,10 @@ class DrivesController < ApplicationController
     end
     add_breadcrumb @drive.title, drife_path
     
-    @drive.counter += 1;
-    @drive.update_attribute(:counter, @drive.counter)
+    if cookies["drive" + @drive.id.to_s] != "disabled"
+      cookies["drive" + @drive.id.to_s] = { :value => "disabled", :expires => 2.hour.from_now }
+      @drive.update_attribute(:counter, @drive.counter + 1)
+    end
   end
 
   def new
