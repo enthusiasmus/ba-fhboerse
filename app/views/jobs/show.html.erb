@@ -63,8 +63,8 @@
 			<td><% if @job.paid == true %><%= @job.employment_status %><% end %></td>
 		</tr>
 		<tr>
-			<td><% if @job.paid == true %>Bezahlung:<% end %></td>
-			<td><% if @job.paid == true %><%= @job.salary %> €<% end %></td>
+			<td><% if @job.salary? %>Bezahlung:<% end %></td>
+			<td><% if @job.salary? %><%= @job.salary %> €<% end %></td>
 		</tr>
 	</table>	
 	<table>
