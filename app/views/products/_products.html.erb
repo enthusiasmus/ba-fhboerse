@@ -2,10 +2,10 @@
 	<ul>
 		<% @products.each do |product| %>
 			<a href="<%= url_for(product) %>">
-				<li class="isOffer_<%= product.isOffer%> product">
+				<li class="is_offer_<%= product.is_offer%> product">
 					<div class="title">
 						<span>
-							<% if product.isOffer == false %>
+							<% if product.is_offer == false %>
 								Suche:
 							<% else %>
 								Biete:

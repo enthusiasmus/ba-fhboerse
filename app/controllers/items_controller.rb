@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
     end
   
     if params[:filter].present?
-      @items = Item.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @items = Item.where(:is_offer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @items = Item.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     
-    if @item.isOffer
+    if @item.is_offer
       add_breadcrumb 'Gefunden', items_path + '?filter=t'
     else
       add_breadcrumb 'Suche', items_path + '?filter=f'

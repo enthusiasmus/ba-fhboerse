@@ -2,10 +2,10 @@
 	<ul>
 		<% @apartments.each do |apartment| %>
 			<a href="<%= url_for(apartment) %>">
-				<li class="isOffer_<%= apartment.isOffer%> apartment">
+				<li class="is_offer_<%= apartment.is_offer%> apartment">
 					<div class="title">
 						<span>
-							<% if apartment.isOffer == false %>
+							<% if apartment.is_offer == false %>
 								Suche:
 							<% else %
 								Biete:

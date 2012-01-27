@@ -25,15 +25,15 @@ class JobsController < ApplicationController
     end
   
     if params[:filter].present? && params[:service].present? && params[:service] == "Freiwillig"
-      @jobs = Job.where(:isOffer => @filter, :paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @jobs = Job.where(:is_offer => @filter, :paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:filter].present? && params[:service].present?
-      @jobs = Job.where(:isOffer => @filter, :employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')     
+      @jobs = Job.where(:is_offer => @filter, :employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')     
     elsif params[:service].present? && params[:service] == "Freiwillig"
       @jobs = Job.where(:paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:service].present?
       @jobs = Job.where(:employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:filter].present?
-      @jobs = Job.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @jobs = Job.where(:is_offer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -42,7 +42,7 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     
-    if @job.isOffer
+    if @job.is_offer
       add_breadcrumb 'Biete', jobs_path + '?filter=t'
     else
       add_breadcrumb 'Suche', jobs_path + '?filter=f'

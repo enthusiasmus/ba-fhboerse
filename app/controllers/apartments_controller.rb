@@ -31,11 +31,11 @@ class ApartmentsController < ApplicationController
     end
   
     if params[:filter].present? && params[:type_of_leasebuyrent].present?
-      @apartments = Apartment.where(:isOffer => @filter, :leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @apartments = Apartment.where(:is_offer => @filter, :leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:type_of_leasebuyrent].present?
       @apartments = Apartment.where(:leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     elsif params[:filter].present?
-      @apartments = Apartment.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+      @apartments = Apartment.where(:is_offer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @apartments = Apartment.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -44,7 +44,7 @@ class ApartmentsController < ApplicationController
   def show
     @apartment = Apartment.find(params[:id])
     
-    if @apartment.isOffer
+    if @apartment.is_offer
       add_breadcrumb 'Biete', apartments_path + '?filter=t'
     else
       add_breadcrumb 'Suche', apartments_path + '?filter=f'

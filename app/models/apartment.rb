@@ -22,7 +22,7 @@ class Apartment < ActiveRecord::Base
   attr_accessible :photo, :photo_two, :photo_three, :counter, :agb, :price, :priceType, :begin_availability, 
   :end_availability, :amount_of_rooms, :kitchen, :furniture, :garage, :terrace, :garden, :transport_connection, 
   :street, :zip_code, :city, :country, :title, :description, :firstname, :lastname, :email, :telephone, 
-  :isOffer, :leasebuyrent, :size, :balcony, :lot
+  :is_offer, :leasebuyrent, :size, :balcony, :lot
 
   validates_attachment_size :photo_two, :less_than => 5.megabytes, :message => "^Bitte uploaden Sie nur Fotos < 5MB!", :if => :photo_added?
   validates_attachment_content_type :photo_two, :content_type => ['image/jpeg', 'image/png'], :message => "^Bitte uploaden Sie nur JPGs und PNGs!", :if => :photo_added?
@@ -33,7 +33,7 @@ class Apartment < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 5.megabytes, :message => "^Bitte uploaden Sie nur Fotos < 5MB!", :if => :photo_added?
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png'], :message => "^Bitte uploaden Sie nur JPGs und PNGs!", :if => :photo_added?
 
-  validates_inclusion_of :isOffer, :in => [true, false], :message => "^Bitte geben Sie den Typ der Anzeige an!"
+  validates_inclusion_of :is_offer, :in => [true, false], :message => "^Bitte geben Sie den Typ der Anzeige an!"
   validates_inclusion_of :leasebuyrent, :in => ["vermietet", "verkauft", "verpachtet"], :message => "^Bitte geben Sie den Typ der Immobilienüberlassung an!"
 
   validates_length_of :title, :within => 5..50, :too_short => "^Der Titel muss mehr als 5 Zeichen besitzen!", :too_long => "Der Titel muss weniger als 100 Zeichen besitzen!"
