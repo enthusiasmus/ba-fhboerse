@@ -10,7 +10,7 @@ class ApartmentsController < ApplicationController
   add_breadcrumb 'Wohnungsbörse', '/apartments'
   
   def index        
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       if params[:filter] == "t"
         @filter = true
         add_breadcrumb 'Biete', apartments_path + '?filter=t'
@@ -20,7 +20,7 @@ class ApartmentsController < ApplicationController
       end
     end
     
-    if params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
+    if params[:type_of_leasebuyrent].present?
       if params[:type_of_leasebuyrent] == "vermietet"
         add_breadcrumb "Miete", jobs_path + '?leasebuyrent=' + params[:type_of_leasebuyrent]
       elsif params[:type_of_leasebuyrent] == "verkauft"
@@ -30,11 +30,11 @@ class ApartmentsController < ApplicationController
       end
     end
   
-    if params[:filter] != "" && params[:filter] != nil && params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
+    if params[:filter].present? && params[:type_of_leasebuyrent].present?
       @apartments = Apartment.where(:isOffer => @filter, :leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:type_of_leasebuyrent] != "" && params[:type_of_leasebuyrent] != nil
+    elsif params[:type_of_leasebuyrent].present?
       @apartments = Apartment.where(:leasebuyrent => params[:type_of_leasebuyrent]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:filter] != "" && params[:filter] != nil
+    elsif params[:filter].present?
       @apartments = Apartment.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @apartments = Apartment.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')

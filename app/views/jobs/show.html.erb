@@ -72,12 +72,12 @@
 			<td colspan="2" class="info_headline">Ansprechpartner</td>
 		</tr>
 		<tr>
-			<td id="ansprechpartner_table"><% if @job.company != "" %>Firma:<% end %></td> 
-			<td><% if @job.company != "" %><%= @job.company %><% end %></td>
+			<td id="ansprechpartner_table"><% if @job.company? %>Firma:<% end %></td> 
+			<td><% if @job.company? %><%= @job.company %><% end %></td>
 		</tr>
 		<tr>
-			<td><% if @job.firstname != "" %>Vorname:<% end %></td> 
-			<td><% if @job.firstname != "" %><%= @job.firstname %><% end %></td>
+			<td><% if @job.firstname? %>Vorname:<% end %></td> 
+			<td><% if @job.firstname? %><%= @job.firstname %><% end %></td>
 		</tr>
 		<tr>
 			<td>Nachname:</td> 

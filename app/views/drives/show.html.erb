@@ -97,8 +97,8 @@
 			<td colspan="2" class="info_headline">Ansprechpartner</td>
 		</tr>
 		<tr>
-			<td><% if @drive.firstname != "" %>Vorname:<% end %></td> 
-			<td><% if @drive.firstname != "" %><%= @drive.firstname %><% end %></td>
+			<td><% if @drive.firstname? %>Vorname:<% end %></td> 
+			<td><% if @drive.firstname? %><%= @drive.firstname %><% end %></td>
 		</tr>
 		<tr>
 			<td>Nachname:</td> 

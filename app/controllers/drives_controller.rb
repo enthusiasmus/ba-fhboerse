@@ -10,7 +10,7 @@ class DrivesController < ApplicationController
   add_breadcrumb 'Mitfahrgemeinschaften', '/drives'
   
   def index
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       if params[:filter] == "t"
         @filter = true
         add_breadcrumb 'Fahre', drives_path + '?filter=t'
@@ -20,7 +20,7 @@ class DrivesController < ApplicationController
       end
     end
   
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       @drives = Drive.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @drives = Drive.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')

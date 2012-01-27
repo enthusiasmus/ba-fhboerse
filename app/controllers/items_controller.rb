@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   add_breadcrumb 'Fundgrube', '/items'
   
   def index    
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       if params[:filter] == "t"
         @filter = true
         add_breadcrumb 'Gefunden', items_path + '?filter=t'
@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
       end
     end
   
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       @items = Item.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @items = Item.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')

@@ -10,7 +10,7 @@ class JobsController < ApplicationController
   add_breadcrumb 'Jobbörse', '/jobs'
   
   def index    
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       if params[:filter] == "t"
         @filter = true
         add_breadcrumb 'Biete', jobs_path + '?filter=t'
@@ -20,19 +20,19 @@ class JobsController < ApplicationController
       end
     end
     
-    if params[:service] != "" && params[:service] != nil
+    if params[:service].present?
       add_breadcrumb params[:service], jobs_path + '?service=' + params[:service]
     end
   
-    if params[:filter] != "" && params[:filter] != nil && params[:service] != "" && params[:service] != nil && params[:service] == "Freiwillig"
+    if params[:filter].present? && params[:service].present? && params[:service] == "Freiwillig"
       @jobs = Job.where(:isOffer => @filter, :paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:filter] != "" && params[:filter] != nil && params[:service] != "" && params[:service] != nil
+    elsif params[:filter].present? && params[:service].present?
       @jobs = Job.where(:isOffer => @filter, :employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')     
-    elsif params[:service] != "" && params[:service] != nil && params[:service] == "Freiwillig"
+    elsif params[:service].present? && params[:service] == "Freiwillig"
       @jobs = Job.where(:paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:service] != "" && params[:service] != nil
+    elsif params[:service].present?
       @jobs = Job.where(:employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:filter] != "" && params[:filter] != nil
+    elsif params[:filter].present?
       @jobs = Job.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
