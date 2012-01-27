@@ -4,13 +4,13 @@
 #Fachspezifisches Qualifikationsprojekt 2a
 #Entwickler: Lukas Wanko, Sören Hentzschel
 
-require 'user.rb'
+require 'user'
 
 class ItemsController < ApplicationController
   add_breadcrumb 'Fundgrube', '/items'
   
   def index    
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       if params[:filter] == "t"
         @filter = true
         add_breadcrumb 'Gefunden', items_path + '?filter=t'
@@ -20,8 +20,8 @@ class ItemsController < ApplicationController
       end
     end
   
-    if params[:filter] != "" && params[:filter] != nil
-      @items = Item.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    if params[:filter].present?
+      @items = Item.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @items = Item.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -30,13 +30,13 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     
-    if @item.offer_or_quest
+    if @item.isOffer
       add_breadcrumb 'Gefunden', items_path + '?filter=t'
     else
       add_breadcrumb 'Suche', items_path + '?filter=f'
     end
     add_breadcrumb @item.title, item_path
-    
+
     if cookies["item" + @item.id.to_s] != "disabled"
       cookies["item" + @item.id.to_s] = { :value => "disabled", :expires => 2.hour.from_now }
       @item.update_attribute(:counter, @item.counter + 1)
@@ -50,7 +50,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
-    @item.counter = 0
     @item.user_id = session[:user_id]
     @item.module = "item"
 

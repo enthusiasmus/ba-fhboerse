@@ -13,7 +13,7 @@
 
 <div id="article_head">
 	<div>
-		<h1><% if @apartment.offer_or_quest == false %>Suche:<% else %>Biete:<% end %> <%= @apartment.title %></h1>
+		<h1><% if @apartment.isOffer == false %>Suche:<% else %>Biete:<% end %> <%= @apartment.title %></h1>
 	</div>
 	<div>
 		<div class="fb-send" data-href="http://fhboerse.mediacube.at/apartments/<%= @apartment.id %>" data-font="trebuchet ms"></div>
@@ -28,7 +28,7 @@
 	<table class="table_fix_width">
 		<tr>
 			<td>
-				<div id="offer_or_quest_option">
+				<div id="isOffer_option">
 					<span class="info_headline">Immobilie</span> soll
 					<%= @apartment.leasebuyrent %> werden
 				</div>
@@ -225,8 +225,8 @@
 			<td colspan="2" class="info_headline">Ansprechpartner</td>
 		</tr>
 		<tr>
-			<td><% if @apartment.forename != "" %>Vorname:<% end %></td> 
-			<td><% if @apartment.forename != "" %><%= @apartment.forename %><% end %></td>
+			<td><% if @apartment.firstname? %>Vorname:<% end %></td> 
+			<td><% if @apartment.firstname? %><%= @apartment.firstname %><% end %></td>
 		</tr>
 		<tr>
 			<td>Nachname:</td> 

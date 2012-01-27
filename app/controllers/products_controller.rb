@@ -4,13 +4,13 @@
 #Fachspezifisches Qualifikationsprojekt 2a
 #Entwickler: Lukas Wanko, Sören Hentzschel
 
-require 'user.rb'
+require 'user'
 
 class ProductsController < ApplicationController
   add_breadcrumb 'Marktplatz', '/products'
   
   def index    
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       if params[:filter] == "t"
         @filter = true
         add_breadcrumb 'Biete', products_path + '?filter=t'
@@ -20,16 +20,16 @@ class ProductsController < ApplicationController
       end
     end
 
-    if params[:state_product] != "" && params[:state_product] != nil
+    if params[:state_product].present?
       add_breadcrumb params[:state_product], products_path + '?service=' + params[:state_product]
     end
   
-    if params[:filter] != "" && params[:filter] != nil && params[:state_product] != "" && params[:state_product] != nil
-      @products = Product.where(:offer_or_quest => @filter, :state => params[:state_product]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:type_of_leasebuyrent] != "" && params[:state_product] != nil
+    if params[:filter].present? && params[:state_product].present?
+      @products = Product.where(:isOffer => @filter, :state => params[:state_product]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:type_of_leasebuyrent].present?
       @products = Product.where(:state => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:filter] != "" && params[:filter] != nil
-      @products = Product.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:filter].present?
+      @products = Product.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @products = Product.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -38,18 +38,13 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     
-    if @product.offer_or_quest
+    if @product.isOffer
       add_breadcrumb 'Biete', products_path + '?filter=t'
     else
       add_breadcrumb 'Suche', products_path + '?filter=f'
     end
     add_breadcrumb @product.title, product_path
     
-    if cookies[:counter] != "disable"
-      cookies[:counter] = "disable"
-      @product.counter += 1;
-    end
-	
     if cookies["product" + @product.id.to_s] != "disabled"
       cookies["product" + @product.id.to_s] = { :value => "disabled", :expires => 2.hour.from_now }
       @product.update_attribute(:counter, @product.counter + 1)
@@ -63,7 +58,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(params[:product])
-    @product.counter = 0
     @product.user_id = session[:user_id]
     @product.module = "product"
 

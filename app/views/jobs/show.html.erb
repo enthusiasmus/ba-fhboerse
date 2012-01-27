@@ -13,7 +13,7 @@
 
 <div id="article_head">
 	<div>
-		<h1><% if @job.offer_or_quest == false %>Suche:<% else %>Biete:<% end %> <%= @job.title %></h1>
+		<h1><% if @job.isOffer == false %>Suche:<% else %>Biete:<% end %> <%= @job.title %></h1>
 	</div>
 	<div>
 		<div class="fb-send" data-href="http://fhboerse.mediacube.at/jobs/<%= @job.id %>" data-font="trebuchet ms"></div>
@@ -72,12 +72,12 @@
 			<td colspan="2" class="info_headline">Ansprechpartner</td>
 		</tr>
 		<tr>
-			<td id="ansprechpartner_table"><% if @job.company != "" %>Firma:<% end %></td> 
-			<td><% if @job.company != "" %><%= @job.company %><% end %></td>
+			<td id="ansprechpartner_table"><% if @job.company? %>Firma:<% end %></td> 
+			<td><% if @job.company? %><%= @job.company %><% end %></td>
 		</tr>
 		<tr>
-			<td><% if @job.forename != "" %>Vorname:<% end %></td> 
-			<td><% if @job.forename != "" %><%= @job.forename %><% end %></td>
+			<td><% if @job.firstname? %>Vorname:<% end %></td> 
+			<td><% if @job.firstname? %><%= @job.firstname %><% end %></td>
 		</tr>
 		<tr>
 			<td>Nachname:</td> 

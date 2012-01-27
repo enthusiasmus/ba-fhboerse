@@ -13,7 +13,7 @@
 
 <div id="article_head">
 	<div>
-		<h1><% if @product.offer_or_quest == false %>
+		<h1><% if @product.isOffer == false %>
 			Suche:
 			<% else %>
 			Biete:
@@ -81,8 +81,8 @@
 			<td colspan="2" class="info_headline">Ansprechpartner</td>
 		</tr>
 		<tr>
-			<td><% if @product.forename != "" %>Vorname:<% end %></td> 
-			<td><% if @product.forename != "" %><%= @product.forename %><% end %></td>
+			<td><% if @product.firstname? %>Vorname:<% end %></td> 
+			<td><% if @product.firstname? %><%= @product.firstname %><% end %></td>
 		</tr>
 		<tr>
 			<td>Nachname:</td> 

@@ -4,13 +4,13 @@
 #Fachspezifisches Qualifikationsprojekt 2a
 #Entwickler: Lukas Wanko, Sören Hentzschel 
 
-require 'user.rb'
+require 'user'
 
 class DrivesController < ApplicationController
   add_breadcrumb 'Mitfahrgemeinschaften', '/drives'
   
   def index
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       if params[:filter] == "t"
         @filter = true
         add_breadcrumb 'Fahre', drives_path + '?filter=t'
@@ -20,8 +20,8 @@ class DrivesController < ApplicationController
       end
     end
   
-    if params[:filter] != "" && params[:filter] != nil
-      @drives = Drive.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    if params[:filter].present?
+      @drives = Drive.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @drives = Drive.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -30,13 +30,13 @@ class DrivesController < ApplicationController
   def show
     @drive = Drive.find(params[:id])
     
-    if @drive.offer_or_quest
+    if @drive.isOffer
       add_breadcrumb 'Fahre', drives_path + '?filter=t'
     else
       add_breadcrumb 'Suche', drives_path + '?filter=f'
     end
     add_breadcrumb @drive.title, drife_path
-    
+
     if cookies["drive" + @drive.id.to_s] != "disabled"
       cookies["drive" + @drive.id.to_s] = { :value => "disabled", :expires => 2.hour.from_now }
       @drive.update_attribute(:counter, @drive.counter + 1)
@@ -50,7 +50,6 @@ class DrivesController < ApplicationController
 
   def create
     @drive = Drive.new(params[:drive])
-    @drive.counter = 0
     @drive.user_id = session[:user_id]
     @drive.module = "drive"
     

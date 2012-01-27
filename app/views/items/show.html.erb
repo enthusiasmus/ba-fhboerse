@@ -13,7 +13,7 @@
 
 <div id="article_head">
 	<div>
-		<h1><% if @item.offer_or_quest == false %>Suche:<% else %>Gefunden:<% end %> <%= @item.title %></h1>
+		<h1><% if @item.isOffer == false %>Suche:<% else %>Gefunden:<% end %> <%= @item.title %></h1>
 	</div>
 	<div>
 		<div class="fb-send" data-href="http://fhboerse.mediacube.at/items/<%= @item.id %>" data-font="trebuchet ms"></div>
@@ -74,8 +74,8 @@
 			<td colspan="2" class="info_headline">Ansprechpartner</td>
 		</tr>
 		<tr>
-			<td><% if @item.forename != "" %>Vorname:<% end %></td> 
-			<td><% if @item.forename != "" %><%= @item.forename %><% end %></td>
+			<td><% if @item.firstname? %>Vorname:<% end %></td> 
+			<td><% if @item.firstname? %><%= @item.firstname %><% end %></td>
 		</tr>
 		<tr>
 			<td>Nachname:</td> 

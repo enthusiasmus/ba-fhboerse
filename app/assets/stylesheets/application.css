@@ -71,7 +71,7 @@ textarea{width:450px;}
   margin:12px 10px 0 0;
 }
 
-#offer_or_quest_option{
+#isOffer_option{
   width:620px;
   margin-bottom: 20px;
 }
@@ -221,12 +221,12 @@ table{
 .articles_list ul a li.item{background:url('/images/modules/item.png') no-repeat center right;}
 
 /*Coloring the quests*/
-.offer_or_quest_false{
+.isOffer_false{
   border-bottom:5px #A10B2F solid !important;
 }
 
 /*Coloring the offers*/
-.offer_or_quest_true{
+.isOffer_true{
   border-bottom:5px #83C899 solid !important;
 }
 
@@ -250,8 +250,8 @@ table{
   font-size:15px;
 }
 
-.offer_or_quest_true .title span{color:#83C899;}
-.offer_or_quest_false .title span{color:#A10B2F;}
+.isOffer_true .title span{color:#83C899;}
+.isOffer_false .title span{color:#A10B2F;}
 
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: left; }

@@ -4,13 +4,13 @@
 #Fachspezifisches Qualifikationsprojekt 2a
 #Entwickler: Lukas Wanko, Sören Hentzschel
 
-require 'user.rb'
+require 'user'
 
 class JobsController < ApplicationController
   add_breadcrumb 'Jobbörse', '/jobs'
   
   def index    
-    if params[:filter] != "" && params[:filter] != nil
+    if params[:filter].present?
       if params[:filter] == "t"
         @filter = true
         add_breadcrumb 'Biete', jobs_path + '?filter=t'
@@ -20,20 +20,20 @@ class JobsController < ApplicationController
       end
     end
     
-    if params[:service] != "" && params[:service] != nil
+    if params[:service].present?
       add_breadcrumb params[:service], jobs_path + '?service=' + params[:service]
     end
   
-    if params[:filter] != "" && params[:filter] != nil && params[:service] != "" && params[:service] != nil && params[:service] == "Freiwillig"
-      @jobs = Job.where(:offer_or_quest => @filter, :paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:filter] != "" && params[:filter] != nil && params[:service] != "" && params[:service] != nil
-      @jobs = Job.where(:offer_or_quest => @filter, :employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')     
-    elsif params[:service] != "" && params[:service] != nil && params[:service] == "Freiwillig"
+    if params[:filter].present? && params[:service].present? && params[:service] == "Freiwillig"
+      @jobs = Job.where(:isOffer => @filter, :paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:filter].present? && params[:service].present?
+      @jobs = Job.where(:isOffer => @filter, :employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')     
+    elsif params[:service].present? && params[:service] == "Freiwillig"
       @jobs = Job.where(:paid => false).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:service] != "" && params[:service] != nil
+    elsif params[:service].present?
       @jobs = Job.where(:employment_status => params[:service]).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
-    elsif params[:filter] != "" && params[:filter] != nil
-      @jobs = Job.where(:offer_or_quest => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    elsif params[:filter].present?
+      @jobs = Job.where(:isOffer => @filter).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     else
       @jobs = Job.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     end
@@ -42,13 +42,13 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     
-    if @job.offer_or_quest
+    if @job.isOffer
       add_breadcrumb 'Biete', jobs_path + '?filter=t'
     else
       add_breadcrumb 'Suche', jobs_path + '?filter=f'
     end
     add_breadcrumb @job.title, job_path
-    
+
     if cookies["job" + @job.id.to_s] != "disabled"
       cookies["job" + @job.id.to_s] = { :value => "disabled", :expires => 2.hour.from_now }
       @job.update_attribute(:counter, @job.counter + 1)
@@ -62,7 +62,6 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(params[:job])
-    @job.counter = 0
     @job.user_id = session[:user_id]
     @job.module = "job"
 

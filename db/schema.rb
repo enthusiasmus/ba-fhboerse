@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109034252) do
+ActiveRecord::Schema.define(:version => 20120126230045) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
-    t.string   "forename"
+    t.integer  "counter",                  :default => 0
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "offer_or_quest"
+    t.boolean  "isOffer"
     t.integer  "user_id"
     t.string   "leasebuyrent"
     t.boolean  "balcony"
@@ -82,12 +82,12 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.boolean  "drivetype"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
-    t.string   "forename"
+    t.integer  "counter",             :default => 0
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "offer_or_quest"
+    t.boolean  "isOffer"
     t.integer  "user_id"
     t.string   "module"
   end
@@ -99,12 +99,12 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
-    t.string   "forename"
+    t.integer  "counter",                  :default => 0
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "offer_or_quest"
+    t.boolean  "isOffer"
     t.integer  "user_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -133,12 +133,12 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
-    t.string   "forename"
+    t.integer  "counter",           :default => 0
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "offer_or_quest"
+    t.boolean  "isOffer"
     t.integer  "user_id"
     t.string   "module"
   end
@@ -150,12 +150,12 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
-    t.integer  "counter"
-    t.string   "forename"
+    t.integer  "counter",                  :default => 0
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "offer_or_quest"
+    t.boolean  "isOffer"
     t.integer  "user_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(:version => 20120109034252) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.string   "forename"
+    t.string   "firstname"
     t.string   "lastname"
     t.string   "provider"
     t.string   "uid"

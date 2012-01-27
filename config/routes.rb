@@ -5,11 +5,11 @@ Fhboerse::Application.routes.draw do
   get "contact_us/new"
 
   # modules
-  resources :apartments
-  resources :drives
-  resources :items
-  resources :jobs
-  resources :products
+  resources :apartments, :only => [:create, :destroy, :index, :new, :show]
+  resources :drives, :only => [:create, :destroy, :index, :new, :show]
+  resources :items, :only => [:create, :destroy, :index, :new, :show]
+  resources :jobs, :only => [:create, :destroy, :index, :new, :show]
+  resources :products, :only => [:create, :destroy, :index, :new, :show]
   
   # root route
   get "home/index"
