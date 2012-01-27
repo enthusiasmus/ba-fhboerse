@@ -19,7 +19,7 @@ class Apartment < ActiveRecord::Base
                     :url  => "/assets/products/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"  
   
-  attr_accessible :photo, :photo_two, :photo_three, :counter, :agb, :price, :priceType, :begin_availability, 
+  attr_accessible :photo, :photo_two, :photo_three, :counter, :agb, :price, :price_type, :begin_availability, 
   :end_availability, :amount_of_rooms, :kitchen, :furniture, :garage, :terrace, :garden, :transport_connection, 
   :street, :zip_code, :city, :country, :title, :description, :firstname, :lastname, :email, :telephone, 
   :is_offer, :leasebuyrent, :size, :balcony, :lot
@@ -60,7 +60,7 @@ class Apartment < ActiveRecord::Base
   validates_presence_of :country, :message => "^Bitte geben sie das Land an!"
 
   validates_numericality_of :price, :message => "^Bitte geben Sie den Preis an an (Ziffern von 0-9 und '.')!"
-  validates_inclusion_of :priceType, :in => [true, false], :message => "^Bitte geben Sie an ob es eine Warm- oder Kaltmiete ist!", :if => :leased_true?
+  validates_inclusion_of :price_type, :in => [true, false], :message => "^Bitte geben Sie an ob es eine Warm- oder Kaltmiete ist!", :if => :leased_true?
 
   validates_presence_of :lastname, :message => "^Bitte geben Sie den Nachnamen an!"
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => '^Bitte geben Sie Ihre korrekte E-Mail-Adresse an!'
