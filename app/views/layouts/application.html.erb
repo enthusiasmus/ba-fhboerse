@@ -75,7 +75,7 @@
 				<% @newest_articles.each do |article| %>
 					<div class='listItem'>
 						<a href="<%= url_for(article) %>">
-							<% if article.isOffer == false %>
+							<% if article.is_offer == false %>
 								Suche:
 							<% else %>
 								<% if article.module == "apartment" %>Biete:<% end %>
@@ -96,7 +96,7 @@
 				<% @most_popular_articles.each do |article| %>
 					<div class='listItem'>
 						<a href="<%= url_for(article) %>">
-							<% if article.isOffer == false %>
+							<% if article.is_offer == false %>
 								Suche:
 							<% else %>
 								<% if article.module == "apartment" %>Biete:<% end %>

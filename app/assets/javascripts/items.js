@@ -3,8 +3,8 @@ $(document).ready(function(){
 		reloadWithFilter();
 	});
 	
-	$('input[name="item[isOffer]"]').click(function() {
-		if($('input:radio:checked[name="item[isOffer]"]').val() == "true")
+	$('input[name="item[is_offer]"]').click(function() {
+		if($('input:radio:checked[name="item[is_offer]"]').val() == "true")
 			$('#post_details').text("Details zum Finden");
 		else
 			$('#post_details').text("Details zum Verlust");

@@ -6,10 +6,10 @@
 	<ul>
 		<% @my_articles.each do |article| %>
 			<a href="<%= url_for(article) %>">
-				<li class="isOffer_<%= article.isOffer%> <%=article.module%>">
+				<li class="is_offer_<%= article.is_offer%> <%=article.module%>">
 					<div class="title">
 						<span>
-							<% if article.isOffer == false %>
+							<% if article.is_offer == false %>
 								Suche:
 							<% else %>
 								<% if article.module == "apartment" %>Biete:
@@ -42,10 +42,10 @@
 	<ul>
 		<% @latest_articles.each do |article| %>
 			<a href="<%= url_for(article) %>">
-				<li class="isOffer_<%= article.isOffer%> <%=article.module%>">
+				<li class="is_offer_<%= article.is_offer%> <%=article.module%>">
 					<div class="title">
 						<span>
-							<% if article.isOffer == false %>
+							<% if article.is_offer == false %>
 								Suche:
 							<% else %>
 								<% if article.module == "apartment" %>Biete:

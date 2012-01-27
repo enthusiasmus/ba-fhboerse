@@ -2,10 +2,10 @@
 	<ul>
 		<% @drives.each do |drive| %>
 			<a href="<%= url_for(drive) %>">
-				<li class="isOffer_<%= drive.isOffer%> drive">
+				<li class="is_offer_<%= drive.is_offer%> drive">
 					<div class="title">
 						<span>
-							<% if drive.isOffer == false %>
+							<% if drive.is_offer == false %>
 								Suche:
 							<% else %>
 								Fahre:

@@ -2,10 +2,10 @@
 	<ul>
 		<% @jobs.each do |job| %>
 			<a href="<%= url_for(job) %>">
-				<li class="isOffer_<%= job.isOffer%> job">
+				<li class="is_offer_<%= job.is_offer%> job">
 					<div class="title">
 						<span>
-							<% if job.isOffer == false %>
+							<% if job.is_offer == false %>
 								Suche:
 							<% else %>
 								Biete:

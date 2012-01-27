@@ -21,21 +21,21 @@
 		</ul>
 		<% end %>
 		
-		<%= @apartment.isOffer %>
+		<%= @apartment.is_offer %>
 		
 		<table>
 			<tr>
 				<td>
-					<div id="isOffer_option">
+					<div id="is_offer_option">
 						<span class="info_headline">Anzeige*</span> als
-						<%= f.radio_button :isOffer, true %><%= f.label :isOffer, 'Biete' %>
-						<%= f.radio_button :isOffer, false %><%= f.label :isOffer, 'Suche' %>
+						<%= f.radio_button :is_offer, true %><%= f.label :is_offer, 'Biete' %>
+						<%= f.radio_button :is_offer, false %><%= f.label :is_offer, 'Suche' %>
 					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<div id="isOffer_option">
+					<div id="is_offer_option">
 						<span class="info_headline">Immobilie*</span> soll
 						<%= f.radio_button :leasebuyrent, "vermietet" %><%= f.label :leasebuyrent, 'vermietet' %>
 						<%= f.radio_button :leasebuyrent, "verkauft" %><%= f.label :leasebuyrent, 'verkauft' %>
