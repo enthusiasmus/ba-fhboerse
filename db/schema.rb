@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126230045) do
+ActiveRecord::Schema.define(:version => 20120127085451) do
 
   create_table "apartments", :force => true do |t|
     t.decimal  "size"
     t.decimal  "price"
-    t.boolean  "priceType"
+    t.boolean  "price_type"
     t.date     "begin_availability"
     t.date     "end_availability"
     t.integer  "amount_of_rooms"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20120126230045) do
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "isOffer"
+    t.boolean  "is_offer"
     t.integer  "user_id"
     t.string   "leasebuyrent"
     t.boolean  "balcony"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20120126230045) do
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "isOffer"
+    t.boolean  "is_offer"
     t.integer  "user_id"
     t.string   "module"
   end
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(:version => 20120126230045) do
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "isOffer"
+    t.boolean  "is_offer"
     t.integer  "user_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(:version => 20120126230045) do
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "isOffer"
+    t.boolean  "is_offer"
     t.integer  "user_id"
     t.string   "module"
   end
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(:version => 20120126230045) do
     t.string   "lastname"
     t.string   "email"
     t.string   "telephone"
-    t.boolean  "isOffer"
+    t.boolean  "is_offer"
     t.integer  "user_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
